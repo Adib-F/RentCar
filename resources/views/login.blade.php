@@ -1,11 +1,25 @@
+<!DOCTYPE html>
 <html>
-    <h1>HALAMAN LOGIN</h1>
-    <h5>RENTCHANG</h5>
-    <form>
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Login">
-    </form>
+<head>
+    <title>HALAMAN LOGIN</title>
+</head>
+<body>
+    <center>
+        <h1>HALAMAN LOGIN</h1>
+        <h5>RENTCHANG</h5>
+        <table>
+            <tr>
+                <td>Username:</td>
+                <td><input type="text" name="username"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" value="Login"></td>
+            </tr>
+        </table>
+    </center>
+</body>
 </html>
