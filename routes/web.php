@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListBarangController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,5 +35,5 @@ route::prefix('admin')->group(function (){
 // });
 
 Route::get('/listbarang/{id}/{nama}', [ListBarangController::class, 'tampilkan']);
-
+Route::get('/dashboard/{dash}', [DashboardController::class, 'dashboard']);
 Route::get('/login', [LoginController::class, 'loginForm']);
