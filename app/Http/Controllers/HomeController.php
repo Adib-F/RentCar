@@ -14,7 +14,7 @@ class HomeController extends Controller
         // ];
         // return view('home')->with($data);
 
-        $nama = "Muhammad Adib Fakhri Siregar";
+        $nama = "Mirza Ardanas";
         $pekerjaan = "Mahasiswa";
         return view('home', compact('nama','pekerjaan'));
     }
