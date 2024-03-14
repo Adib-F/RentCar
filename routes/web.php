@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListBarangController;
+use App\Http\Controllers\ListBarangController113;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 
@@ -34,6 +35,6 @@ route::prefix('admin')->group(function (){
 //     return view('list_barang', compact('id', 'nama'));
 // });
 
-Route::get('/listbarang/{id}/{nama}', [ListBarangController::class, 'tampilkan']);
+Route::get('/listbarang', [ListBarangController113::class, 'getData']);
 Route::get('/dashboard/{dash}', [DashboardController::class, 'dashboard']);
 Route::get('/login', [LoginController::class, 'loginForm']);

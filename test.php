@@ -5,3 +5,7 @@ Kelas: IF 2D Pagi
 Nama: Mirza Ardanas
 Nim: 3312301114
 Kelas: IF 2D Pagi
+
+Nama: Irfan Nurfauzi
+Nim: 3312301113
+Kelas: IF 2D Pagi
