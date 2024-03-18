@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListBarangController;
 use App\Http\Controllers\ListBarangController113;
+use App\Http\Controllers\ListProduct113;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\kendaraan;
 
 
 Route::get('/', function () {
@@ -38,3 +40,5 @@ route::prefix('admin')->group(function (){
 Route::get('/listbarang', [ListBarangController113::class, 'getData']);
 Route::get('/dashboard/{dash}', [DashboardController::class, 'dashboard']);
 Route::get('/login', [LoginController::class, 'loginForm']);
+Route::get('/kendaraan', [kendaraan::class, 'rental']);
+Route::get('/listproduct113', [ListProduct113::class, 'listproduct113']);

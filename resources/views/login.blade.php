@@ -12,11 +12,11 @@
             <img src="{{asset('images/image.png') }}">
             <h1 class="text-3xl font-bold text-center mb-8">HALAMAN LOGIN</h1>
             <div class="mb-4">
-                <label for="username" class="block text-sm font-medium text-gray-700">Username:</label>
+                <label for="username" class="block text-sm font-medium text-gray-700">Username :</label>
                 <input type="text" id="username" name="username" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
             </div>
             <div class="mb-4">
-                <label for="password" class="block text-sm font-medium text-gray-700">Password:</label>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password :</label>
                 <input type="password" id="password" name="password" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
             </div>
             <div class="text-center">
