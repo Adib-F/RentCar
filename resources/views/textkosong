@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Kendaraan</title>
+    <link href="https://cdn.tailwindcss.com/3.4.1/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.3/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="bg-gray-800 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-xl font-bold">Rental Kendaraan</div>
+            <ul class="flex space-x-4">
+                <li><a href="home.php" class="hover:text-gray-300">Home</a></li>
+                <li><a href="motor.php" class="hover:text-gray-300">Motor</a></li>
+                <li><a href="mobil.php" class="hover:text-gray-300">Mobil</a></li>
+                <li><a href="status.php" class="hover:text-gray-300">Status</a></li>
+                <li><a href="notif.php" class="hover:text-gray-300">Notifikasi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Motor Section -->
+    <section class="py-8">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold mb-4">Motor</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Motor Card -->
+                <div class="card w-84 glass">
+                    <figure><img src="{{asset('images/Aerox.png') }}" class="mb-4"/></figure>
+                    <div class="card-body">
+                    <h2 class="card-title">Motor 1</h2>
+                    <p>Deskripsi Singkat</p>
+                        <div class="card-actions justify-end">
+                            <button class="btn btn-primary">Rent Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <img src="{{asset('images/Aerox.png') }}" class="mb-4">
+                    <h2 class="text-lg font-bold">Motor 2</h2>
+                    <p class="text-gray-600">Deskripsi singkat mengenai motor 2.</p>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Rental</button>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <img src="{{asset('images/Mio.png') }}" class="mb-4">
+                    <h2 class="text-lg font-bold">Motor 3</h2>
+                    <p class="text-gray-600">Deskripsi singkat mengenai motor 3.</p>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Rental</button>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <img src="{{asset('images/Mio.png') }}" class="mb-4">
+                    <h2 class="text-lg font-bold">Motor 4</h2>
+                    <p class="text-gray-600">Deskripsi singkat mengenai motor 4.</p>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Rental</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobil Section -->
+    <section class="py-8 bg-green-200">
+        <div class="container mx-auto">
+            <h1 class="text-2xl font-bold mb-4">Mobil</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <!-- Mobil Card -->
+                <div class="bg-white rounded-lg shadow p-4">
+                    <img src="{{asset('images/Almaz.png') }}" class="mb-4">
+                    <h2 class="text-lg font-bold">Mobil 1</h2>
+                    <p class="text-gray-600">Deskripsi singkat mengenai mobil 1.</p>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Rental</button>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <img src="{{asset('images/fortuner.png') }}" class="mb-4">
+                    <h2 class="text-lg font-bold">Mobil 2</h2>
+                    <p class="text-gray-600">Deskripsi singkat mengenai mobil 2.</p>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Rental</button>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <img src="{{asset('images/Jazz.png') }}" class="mb-4">
+                    <h2 class="text-lg font-bold">Mobil 3</h2>
+                    <p class="text-gray-600">Deskripsi singkat mengenai mobil 3.</p>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Rental</button>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <img src="{{asset('images/Confero.png') }}" class="mb-4">
+                    <h2 class="text-lg font-bold">Mobil 4</h2>
+                    <p class="text-gray-600">Deskripsi singkat mengenai mobil 4.</p>
+                    <button class="bg-blue-500 text-white px-4 py-2 rounded mt-2">Rental</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-pink-800 text-white p-20">
+        <div class="container mx-auto flex justify-between items-end">
+            <div class="text-xl font-bold">PBL</div>
+            <ul class="flex justify-between items-end space-x-4">
+                <li><a href="about.php.php" class="hover:text-gray-300 flex justify-end items-end">About us</a></li><br>
+                <li><a href="rules.php" class="hover:text-gray-300 flex justify-end items-end"></a>Rules and Information</li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

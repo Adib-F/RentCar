@@ -41,4 +41,4 @@ Route::get('/listbarang', [ListBarangController113::class, 'getData']);
 Route::get('/dashboard/{dash}', [DashboardController::class, 'dashboard']);
 Route::get('/login', [LoginController::class, 'loginForm']);
 Route::get('/kendaraan', [kendaraan::class, 'rental']);
-Route::get('/listproduct113', [ListProduct113::class, 'listproduct113']);
+Route::get('/listproduct113', [ListProduct113::class, 'getProduct']);
