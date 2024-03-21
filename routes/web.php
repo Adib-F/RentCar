@@ -8,7 +8,8 @@ use App\Http\Controllers\ListProduct113;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\kendaraan;
-
+use App\Http\Controllers\MotorController;
+use App\Http\Controllers\MobilController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,4 +42,6 @@ Route::get('/listbarang', [ListBarangController113::class, 'getData']);
 Route::get('/dashboard/{dash}', [DashboardController::class, 'dashboard']);
 Route::get('/login', [LoginController::class, 'loginForm']);
 Route::get('/kendaraan', [kendaraan::class, 'rental']);
+Route::get('/Motor', [MotorController::class, 'motor']);
+Route::get('/Mobil', [MobilController::class, 'mobil']);
 Route::get('/listproduct113', [ListProduct113::class, 'getProduct']);
