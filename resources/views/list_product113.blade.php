@@ -1,6 +1,6 @@
 @extends('layout.list')
 
-@section('title', 'Ini adalah judul pada meta')
+@section('title', 'Rentcang')
 @section('content')
 
 <table>
@@ -8,13 +8,15 @@
         <tr>
             <th>ID</th>
             <th>Produk</th>
+            <th>Harga</th>
         </tr>
     <thead>
     <tbody>
-        @foreach($data as $post)
+        @foreach($product as $post)
             <tr>
                 <td>{{ $post['id'] }}</td>
-                <td>{{ $post['produk'] }}</td>
+                <td>{{ $post['product'] }}</td>
+                <td>{{ $post['harga'] }}</td>
             </tr>
         @endforeach
     </tbody>

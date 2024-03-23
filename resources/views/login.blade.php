@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="flex justify-center items-center h-screen">
+    <center><div class="flex justify-center items-center h-screen">
         <div class="w-96 bg-red-50 shadow-md rounded-lg p-8">
             <img src="{{asset('images/image.png') }}">
             <h1 class="text-3xl font-bold text-center mb-8">HALAMAN LOGIN</h1>
@@ -23,7 +23,7 @@
                 <button type="button" class="py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Login</button>
             </div>
         </div>
-    </div>
+    </div></center>
 </body>
 </html>
 
