@@ -8,8 +8,7 @@
         @include('components.header')
     </header>
 
-    <h1>List Produk</h1>
-    <div class="container">
+    <div>
         <main>
             @yield('content')
         </main>
