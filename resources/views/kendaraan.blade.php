@@ -1,6 +1,6 @@
 @extends('layout.list')
 
-@section('title', 'Rentcang')
+@section('title', 'Rental Kendaraan')
 @section('content')
 
 <table>
