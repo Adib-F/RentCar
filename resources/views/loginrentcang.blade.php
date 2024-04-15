@@ -25,8 +25,8 @@
         <div class="w-1/2 flex justify-center items-center p-8">
             <div class="bg-gray-100 p-8 rounded-lg w-5/6">
                 <form action="#" method="POST">
-                <div class="text-5xl font-extrabold mb-4 text-black">SIGN IN</div>
-                    <div class="text-xl mt-4 text-black font-bold ">Don't have an account? <a href="#" class="text-blue-500 hover:text-blue-700">Here</a>
+                <div class="text-5xl font-extrabold mb-4 text-black">LOGIN</div>
+                    <div class="text-xl mt-4 text-black font-bold ">Belum memiliki akun? <a href="#" class="text-blue-500 hover:text-blue-700">Disini</a>
                     </div>
                     <br>
                     <div class="mb-4">
