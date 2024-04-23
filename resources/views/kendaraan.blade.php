@@ -17,7 +17,7 @@
                     <p class="font-bold text-2xl">Rp500.000</p>
                         <div class="flex justify-between items-center">    
                             <div class="card-actions justify-center">
-                                <button class="btn btn-outline btn-info" onclick="my_modal_1.showModal()">RENTAL NOW</button>
+                                <button class="btn btn-outline btn-info" onclick="my_modal_1.showModal()">DETAILS</button>
                                 <dialog id="my_modal_1" class="modal">
                                     <div class="modal-box w-11/12 max-w-5xl">
                                         <h3 class="font-bold text-lg">Input Data</h3>
@@ -40,7 +40,7 @@
                     <p class="font-bold text-2xl">Rp500.000</p>
                         <div class="flex justify-between items-center">
                             <div class="card-actions justify-center">
-                                <button class="btn btn-outline btn-info" onclick="my_modal_2.showModal()">RENTAL NOW</button>
+                                <button class="btn btn-outline btn-info" onclick="my_modal_2.showModal()">DETAILS</button>
                                 <dialog id="my_modal_2" class="modal">
                                     <div class="modal-box w-11/12 max-w-5xl">
                                         <h3 class="font-bold text-lg">Input Data</h3>
@@ -63,7 +63,7 @@
                     <p class="font-bold text-2xl">Rp500.000</p>
                         <div class="flex justify-between items-center">
                             <div class="card-actions justify-center">
-                                <button class="btn btn-outline btn-info" onclick="my_modal_3.showModal()">RENTAL NOW</button>
+                                <button class="btn btn-outline btn-info" onclick="my_modal_3.showModal()">DETAILS</button>
                                 <dialog id="my_modal_3" class="modal">
                                     <div class="modal-box w-11/12 max-w-5xl">
                                         <h3 class="font-bold text-lg">Input Data</h3>
@@ -86,7 +86,7 @@
                     <p class="font-bold text-2xl">Rp500.000</p>
                         <div class="flex justify-between items-center">
                             <div class="card-actions justify-center">
-                                <button class="btn btn-outline btn-info" onclick="my_modal_4.showModal()">RENTAL NOW</button>
+                                <button class="btn btn-outline btn-info" onclick="my_modal_4.showModal()">DETAILS</button>
                                 <dialog id="my_modal_4" class="modal">
                                     <div class="modal-box w-11/12 max-w-5xl">
                                         <h3 class="font-bold text-lg">Input Data</h3>
@@ -117,7 +117,7 @@
                     <p class="font-bold text-2xl">Rp500.000</p>
                         <div class="flex justify-between items-center">    
                             <div class="card-actions justify-center">
-                                <button class="btn btn-outline btn-info" onclick="my_modal_5.showModal()">RENTAL NOW</button>
+                                <button class="btn btn-outline btn-info" onclick="my_modal_5.showModal()">DETAILS</button>
                                 <dialog id="my_modal_5" class="modal">
                                     <div class="modal-box w-11/12 max-w-5xl">
                                         <h3 class="font-bold text-lg">Input Data</h3>
@@ -140,7 +140,7 @@
                     <p class="font-bold text-2xl">Rp500.000</p>
                         <div class="flex justify-between items-center">    
                             <div class="card-actions justify-center">
-                                <button class="btn btn-outline btn-info" onclick="my_modal_6.showModal()">RENTAL NOW</button>
+                                <button class="btn btn-outline btn-info" onclick="my_modal_6.showModal()">DETAILS</button>
                                 <dialog id="my_modal_6" class="modal">
                                     <div class="modal-box w-11/12 max-w-5xl">
                                         <h3 class="font-bold text-lg">Input Data</h3>
@@ -163,7 +163,7 @@
                     <p class="font-bold text-2xl">Rp500.000</p>
                         <div class="flex justify-between items-center">    
                             <div class="card-actions justify-center">
-                                <button class="btn btn-outline btn-info" onclick="my_modal_7.showModal()">RENTAL NOW</button>
+                                <button class="btn btn-outline btn-info" onclick="my_modal_7.showModal()">DETAILS</button>
                                 <dialog id="my_modal_7" class="modal">
                                     <div class="modal-box w-11/12 max-w-5xl">
                                         <h3 class="font-bold text-lg">Input Data</h3>
@@ -186,7 +186,7 @@
                     <p class="font-bold text-2xl">Rp500.000</p>
                         <div class="flex justify-between items-center">    
                             <div class="card-actions justify-center">
-                                <button class="btn btn-outline btn-info" onclick="my_modal_8.showModal()">RENTAL NOW</button>
+                                <button class="btn btn-outline btn-info" onclick="my_modal_8.showModal()">DETAILS</button>
                                 <dialog id="my_modal_8" class="modal">
                                     <div class="modal-box w-11/12 max-w-5xl">
                                         <h3 class="font-bold text-lg">Input Data</h3>
