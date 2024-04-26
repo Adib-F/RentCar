@@ -1,7 +1,7 @@
 @extends('layout/app')
 
 @section('title')
- MotorCycle
+ Motor
 @endsection
 
 @section('navbar')

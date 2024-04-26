@@ -11,6 +11,7 @@ use App\Http\Controllers\RentalController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\statusController;
 
 
 
@@ -20,16 +21,16 @@ Route::get('/welcome', function () {
 
 
 Route::get('/', [DashboardController::class, 'dashboard']);
-Route::get('/login', [LoginController::class, 'login']);
-Route::get('/register', [RegisterController::class, 'register']);
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
 Route::get('/cars', [CarsController::class, 'cars'])->name('cars');
-Route::get('/motorcycle', [MotorcycleController::class, 'motorcycle']);
-Route::get('/aboutus', [AboutusController::class, 'aboutus']);
-Route::get('/rulesandinfo', [RulesController::class, 'rules']);
-Route::get('/setting', [SettingsController::class, 'Settings']);
-Route::get('/riwayat', [RiwayatController::class, 'riwayat']);
-Route::get('/rental', [RentalController::class, 'rental']);
-
+Route::get('/motorcycle', [MotorcycleController::class, 'motorcycle'])->name('motorcycle');
+Route::get('/aboutus', [AboutusController::class, 'aboutus'])->name('aboutus');
+Route::get('/rulesandinfo', [RulesController::class, 'rules'])->name('rules');
+Route::get('/setting', [SettingsController::class, 'setting'])->name('setting');
+Route::get('/riwayat', [RiwayatController::class, 'riwayat'])->name('riwayat');
+Route::get('/rental', [RentalController::class, 'rental'])->name('rental');
+Route::get('/status', [statusController::class, 'status'])->name('status');
 
 
 
