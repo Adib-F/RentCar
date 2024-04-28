@@ -24,7 +24,7 @@
                     <p class="font-bold text-md">Rp500.000</p>
                         <div class="flex justify-between items-center">   
                             <div class="card-actions justify-start px-2">
-                                <button class="btn bg-orange-400 ">RENTAL</button>
+                               <button class="btn bg-orange-400 " ><a href="{{route('rental')}}">RENTAL</a></button>
                             </div> 
                             <div class="card-actions justify-end">
                                 <button class="btn bg-slate-300" onclick="my_modal_1.showModal()">DETAILS</button>

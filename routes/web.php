@@ -26,7 +26,7 @@ Route::get('/register', [RegisterController::class, 'register'])->name('register
 Route::get('/cars', [CarsController::class, 'cars'])->name('cars');
 Route::get('/motorcycle', [MotorcycleController::class, 'motorcycle'])->name('motorcycle');
 Route::get('/aboutus', [AboutusController::class, 'aboutus'])->name('aboutus');
-Route::get('/rulesandinfo', [RulesController::class, 'rules'])->name('rules');
+Route::get('/rulesandinfo', [RulesController::class, 'rulesandinfo'])->name('rulesandinfo');
 Route::get('/setting', [SettingsController::class, 'setting'])->name('setting');
 Route::get('/riwayat', [RiwayatController::class, 'riwayat'])->name('riwayat');
 Route::get('/rental', [RentalController::class, 'rental'])->name('rental');

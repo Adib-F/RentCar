@@ -9,7 +9,7 @@
         <a href="https://www.instagram.com/"><img src="images/instagram.svg" alt=""></a>
         <a href="https://discord.gg/b5YDtCn6"><img src="images/discord.svg" alt=""></a>
     </div>
-    <a href="aboutus.blade.php" class="px-12"><h1 class="text-black" >Tentang Kami</h1></a>
-    <a href="rulesandinfo.blade.php"><h1 class="text-black px-2">Peraturan dan Informasi</h1></a>
+    <a href="{{route('aboutus')}}" class="px-12"><h1 class="text-black" >Tentang Kami</h1></a>
+    <a href="{{route('rulesandinfo')}}"><h1 class="text-black px-2">Peraturan dan Informasi</h1></a>
   </nav>
 </footer>
