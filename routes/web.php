@@ -11,8 +11,14 @@ use App\Http\Controllers\RentalController;
 use App\Http\Controllers\RiwayatController;
 use App\Http\Controllers\RulesController;
 use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\statusController;
-
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminPenggunaController;
+use App\Http\Controllers\AdminKendaraanController;
+use App\Http\Controllers\AdminKonfirmasiController;
+use App\Http\Controllers\AdminPromoController;
+use App\Http\Controllers\AdminRentalController;
+use App\Http\Controllers\AdminRiwayatController;
 
 
 Route::get('/welcome', function () {
@@ -30,8 +36,14 @@ Route::get('/rulesandinfo', [RulesController::class, 'rulesandinfo'])->name('rul
 Route::get('/setting', [SettingsController::class, 'setting'])->name('setting');
 Route::get('/riwayat', [RiwayatController::class, 'riwayat'])->name('riwayat');
 Route::get('/rental', [RentalController::class, 'rental'])->name('rental');
-Route::get('/status', [statusController::class, 'status'])->name('status');
-
+Route::get('/status', [StatusController::class, 'status'])->name('status');
+Route::get('/admindashboard', [AdminDashboardController::class, 'AdminDashboard'])->name('AdminDashboard');
+Route::get('/adminpengguna', [AdminPenggunaController::class, 'AdminPengguna'])->name('AdminPengguna');
+Route::get('/adminkonfirmasi', [AdminKonfirmasiController::class, 'AdminKonfirmasi'])->name('AdminKonfirmasi');
+Route::get('/adminkendaraan', [AdminKendaraanController::class, 'AdminKendaraan'])->name('AdminKendaraan');
+Route::get('/adminpromo', [AdminPromoController::class, 'AdminPromo'])->name('AdminPromo');
+Route::get('/adminrental', [AdminRentalController::class, 'AdminRental'])->name('AdminRental');
+Route::get('/adminRiwayat', [AdminRiwayatController::class, 'AdminRiwayat'])->name('AdminRiwayat');
 
 
 Route::get('/statusbelumkonfirmasi', function () {
