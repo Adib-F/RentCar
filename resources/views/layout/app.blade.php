@@ -15,6 +15,20 @@
             font-family: "Poppins", sans-serif;
         }
     </style>
+    <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          },
+          fontFamily: {
+                poppins: ["Poppins", "sans"],
+            },
+          }
+        }
+      }   
+  </script>
 </head>
 <body>
     <header>

@@ -46,15 +46,19 @@
           </select>
         </div>
         <div class="mb-2">
+          <label for="telepon1">Total Harga</label>
+          <input type="text"  class="form-control form-control-sm border border-black input input-xs input-bordered  w-[18.3rem] form-control rounded-md bg-white"  id="telepon1" required>
+        </div>
+        <div class="mb-2">
           <label for="telepon1">Bayar Disini</label>
-          <button type="button" class="btn btn-sm btn-black flex text-white w-24" id="telepon1" required>QRIS</button>
+          <button type="button" class="btn btn-sm btn-black flex text-white w-24 bg-black" id="telepon1" required>QRIS</button>
         </div>
         <div class="mb-5">
           <label for="sim1">Bukti Pembayaran</label>
           <input type="file"  class="form-control form-control-sm border border-black file-input file-input-bordered file-input-xs h-8 flex w-[18.3rem] bg-white" />
         </div>
         <div class="flex items-center justify-end">
-        <button type="submit" class="btn btn-warning h-8 rounded-md">Rental Kendaraan</button>
+        <button type="submit" class="btn bg-orange-400 h-8 rounded-md"><a href="{{route('status')}}">Rental Kendaraan</a></button>
       </div>
       </form>
     </div>
