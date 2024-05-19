@@ -26,10 +26,20 @@ Route::get('/welcome', function () {
 });
 
 
-Route::get('/', [DashboardController::class, 'dashboard']);
+Route::get('/', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+//login
 Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login_proses');
+
+//logut
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+//register
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
-Route::get('/cars', [CarsController::class, 'cars'])->name('cars');
+Route::post('/register-proses', [RegisterController::class, 'register_proses'])->name('register_proses');
+
+Route::get('/cars', [CarsController::class, 'cars'])->name('cars')->middleware('cekLogin');
 Route::get('/motorcycle', [MotorcycleController::class, 'motorcycle'])->name('motorcycle');
 Route::get('/aboutus', [AboutusController::class, 'aboutus'])->name('aboutus');
 Route::get('/rulesandinfo', [RulesController::class, 'rulesandinfo'])->name('rulesandinfo');
