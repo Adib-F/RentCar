@@ -29,7 +29,7 @@ Admin Kendaraan
       <th class="border border-slate-200 p-2 w-[8rem] text-xs">Aksi</th>
     </tr>
   </thead>
-  <tbody class="text-center">
+  <tbody class="text-center"
     <tr>
       <td class="border border-slate-200 p-2 text-xs">1</td>
       <td class="border border-slate-200 p-2 text-xs">Agya</td>
@@ -221,6 +221,45 @@ Admin Kendaraan
     </div>
   </div>
 </dialog>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const openSidebarButton = document.getElementById('open-sidebar');
+  const sidebarToggle = document.getElementById('sidebar-toggle');
+  const sidebarIcon = document.getElementById('toggle-icon');
+  const sidebar = document.getElementById('sidebar');
+  const sidebarCheckbox = document.getElementById('my-sidebar');
+
+  // Function to open the sidebar
+  const openSidebar = () => {
+    sidebar.classList.remove('-translate-x-full');
+    sidebar.classList.add('translate-x-0');
+    sidebarIcon.classList.add('rotate-180');
+    sidebarCheckbox.checked = true;
+  };
+
+  // Function to close the sidebar
+  const closeSidebar = () => {
+    sidebar.classList.remove('translate-x-0');
+    sidebar.classList.add('-translate-x-full');
+    sidebarIcon.classList.remove('rotate-180');
+    sidebarCheckbox.checked = false;
+  };
+
+  // Event listener for the new open sidebar button
+  openSidebarButton.addEventListener('click', openSidebar);
+
+  // Event listener for the sidebar toggle button
+  sidebarToggle.addEventListener('click', () => {
+    if (sidebarCheckbox.checked) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
+
+  // Initially open the sidebar
+  openSidebar();
+});
 </body>
 @endsection
 

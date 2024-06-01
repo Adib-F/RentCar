@@ -132,7 +132,7 @@ Admin Pengguna
    
   </tbody>
 </table>
-<div class=" join flex justify-end mt-3 ">
+<div class=" join flex justify-end mt-3 mr-20 ">
   <button class="join-item btn btn-xs mr-1"><</button>
   <div class="outline outline-1 rounded-none flex">
     <button class="join-item btn btn-xs btn-active bg-orange-400">1</button>
@@ -163,7 +163,12 @@ Admin Pengguna
           <input id="nik" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="NIK"required /></div>
 
           <div><label for="roles" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Roles</label>
-          <input id="roles" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Admin/Penyewa" required/></div>
+            <select class="select select-sm mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Roles" required>
+              <option disabled selected class="text-gray-600" value="">Roles</option>
+              <option class="text-gray-600"  value="">Penyewa</option>
+              <option class="text-gray-600">Admin</option>
+            </select>
+          </div>
 
           <div><label for="email" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Email</label>
           <input id="email" type="email" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Email" required/></div>
@@ -202,7 +207,12 @@ Admin Pengguna
           <input id="nik" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="NIK"required /></div>
 
           <div><label for="roles" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Roles</label>
-          <input id="roles" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Admin/Penyewa" required/></div>
+            <select class="select select-sm mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Roles" required>
+              <option disabled selected class="text-gray-600" value="">Roles</option>
+              <option class="text-gray-600"  value="">Penyewa</option>
+              <option class="text-gray-600">Admin</option>
+            </select>
+          </div>
 
           <div><label for="email" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Email</label>
           <input id="email" type="email" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Email" required/></div>
@@ -221,9 +231,9 @@ Admin Pengguna
   </form>
 </dialog>
 
-<dialog id="modal hapus" class="modal">
+<dialog id="modalhapus" class="modal">
   <div class="modal-box">
-    <h3 class="font-bold text-lg py-4 text-center">Apakah anda yakin ingin menghapus data dengan ID </h3>
+    <h3 class="font-bold text-lg py-4 text-center">Apakah anda yakin ingin menghapus data ini?</h3>
     <div class="flex justify-center">
       <div class="modal-action">
       <form method="dialog">
@@ -235,5 +245,45 @@ Admin Pengguna
     </div>
   </div>
 </dialog>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const openSidebarButton = document.getElementById('open-sidebar');
+  const sidebarToggle = document.getElementById('sidebar-toggle');
+  const sidebarIcon = document.getElementById('toggle-icon');
+  const sidebar = document.getElementById('sidebar');
+  const sidebarCheckbox = document.getElementById('my-sidebar');
+
+  // Function to open the sidebar
+  const openSidebar = () => {
+    sidebar.classList.remove('-translate-x-full');
+    sidebar.classList.add('translate-x-0');
+    sidebarIcon.classList.add('rotate-180');
+    sidebarCheckbox.checked = true;
+  };
+
+  // Function to close the sidebar
+  const closeSidebar = () => {
+    sidebar.classList.remove('translate-x-0');
+    sidebar.classList.add('-translate-x-full');
+    sidebarIcon.classList.remove('rotate-180');
+    sidebarCheckbox.checked = false;
+  };
+
+  // Event listener for the new open sidebar button
+  openSidebarButton.addEventListener('click', openSidebar);
+
+  // Event listener for the sidebar toggle button
+  sidebarToggle.addEventListener('click', () => {
+    if (sidebarCheckbox.checked) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
+
+  // Initially open the sidebar
+  openSidebar();
+});
+</script>
 </body>   
 @endsection

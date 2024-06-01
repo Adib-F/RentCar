@@ -25,31 +25,21 @@
         </div>
 
         <div class="grid grid-cols-2 gap-4">
-            <label for="username" class="text-black">Username</label>
-            <input type="text" id="username" placeholder="" class="block border border-black w-full mt-4 px-4 py-1 rounded-md bg-white">
-        </div>
 
-        <div class="grid grid-cols-2 gap-4">
             <label for="email" class="text-black">Email</label>
-            <input type="email" id="email" placeholder="" class="block w-full mt-4 px-4 py-1 border rounded-md bg-gray-300" readonly>
-        </div>
+            <input type="email" id="email" placeholder="" class="block w-full px-4 py-1 border rounded-md bg-gray-300" readonly>
 
-        <div class="grid grid-cols-2 gap-4">
             <label for="password" class="text-black">Password</label>
-            <input type="password" id="password" placeholder="" class="block w-full mt-4 px-4 py-1 border rounded-md bg-gray-300">
-        </div>
+            <input type="password" id="password" placeholder="" class="block w-full px-4 py-1 border rounded-md bg-gray-300"readonly>
 
-        <div class="grid grid-cols-2 gap-4">
             <label for="phone" class="text-black">Phone Number</label>
-            <input type="tel" id="phone" placeholder="" class="block border border-black w-full mt-4 px-4 py-1 rounded-md bg-white">
-        </div>
+            <input type="tel" id="phone" placeholder="" class="block border border-black w-full px-4 py-1 rounded-md bg-white">
 
-        <div class="grid grid-cols-2 gap-4">
             <label for="nik" class="text-black">NIK</label>
-            <input type="text" id="nik" placeholder="" class="block w-full mt-4 px-4 py-1 border rounded-md bg-gray-300">
+            <input type="text" id="nik" placeholder="" class="block w-full px-4 py-1 border rounded-md bg-gray-300">
         </div>
     <div class="grid justify-items-end">
-        <button type="submit" class="bg-yellow-600 text-black font-semibold py-1 px-6 mt-4 rounded-md hover:bg-yellow-500 font-poppins">Submit</button>
+        <button type="submit" class="bg-orange-400 text-black font-semibold py-1 px-6 mt-6 rounded-md hover:bg-yellow-500 font-poppins">Submit</button>
     </div>
     </div>
 </div>

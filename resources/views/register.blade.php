@@ -5,48 +5,53 @@
 @endsection
 
 @section('content')
-<body class="bg-gray-100 h-screen font-poppins">
-    <div class="container flex h-screen">
-    <div class="absolute top-0 left-0 mt-4 ml-4">
-        <img src="/images/logo-rentcang.png" class="w-30 h-10 "> 
+<body>
+    
+<div class="flex">
+<div class="w-1/2 bg-white">
+    <div class="justify-start">
+    <img src="images/logo-rentcang.png" class="ml-8 w-40" alt="">
     </div>
-        <div class="w-1/2 flex justify-center items-center p-10/12  ">
-            <div class="bg-gray-100 p-8 rounded-lg w-2/3">
-                <form action="#" method="POST">
-                    <div class="text-5xl font-extrabold mb-4 text-black">DAFTAR</div>
-                    <div class="text-xl mt-4 text-black font-bold ">Sudah memiliki akun? <a href="{{route('login')}}" class="text-blue-500 hover:text-blue-700">Disini</a>
-                    </div>
-                    <br>
-                    <div class="mb-4">
-                        <label for="username" class="text-black font-semibold mb-2">Username</label>
-                        <input type="username" id="username" name="username" class="w-full bg-gray-300 border-gray-700 hover:bg-gray-400 rounded-md p-2 focus:outline-none focus:border-gray-700 text-black" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="nama" class="text-black font-semibold mb-2">Nama Lengkap</label>
-                        <input type="nama" id="nama" name="nama" class="w-full bg-gray-300 border-gray-700 hover:bg-gray-400 rounded-md p-2 focus:outline-none focus:border-gray-700 text-black" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="number" class="text-black font-semibold mb-2">No. Handphone</label>
-                        <input type="number" id="number" name="number" class="w-full bg-gray-300 border-gray-700 hover:bg-gray-400 rounded-md p-2 focus:outline-none focus:border-gray-700 text-black" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="number" class="text-black font-semibold mb-2">NIK</label>
-                        <input type="number" id="number" name="number" class="w-full bg-gray-300 border-gray-700 hover:bg-gray-400 rounded-md p-2 focus:outline-none focus:border-gray-700 text-black" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="email" class="text-black font-semibold mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full bg-gray-300 border-gray-700 hover:bg-gray-400 rounded-md p-2 focus:outline-none focus:border-gray-700 text-black" required>
-                    </div>
-                    <div class="mb-4">
-                        <label for="password" class="text-black font-semibold mb-2">Password</label>
-                        <input type="password" id="password" name="password" class="w-full bg-gray-300 border-gray-700 hover:bg-gray-400 rounded-md p-2 focus:outline-none focus:border-gray-700 text-black" required>
-                    </div>
-                    <button type="submit" class="bg-yellow-600 text-black font-semibold py-1 px-4 rounded-md hover:bg-yellow-500 font-poppins"> <a href="{{route('login')}}">Submit</a></button>
-                </form>
+    <div class=" grid justify-center mt-8">
+        <form action="">
+        <h1 class="text-3xl font-extrabold">DAFTAR</h1>
+        <p class="text-base font-semibold mb-8">Sudah memiliki akun?<a href="login" class="text-lg text-orange-400">Masuk</a></p>
+            <p class="font-poppins text-sm font-bold">Nama Lengkap </p>
+            <input type="text" class="bg-gray-300 rounded-sm mb-4 h-7 w-80 text-sm">
+            <p class="font-poppins text-sm font-bold">No.Handphone </p>
+            <input type="number"  class="bg-gray-300 rounded-sm mb-4 h-7 w-80">
+            <p class="font-poppins text-sm font-bold">NIK </p>
+            <input type="number"  class="bg-gray-300 rounded-sm mb-4 h-7 w-80">
+            <p class="font-poppins text-sm font-bold">Email </p>
+            <input type="email"  class="bg-gray-300 rounded-sm mb-4 h-7 w-80">
+            <p class="font-poppins text-sm font-bold">Password </p>
+            <div class="relative w-80 mb-4">
+                <input id="password" type="password" class="bg-gray-300 rounded-sm h-7 w-full pr-10">
+                <img id="toggleIcon" src="images/eyeclose.svg" class="w-6 absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer" onclick="togglePasswordVisibility()">
             </div>
-        </div>
-        <div class="w-1/2 bg-no-repeat bg-right relative" style="background-image: url('../images/rubicon.jpg')">
-        </div>
+            <div class="grid justify-start">
+            <button class="bg-orange-400 rounded-md text-xs w-20 h-10 font-extrabold">Daftar</button>
+            </div>
+        </form>
     </div>
+</div>
+
+<div class="w-1/2">
+    <img src="images/rubicon.jpg" class="w-full min-h-screen" alt="">
+</div>
+</div>
+<script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.src = 'images/eyeopen.svg';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.src = 'images/eyeclose.svg';
+            }
+        }
+    </script>
 </body>
 @endsection

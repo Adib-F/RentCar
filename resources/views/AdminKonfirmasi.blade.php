@@ -10,7 +10,7 @@ Admin Konfirmasi
 
 @section('content')
 <body class="font-poppins">
-<div class="text-left ml-[21rem] mt-4 mb-4">
+<div class="text-left ml-[21rem]  mt-12 mb-4">
     <ul>
       <li class="text-xl font-bold mb-4">Konfirmasi</li>
     </ul>
@@ -18,13 +18,14 @@ Admin Konfirmasi
 <table class="table-fixed border border-slate-200 ml-[21rem] font-medium">
   <thead class="">
     <tr>
-      <th class="border border-slate-200 p-2 w-[8rem] text-xs">ID</th>
+      <th class="border border-slate-200 p-2 w-[4rem] text-xs">ID</th>
       <th class="border border-slate-200 p-2 w-[8rem] text-xs">Kendaraan</th>  
       <th class="border border-slate-200 p-2 w-[8rem] text-xs">Tanggal Sewa</th>
       <th class="border border-slate-200 p-2 w-[8rem] text-xs">Tanggal Selesai</th>
       <th class="border border-slate-200 p-2 w-[8rem] text-xs">Total Harga</th>
       <th class="border border-slate-200 p-2 w-[8rem] text-xs">Detail Pesanan</th>
-      <th class="border border-slate-200 p-2 w-[8rem] text-xs">Aksi</th>
+      <th class="border border-slate-200 p-2 w-[8rem] text-xs">Bukti Pembayaran</th>
+      <th class="border border-slate-200 p-2 w-[10rem] text-xs">Aksi</th>
     </tr>
   </thead>
   <tbody class="text-center">
@@ -139,5 +140,44 @@ Admin Konfirmasi
   </div>
   <button class="join-item btn btn-xs  ml-1">></button>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const openSidebarButton = document.getElementById('open-sidebar');
+  const sidebarToggle = document.getElementById('sidebar-toggle');
+  const sidebarIcon = document.getElementById('toggle-icon');
+  const sidebar = document.getElementById('sidebar');
+  const sidebarCheckbox = document.getElementById('my-sidebar');
+
+  // Function to open the sidebar
+  const openSidebar = () => {
+    sidebar.classList.remove('-translate-x-full');
+    sidebar.classList.add('translate-x-0');
+    sidebarIcon.classList.add('rotate-180');
+    sidebarCheckbox.checked = true;
+  };
+
+  // Function to close the sidebar
+  const closeSidebar = () => {
+    sidebar.classList.remove('translate-x-0');
+    sidebar.classList.add('-translate-x-full');
+    sidebarIcon.classList.remove('rotate-180');
+    sidebarCheckbox.checked = false;
+  };
+
+  // Event listener for the new open sidebar button
+  openSidebarButton.addEventListener('click', openSidebar);
+
+  // Event listener for the sidebar toggle button
+  sidebarToggle.addEventListener('click', () => {
+    if (sidebarCheckbox.checked) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
+
+  // Initially open the sidebar
+  openSidebar();
+});
 </body>
 @endsection

@@ -34,8 +34,8 @@
     <header>
         @yield('navbar')
     </header>
-    <div class="container">
-        <main>
+    <div>
+        <main >
             @yield('content')
         </main>
     </div>

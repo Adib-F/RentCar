@@ -5,7 +5,7 @@
 @endsection
 
 @section('navbar')
-  @include('components/navbar')
+  @include('components/navbarlanding')
 @endsection
 
 @section('content')
@@ -95,6 +95,22 @@
       <a href=""><img src="images/promo.png"class="" alt=""></a>
       <a href=""><img src="images/promo.png"class="" alt=""></a>
     </div>
+    <dialog id="modallanding" class="modal">
+        <div class="modal-box w-2/6">
+            <p class="py-4 text-center font-bold text-xl">Anda belum Masuk! </p>
+            <article class="text-wrap ...">
+              <p class="text-center">Silahkan Masuk atau Daftar</p>
+              <p class="text-center">Terlebih Dahulu</p>
+            </article>
+            <div class="flex justify-center">
+                <button class="btn bg-orange-400 mt-2 mr-4 rounded-lg font-bold shadow-xl" ><a href="{{route('login')}}"> Masuk</a></button>
+                <button class="btn bg-gray-300 rounded-lg mt-2 font-bold shadow-xl"><a href="{{route('register')}}">Daftar</a></button>
+            </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+</dialog>
 
 </body>
 @endsection
