@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+<!--  -->
 <body class="font-poppins">
 <div class="landing bg-cover text-center bg-no-repeat w-screen h-[120vh] py-20 -z-60 "id="landing" style="background-image: url(../images/landingpage.png)">
   <p class="text-6xl font-bold leading-normal ">
