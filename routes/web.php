@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LandingDashboardController;
-use App\Http\Controllers\LandingCarsController;
-use App\Http\Controllers\LandingMotorcycleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AboutusController;
@@ -24,12 +21,14 @@ use App\Http\Controllers\AdminRentalController;
 use App\Http\Controllers\AdminRiwayatController;
 use App\Http\Controllers\NotifikasiController;
 
+
 // route tanpa login
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/cars', [CarsController::class, 'index'])->name('cars');
 Route::get('/motorcycle', [MotorcycleController::class, 'index'])->name('motorcycle');
 Route::get('/about-us', [AboutusController::class, 'aboutus'])->name('aboutus');
 Route::get('/rulesandinfo', [RulesController::class, 'rulesandinfo'])->name('rulesandinfo');
+
 
 
 // Route untuk Admin

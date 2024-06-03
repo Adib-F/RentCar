@@ -93,7 +93,7 @@
       </p>
     </div>
     <br>
-    <div class="flex justify-center w-full gap-2 w-full ">
+    <div class="flex justify-center w-full gap-2  ">
       <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/MiniCooper.svg" alt=""></button>
       <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/Mercedesbenz.svg" alt=""></button>
       <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/BMW.svg" alt=""></button>
@@ -147,7 +147,7 @@
       </p>
     </div>
     <br><br>
-    <div class="flex justify-center w-full gap-24 w-full ">
+    <div class="flex justify-center w-full gap-24  ">
       <a href=""><img src="images/promo.png"class="w-72 h-60" alt=""></a>
       <a href=""><img src="images/promo.png"class="w-72 h-60" alt=""></a>
       <a href=""><img src="images/promo.png"class="w-72 h-60" alt=""></a>

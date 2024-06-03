@@ -8,12 +8,12 @@
           </svg>
         </div>
         <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-54 bg-white">
-          <li><a class="text-black" href="{{route('LandingDashboard')}}">Beranda</a></li>
+          <li><a class="text-black" href="{{route('landingdashboard')}}">Beranda</a></li>
           <li>
             <a>Kendaraan</a>
             <ul class="p-2">
-              <li ><a href="{{route('landingcars')}}">Mobil</a></li>
-              <li><a href="{{route('landingmotorcycle')}}">Motor</a></li>
+              <li ><a href= >Mobil</a></li>
+              <li><a href=>Motor</a></li>
             </ul>
           </li>
           <li onclick="modallanding.showModal()">Status</li>
@@ -24,13 +24,13 @@
     </div>
     <div class="navbar-center hidden lg:flex font-semibold">
       <ul class="menu menu-horizontal px-1 text-lg">
-        <li><a href="{{route('LandingDashboard')}}"><img src="images/Beranda.svg" class="inline-block w-6 h-6" alt="Beranda">Beranda</a></li>
+        <li><a href="{{route('landingdashboard')}}"><img src="images/Beranda.svg" class="inline-block w-6 h-6" alt="Beranda">Beranda</a></li>
         <li>
           <details>
             <summary><img src="images/Kendaraan.png" class="inline-block w-7 h-7" alt="Kendaraan">Kendaraan</summary>
             <ul class="p-2 shadow-md bg-white">
-              <li><a href="{{route('landingcars')}}"><img src="images/Car.png" class="inline-block w-6 h-5" alt="Mobil">Mobil</a></li>
-              <li><a href="{{route('landingmotorcycle')}}"><img src="images/Motorcycle.png" class="inline-block w-6 h-5" alt="Motor">Motor</a></li>
+              <li><a href=><img src="images/Car.png" class="inline-block w-6 h-5" alt="Mobil">Mobil</a></li>
+              <li><a href=><img src="images/Motorcycle.png" class="inline-block w-6 h-5" alt="Motor">Motor</a></li>
             </ul>
           </details>
         </li>
