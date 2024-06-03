@@ -1,47 +1,60 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ListBarangController;
-use App\Http\Controllers\ListBarangController113;
-use App\Http\Controllers\ListProduk113;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AboutusController;
+use App\Http\Controllers\CarsController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\kendaraan;
-use App\Http\Controllers\MotorController;
-use App\Http\Controllers\MobilController;
+use App\Http\Controllers\MotorcycleController;
+use App\Http\Controllers\RentalController;
+use App\Http\Controllers\RiwayatController;
+use App\Http\Controllers\RulesController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\StatusController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminPenggunaController;
+use App\Http\Controllers\AdminKendaraanController;
+use App\Http\Controllers\AdminKonfirmasiController;
+use App\Http\Controllers\AdminPromoController;
+use App\Http\Controllers\AdminRentalController;
+use App\Http\Controllers\AdminRiwayatController;
 
-Route::get('/', function () {
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/contact', [HomeController::class, 'contact']);
 
-// routes/web.php
-route::get('/user/{id}', function ($id){
-    return 'User dengan ID'. $id;
+Route::get('/', [DashboardController::class, 'dashboard']);
+Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::get('/cars', [CarsController::class, 'cars'])->name('cars');
+Route::get('/motorcycle', [MotorcycleController::class, 'motorcycle'])->name('motorcycle');
+Route::get('/aboutus', [AboutusController::class, 'aboutus'])->name('aboutus');
+Route::get('/rulesandinfo', [RulesController::class, 'rulesandinfo'])->name('rulesandinfo');
+Route::get('/setting', [SettingsController::class, 'setting'])->name('setting');
+Route::get('/riwayat', [RiwayatController::class, 'riwayat'])->name('riwayat');
+Route::get('/rental', [RentalController::class, 'rental'])->name('rental');
+Route::get('/status', [StatusController::class, 'status'])->name('status');
+Route::get('/admindashboard', [AdminDashboardController::class, 'AdminDashboard'])->name('AdminDashboard');
+Route::get('/adminpengguna', [AdminPenggunaController::class, 'AdminPengguna'])->name('AdminPengguna');
+Route::get('/adminkonfirmasi', [AdminKonfirmasiController::class, 'AdminKonfirmasi'])->name('AdminKonfirmasi');
+Route::get('/adminkendaraan', [AdminKendaraanController::class, 'AdminKendaraan'])->name('AdminKendaraan');
+Route::get('/adminpromo', [AdminPromoController::class, 'AdminPromo'])->name('AdminPromo');
+Route::get('/adminrental', [AdminRentalController::class, 'AdminRental'])->name('AdminRental');
+Route::get('/adminRiwayat', [AdminRiwayatController::class, 'AdminRiwayat'])->name('AdminRiwayat');
+
+
+Route::get('/statusbelumkonfirmasi', function () {
+    return view('statusAwal');
 });
 
-// routes/web.php
-route::prefix('admin')->group(function (){
-    route::get('dashboard', function(){
-        return 'Admin Dashboard';
-    });
-
-    route::get('/users', function (){
-        return 'Admin Users';
-    });
+Route::get('/statussetelahkonfirmasi', function () {
+    return view('statusAkhir');
 });
 
-// route::get('/listbarang/{id}/{nama}', function($id, $nama){
-//     return view('list_barang', compact('id', 'nama'));
-// });
-
-Route::get('/listbarang', [ListBarangController113::class, 'getData']);
-Route::get('/dashboard/{dash}', [DashboardController::class, 'dashboard']);
-Route::get('/login', [LoginController::class, 'loginForm']);
-Route::get('/kendaraan', [kendaraan::class, 'rental']);
-Route::get('/Motor', [MotorController::class, 'motor']);
-Route::get('/Mobil', [MobilController::class, 'mobil']);
-Route::get('/list_product113', [ListProduk113::class, 'luncurkan']);
+Route::get('/detailcars', function () {
+    return view('detailcars');
+});
+Route::get('/kendaraan/{jenis}', 'kendaraan@index');
