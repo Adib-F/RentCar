@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class StatusController extends Controller
 {
-    public function status()
+    public function Status()
     {
-        return view('status');
+        return view('Status');
     }
 }
 
