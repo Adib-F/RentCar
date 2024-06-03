@@ -14,8 +14,6 @@ class User extends Authenticatable
 
     protected $table = "Pengguna";
     protected $primaryKey = "Id_Pengguna";
-    protected $keyType = 'string';
-    public $incrementing = false;
 
     /**
      * The attributes that are mass assignable.
@@ -31,6 +29,12 @@ class User extends Authenticatable
         'Email',
         'Password',
     ];
+
+    public function rental()
+    {
+        return $this->hasMany(Rental::class, 'Id_Pengguna');
+    }
+ 
 
     /**
      * The attributes that should be hidden for serialization.
@@ -51,4 +55,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         
     ];
+
+    /**
+ * Get the login username to be used by the controller.
+ *
+ * @return string
+ */
+    public function username()
+    {
+        return 'Email';
+    }
+
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->Password;
+    }
+
 }
