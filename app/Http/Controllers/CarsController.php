@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kendaraan;
 
 class CarsController extends Controller
 {
-    public function  cars()
+    public function index()
     {
-        return view('cars');
+        $cars = Kendaraan::where('Jenis_Kendaraan', 'Mobil')->get();
+
+        return view('cars', compact('cars'));
     }
 }
-
