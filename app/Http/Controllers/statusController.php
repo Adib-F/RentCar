@@ -8,7 +8,7 @@ class StatusController extends Controller
 {
     public function status()
     {
-        return view('status');
+        return view('Status');
     }
 }
 
