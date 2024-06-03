@@ -1,265 +1,328 @@
 @extends('layout/app')
 
 @section('title')
-Admin Kendaraan
+    Admin Kendaraan
 @endsection
 
 @section('navbar')
-  @include('components/navbaradmin')
+    @include('components/navbaradmin')
 @endsection
 
 @section('content')
-<body class="font-poppins">
-<div class="text-left ml-[21rem] mt-4 mb-4">
-    <ul>
-      <li class="text-xl font-bold mb-4">Kendaraan</li>
-      <li><button class="text-sm btn btn-sm rounded-full bg-orange-400" onclick="modaltambah.showModal()">+ Tambahkan Data </button></li>
-    </ul>
-</div>
-<table class="table-fixed border border-slate-200 ml-[21rem] font-medium">
-  <thead class="">
-    <tr>
-      <th class="border border-slate-200 p-2 text-xs">ID</th>
-      <th class="border border-slate-200 p-2  text-xs">Nama Kendaraan</th>
-      <th class="border border-slate-200 p-2 w-[8rem] text-xs">Jenis</th>
-      <th class="border border-slate-200 p-2 w-[8rem] text-xs">Merek</th>
-      <th class="border border-slate-200 p-2 w-[8rem] text-xs">Harga</th>
-      <th class="border border-slate-200 p-2 w-[8rem] text-xs">Gambar</th>
-      <th class="border border-slate-200 p-2 w-[8rem] text-xs">Stok</th>
-      <th class="border border-slate-200 p-2 w-[8rem] text-xs">Aksi</th>
-    </tr>
-  </thead>
-  <tbody class="text-center"
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">1</td>
-      <td class="border border-slate-200 p-2 text-xs">Agya</td>
-      <td class="border border-slate-200 p-2 text-xs">Mobil</td>
-      <td class="border border-slate-200 p-2 text-xs">Toyota</td>
-      <td class="border border-slate-200 p-2 text-xs">Rp.300.000</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center"><img src="images/agya.png" class="w-8 h-5"></td>
-      <td class="border border-slate-200 p-2 text-xs">3</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1" onclick="modaledit.showModal()">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg" onclick="modalhapus.showModal()">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">2</td>
-      <td class="border border-slate-200 p-2 text-xs">ADV</td>
-      <td class="border border-slate-200 p-2 text-xs">Motor</td>
-      <td class="border border-slate-200 p-2 text-xs">Honda</td>
-      <td class="border border-slate-200 p-2 text-xs">Rp.100.000</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center"><img src="images/ADV.png" class="w-8 h-8"></td>
-      <td class="border border-slate-200 p-2 text-xs">5</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">3</td>
-      <td class="border border-slate-200 p-2 text-xs">Avanza</td>
-      <td class="border border-slate-200 p-2 text-xs">Mobil</td>
-      <td class="border border-slate-200 p-2 text-xs">Toyota</td>
-      <td class="border border-slate-200 p-2 text-xs">Rp.200.000</td>
-      <td class="border border-slate-200 p-2 text-xs">gambar1.png</td>
-      <td class="border border-slate-200 p-2 text-xs">3</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">4</td>
-      <td class="border border-slate-200 p-2 text-xs">Beat Street</td>
-      <td class="border border-slate-200 p-2 text-xs">Motor</td>
-      <td class="border border-slate-200 p-2 text-xs">Honda</td>
-      <td class="border border-slate-200 p-2 text-xs">Rp.80.000</td>
-      <td class="border border-slate-200 p-2 text-xs">gambar1.png</td>
-      <td class="border border-slate-200 p-2 text-xs">5</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-    <tr> 
-      <td class="border border-slate-200 p-2 text-xs">5</td>
-      <td class="border border-slate-200 p-2 text-xs">Corolla</td>
-      <td class="border border-slate-200 p-2 text-xs">Mobil</td>
-      <td class="border border-slate-200 p-2 text-xs">Toyota</td>
-      <td class="border border-slate-200 p-2 text-xs">Rp.150.000</td>
-      <td class="border border-slate-200 p-2 text-xs">gambar5.png</td>
-      <td class="border border-slate-200 p-2 text-xs">6</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">6</td>
-      <td class="border border-slate-200 p-2 text-xs">Scoppy</td>
-      <td class="border border-slate-200 p-2 text-xs">Motor</td>
-      <td class="border border-slate-200 p-2 text-xs">Honda</td>
-      <td class="border border-slate-200 p-2 text-xs">Rp.80.000</td>
-      <td class="border border-slate-200 p-2 text-xs">gambar6.png</td>
-      <td class="border border-slate-200 p-2 text-xs">4</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">7</td>
-      <td class="border border-slate-200 p-2 text-xs">Mini Cooper</td>
-      <td class="border border-slate-200 p-2 text-xs">Mobil</td>
-      <td class="border border-slate-200 p-2 text-xs">BMW</td>
-      <td class="border border-slate-200 p-2 text-xs">Rp.500.000</td>
-      <td class="border border-slate-200 p-2 text-xs">gambar7.png</td>
-      <td class="border border-slate-200 p-2 text-xs">6</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-   
-  </tbody>
-</table>
-<div class=" join flex justify-end mt-3 ">
-  <button class="join-item btn btn-xs mr-1"><</button>
-  <div class="outline outline-1 rounded-none flex">
-    <button class="join-item btn btn-xs btn-active bg-orange-400">1</button>
-    <button class="join-item btn btn-xs ">2</button>
-    <button class="join-item btn btn-xs">3</button>
-    <button class="join-item btn btn-xs">4</button>
-  </div>
-  <button class="join-item btn btn-xs  ml-1">></button>
-</div>
 
-<dialog id="modaltambah" class="modal">
-  <div class="modal-box w-6/12 bg-white">
-    <form action="" class=" bg-white">
-      <h3 class="font-bold text-lg">Tambah Data Kendaraan</h3>
-      <hr class="border-t border-gray-500 my-4 ">
-
-        <div class="grid gap-4 grid-cols-2">
-          <div><label for="nama" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Nama Kendaraan</label>
-          <input id="nama" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Nama Kendaraan" required/></div>
-
-          <div><label for="jenis" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Jenis</label>
-          <input id="jenis" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Mobil/Motor" required /></div>
-
-          <div><label for="merk" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Merk</label>
-          <input id="merk" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Merk" required/></div>
-
-          <div><label for="harga" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Harga</label>
-          <input id="harga" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Harga"required /></div>
-
-          <div><label for="gambar" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Gambar</label>
-          <input id="gambar" type="file" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Gambar" required/></div>
-
-          <div><label for="stok" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Stok</label>
-          <input id="stok" type="number" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Stok" required/></div>
+    <body class="font-poppins">
+        <div class="text-left ml-[21rem] mt-4 mb-4">
+            <ul>
+                <li class="mb-4 text-xl font-bold">Kendaraan</li>
+                <li><button class="text-sm bg-orange-400 rounded-full btn btn-sm" onclick="modaltambah.showModal()">+
+                        Tambahkan Data </button></li>
+            </ul>
         </div>
-    
-      <div class="flex justify-end">
-      <button class="btn bg-orange-400 border">Tambah</button>
-      </div>
-    </form>
-  </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
+        <table class="table-fixed border border-slate-200 ml-[21rem] font-medium">
+            <thead class="">
+                <tr>
+                    <th class="p-2 text-xs border border-slate-200">No</th>
+                    <th class="p-2 text-xs border border-slate-200">Nama Kendaraan</th>
+                    <th class="border border-slate-200 p-2 w-[8rem] text-xs">Jenis</th>
+                    <th class="border border-slate-200 p-2 w-[8rem] text-xs">Merek</th>
+                    <th class="border border-slate-200 p-2 w-[8rem] text-xs">Harga</th>
+                    <th class="border border-slate-200 p-2 w-[8rem] text-xs">Stok</th>
+                    <th class="border border-slate-200 p-2 w-[8rem] text-xs">Aksi</th>
+                </tr>
+            </thead>
 
-<dialog id="modaledit" class="modal">
-  <div class="modal-box w-6/12 bg-white">
-    <form action="" class=" bg-white">
-      <h3 class="font-bold text-lg">Edit Data Kendaraan</h3>
-      <hr class="border-t border-gray-500 my-4 ">
+            @foreach ($kendaraans as $nomor => $kendaraan)
+                <tbody class="text-center">
+                    <tr>
+                        <td class="p-2 text-xs border border-slate-200">{{ $nomor + 1 }}</td>
+                        <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Nama_Kendaraan }}</td>
+                        <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Jenis_Kendaraan }}</td>
+                        <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Merk }}</td>
+                        <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Harga }}</td>
+                        <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Stok }}</td>
+                        <td class="flex items-center justify-center p-2 text-xs border border-slate-200">
+                            <button class="mr-1 text-xs bg-yellow-400 rounded-lg btn btn-xs"
+                                onclick="modaldetail{{ $kendaraan->Id_Kendaraan }}.showModal()">Detail</button>
+                            <button class="mr-1 text-xs bg-green-400 rounded-lg btn btn-xs"
+                                onclick="modaledit{{ $kendaraan->Id_Kendaraan }}.showModal()">Edit</button>
+                            <button class="text-xs bg-red-400 rounded-lg btn btn-xs"
+                                onclick="modalhapus{{ $kendaraan->Id_Kendaraan }}.showModal()">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            @endforeach
 
-        <div class="grid gap-4 grid-cols-2">
-          <div><label for="nama" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Nama Kendaraan</label>
-          <input id="nama" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Nama Kendaraan" required/></div>
+        </table>
+        <div class="flex justify-end mt-3 join">
+            <button class="mr-1 join-item btn btn-xs"><</button>
+            <div class="flex rounded-none outline outline-1">
+              <button class="bg-orange-400 join-item btn btn-xs btn-active">1</button>
+              <button class="join-item btn btn-xs ">2</button>
+              <button class="join-item btn btn-xs">3</button>
+              <button class="join-item btn btn-xs">4</button>
+            </div>
+            <button class="ml-1 join-item btn btn-xs">></button>
+          </div>
 
-          <div><label for="jenis" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Jenis</label>
-          <input id="jenis" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Mobil/Motor" required /></div>
+        <dialog id="modaltambah" class="modal">
+            <div class="w-6/12 bg-white modal-box">
+                <form method="POST" action="{{ route('addKendaraan') }}" enctype="multipart/form-data">
+                    @csrf
+                    <h3 class="text-lg font-bold">Tambah Data Kendaraan</h3>
+                    <hr class="my-4 border-t border-gray-500 ">
 
-          <div><label for="merk" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Merk</label>
-          <input id="merk" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Merk" required/></div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div><label for="nama"
+                                class="text-sm font-bold leading-tight tracking-normal text-gray-800">Nama Kendaraan</label>
+                            @error('nama_kendaraan')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
+                            <input id="nama" type="text" name="nama_kendaraan"
+                                class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                                placeholder="Nama Kendaraan" required value="{{ old('nama_kendaraan') }}">
+                        </div>
 
-          <div><label for="harga" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Harga</label>
-          <input id="harga" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Harga"required /></div>
+                        <div>
+                            <label for="jenis"
+                                class="text-sm font-bold leading-tight tracking-normal text-gray-800">Jenis
+                                Kendaraan</label><br>
+                            @error('jenis_kendaraan')
+                                <span class="text-xs text-red-500">{{ $message }}</span>
+                            @enderror
+                            <select id="jenis" name="jenis_kendaraan" value="{{ old('jenis_kendaraan') }}"
+                                class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm text-gray-600 bg-white border border-gray-300 rounded font-norma focus:outline-none focus:border focus:border-black">
+                                <option value="" disabled selected hidden>Pilih Jenis Kendaraan</option>
+                                <option value="Mobil">Mobil</option>
+                                <option value="Motor">Motor</option>
+                            </select>
+                        </div>
 
-          <div><label for="gambar" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Gambar</label>
-          <input id="gambar" type="file" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Gambar" required/></div>
+                        <div><label for="merk"
+                                class="text-sm font-bold leading-tight tracking-normal text-gray-800">Merk</label>
+                            @error('merk')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
+                            <input id="merk" type="text" name="merk"
+                                class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                                placeholder="Merk" required value="{{ old('merk') }}">
+                        </div>
 
-          <div><label for="stok" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Stok</label>
-          <input id="stok" type="number" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Stok" required/></div>
-        </div>
-    
-      <div class="flex justify-end">
-      <button class="btn bg-green-400 border">Update</button>
-      </div>
-    </form>
-  </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
+                        <div><label for="harga"
+                                class="text-sm font-bold leading-tight tracking-normal text-gray-800">Harga</label>
+                            @error('harga')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
+                            <input id="harga" type="text" name="harga"
+                                class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                                placeholder="Harga"required value="{{ old('harga') }}">
+                        </div>
 
-<dialog id="modal hapus" class="modal">
-  <div class="modal-box">
-    <h3 class="font-bold text-lg py-4 text-center">Apakah anda yakin ingin menghapus data dengan ID</h3>
-    <div class="flex justify-center">
-      <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn bg-gray-500 border mr-4 text-white">Batal</button>
-      </form>
-      <button class="btn bg-red-500 border text-white">Hapus</button>
-      </div>
-    </div>
-  </div>
-</dialog>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const openSidebarButton = document.getElementById('open-sidebar');
-  const sidebarToggle = document.getElementById('sidebar-toggle');
-  const sidebarIcon = document.getElementById('toggle-icon');
-  const sidebar = document.getElementById('sidebar');
-  const sidebarCheckbox = document.getElementById('my-sidebar');
+                        <div><label for="stok"
+                                class="text-sm font-bold leading-tight tracking-normal text-gray-800">Stok</label>
+                            @error('stok')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
+                            <input id="stok" type="text" name="stok"
+                                class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                                placeholder="Stok" required value="{{ old('stok') }}">
+                        </div>
 
-  // Function to open the sidebar
-  const openSidebar = () => {
-    sidebar.classList.remove('-translate-x-full');
-    sidebar.classList.add('translate-x-0');
-    sidebarIcon.classList.add('rotate-180');
-    sidebarCheckbox.checked = true;
-  };
+                        <div><label for="gambar"
+                                class="text-sm font-bold leading-tight tracking-normal text-gray-800 ">Gambar</label>
+                            @error('gambar')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
+                            <input id="gambar" type="file" name="gambar"
+                                class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"required />
+                        </div>
+                    </div>
 
-  // Function to close the sidebar
-  const closeSidebar = () => {
-    sidebar.classList.remove('translate-x-0');
-    sidebar.classList.add('-translate-x-full');
-    sidebarIcon.classList.remove('rotate-180');
-    sidebarCheckbox.checked = false;
-  };
+                    <div>
+                        <label for="deskripsi"
+                            class="text-sm font-bold leading-tight tracking-normal text-gray-800">Deskripsi
+                            Kendaraan</label>
+                        @error('deskripsi')
+                            <span class="text-red-500">{{ $message }}</span>
+                        @enderror
+                        <textarea id="deskripsi" name="deskripsi" rows="3"
+                            class="flex items-center w-full pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                            placeholder="Deskripsi" required>{{ old('deskripsi') }}</textarea>
+                    </div>
 
-  // Event listener for the new open sidebar button
-  openSidebarButton.addEventListener('click', openSidebar);
+                    <div class="flex justify-end">
+                        <button type="reset" class="bg-blue-400 border btn"
+                            onclick="modaltambah.close()">Batal</button>
+                        <button type="submit" class="bg-orange-400 border btn">Tambah</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
 
-  // Event listener for the sidebar toggle button
-  sidebarToggle.addEventListener('click', () => {
-    if (sidebarCheckbox.checked) {
-      closeSidebar();
-    } else {
-      openSidebar();
-    }
-  });
+        @if ($kendaraans)
+            @foreach ($kendaraans as $kendaraan)
+                <dialog id="modaldetail{{ $kendaraan->Id_Kendaraan }}" class="modal">
+                    <div class="w-6/12 bg-white modal-box">
+                        <div class="bg-white">
+                            <h3 class="text-lg font-bold">Detail Kendaraan</h3>
+                            <hr class="my-4 border-t border-gray-500">
+                            <div class="flex justify-center mb-4">
+                                <img src="{{ asset('storage/' . $kendaraan->Gambar) }}" class="w-64 h-40">
+                            </div>
+                            <table class="w-full text-left table-auto">
+                                <tbody>
+                                    <tr>
+                                        <td class="text-sm font-bold">Nama Kendaraan:</td>
+                                        <td class="text-sm">{{ $kendaraan->Nama_Kendaraan }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-sm font-bold">Jenis:</td>
+                                        <td class="text-sm">{{ $kendaraan->Jenis_Kendaraan }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-sm font-bold">Merk:</td>
+                                        <td class="text-sm">{{ $kendaraan->Merk }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-sm font-bold">Harga: Rp.</td>
+                                        <td class="text-sm">{{ $kendaraan->Harga }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-sm font-bold">Stok:</td>
+                                        <td class="text-sm">{{ $kendaraan->Stok }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-sm font-bold">Deskripsi:</td>
+                                        <td class="text-sm">{{ $kendaraan->Deskripsi }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="flex justify-end mt-4">
+                                <button type="submit" class="mr-4 text-white bg-gray-500 border btn"
+                                    onclick="document.getElementById('modaldetail{{ $kendaraan->Id_Kendaraan }}').close();">Batal</button>
+                            </div>
+                        </div>
+                    </div>
+                </dialog>
 
-  // Initially open the sidebar
-  openSidebar();
-});
-</body>
+                <dialog id="modaledit{{ $kendaraan->Id_Kendaraan }}" class="modal">
+                    <div class="w-6/12 bg-white modal-box">
+                        <form method="POST" action="{{ route('updateKendaraan', $kendaraan->Id_Kendaraan) }}"
+                            enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            <h3 class="text-lg font-bold">Edit Data Kendaraan</h3>
+                            <hr class="my-4 border-t border-gray-500 ">
+
+                            <div class="grid grid-cols-2 gap-4">
+                                <div><label for="nama"
+                                        class="text-sm font-bold leading-tight tracking-normal text-gray-800">Nama
+                                        Kendaraan</label>
+                                    @error('nama_kendaraan')
+                                        <span class="text-red-500">{{ $message }}</span>
+                                    @enderror
+                                    <input id="nama" type="text" name="nama_kendaraan"
+                                        value="{{ $kendaraan->Nama_Kendaraan }}"
+                                        class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                                        placeholder="Nama Kendaraan" required />
+                                </div>
+
+                                <div>
+                                    <label for="jenis" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Jenis Kendaraan</label>
+                                    <select id="jenis" name="jenis_kendaraan"
+                                        class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm text-gray-600 bg-white border border-gray-300 rounded font-norma focus:outline-none focus:border focus:border-black">
+                                        <option value="{{ $kendaraan->Jenis_Kendaraan }}" disabled selected hidden>{{ $kendaraan->Jenis_Kendaraan }}</option>
+                                        <option value="Mobil" {{ old('jenis_kendaraan', $kendaraan->Jenis_Kendaraan) == 'Mobil' ? 'selected' : '' }}>Mobil</option>
+                                        <option value="Motor" {{ old('jenis_kendaraan', $kendaraan->Jenis_Kendaraan) == 'Motor' ? 'selected' : '' }}>Motor</option>
+                                    </select>
+                                    @error('jenis_kendaraan')
+                                        <span class="text-xs text-red-500">{{ $message }}</span>
+                                    @enderror
+                                </div>
+
+                                <div><label for="merk"
+                                        class="text-sm font-bold leading-tight tracking-normal text-gray-800">Merk</label>
+                                    @error('merk')
+                                        <span class="text-red-500">{{ $message }}</span>
+                                    @enderror
+                                    <input id="merk" type="text" name="merk" value="{{ $kendaraan->Merk }}"
+                                        class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                                        placeholder="Merk" required />
+                                </div>
+
+                                <div><label for="harga"
+                                        class="text-sm font-bold leading-tight tracking-normal text-gray-800">Harga</label>
+                                    @error('deskripsi')
+                                        <span class="text-red-500">{{ $message }}</span>
+                                    @enderror
+                                    <input id="harga" type="text" name="harga" value="{{ $kendaraan->Harga }}"
+                                        class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                                        placeholder="Harga"required />
+                                </div>
+
+                                <div><label for="stok"
+                                        class="text-sm font-bold leading-tight tracking-normal text-gray-800">Stok</label>
+                                    @error('stok')
+                                        <span class="text-red-500">{{ $message }}</span>
+                                    @enderror
+                                    <input id="stok" type="text" name="stok" value="{{ $kendaraan->Stok }}"
+                                        class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                                        placeholder="Stok" required />
+                                </div>
+
+                                <div><label for="gambar"
+                                        class="text-sm font-bold leading-tight tracking-normal text-gray-800">Gambar</label>
+                                    @error('gambar')
+                                        <span class="text-red-500">{{ $message }}</span>
+                                    @enderror
+                                    <input id="gambar" type="file" name="gambar"
+                                        class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                                        placeholder="Gambar">
+                                </div>
+
+                                <div>
+                                    <label for="deskripsi"
+                                        class="text-sm font-bold leading-tight tracking-normal text-gray-800">
+                                        Deskripsi Kendaraan
+                                    </label>
+                                    @error('deskripsi')
+                                        <span class="text-red-500">{{ $message }}</span>
+                                    @enderror
+                                    <textarea id="deskripsi" name="deskripsi" rows="3"
+                                        class="flex items-center w-full pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
+                                        placeholder="Deskripsi">{{ old('deskripsi', $kendaraan->Deskripsi) }}</textarea>
+                                </div>
+
+
+                            </div>
+                            <div class="flex justify-end">
+                                <button type="button" class="mr-4 text-white bg-gray-500 border btn"
+                                    onclick="document.getElementById('modaledit{{ $kendaraan->Id_Kendaraan }}').close();">Batal</button>
+                                <button type="submit" class="bg-green-400 border btn">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </dialog>
+
+                <dialog id="modalhapus{{ $kendaraan->Id_Kendaraan }}" class="modal">
+                    <div class="modal-box">
+                        <h3 class="py-4 text-lg font-bold text-center">Apakah anda yakin ingin menghapus data dengan ID
+                            {{ $kendaraan->Id_Kendaraan }}</h3>
+                        <div class="flex justify-center">
+                            <div class="modal-action">
+                                <form method="POST" action="{{ route('deleteKendaraan', $kendaraan->Id_Kendaraan) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="button" class="mr-4 text-white bg-gray-500 border btn"
+                                        onclick="document.getElementById('modalhapus{{ $kendaraan->Id_Kendaraan }}').close();">Batal</button>
+                                    <button type="submit" class="text-white bg-red-500 border btn"
+                                        value="Delete">Hapus</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </dialog>
+    </body>
+    @endforeach
+    @endif
+
 @endsection
-

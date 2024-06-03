@@ -13,195 +13,124 @@ Admin Promo
 <div class="text-left ml-[21rem] mt-12 mb-4">
     <ul>
       <li class="text-xl font-bold mb-">PROMO</li>
-      <li><button class="text-sm btn btn-sm rounded-full bg-orange-400" onclick="modaltambah.showModal()">+ Tambahkan Data </button></li>
+      <li><button class="text-sm bg-orange-400 rounded-full btn btn-sm" onclick="modaltambah.showModal()">+ Tambahkan Data </button></li>
     </ul>
 </div>
 <table class="table-fixed border border-slate-200 ml-[21rem] font-medium">
   <thead class="">
     <tr>
       <th class="border border-slate-200 p-2 w-[8rem] text-xs">Nama Promo</th>
-      <th class="border border-slate-200 p-2 w-[8rem] text-xs">Kode Promo</th>
       <th class="border border-slate-200 p-2 w-[8rem] text-xs">Deskripsi</th>
       <th class="border border-slate-200 p-2 w-[8rem] text-xs">Diskon %</th>
       <th class="border border-slate-200 p-2 w-[8rem] text-xs">Gambar</th>
       <th class="border border-slate-200 p-2 w-[9rem] text-xs">Aksi</th>
     </tr>
   </thead>
+
+  @foreach ($promos as $promo )
   <tbody class="text-center">
     <tr>
-      <td class="border border-slate-200 p-2 text-xs">Promo Hari Pahlawan</td>
-      <td class="border border-slate-200 p-2 text-xs">P-01</td>
-      <td class="border border-slate-200 p-2 text-xs">Ini </td>
-      <td class="border border-slate-200 p-2 text-xs">10%</td>
-      <td class="border border-slate-200 p-2 text-xs">promo1.png</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
+      <td class="p-2 text-xs border border-slate-200">{{$promo->Nama_Promo}}</td>
+      <td class="p-2 text-xs border border-slate-200">{{$promo->Deskripsi}}</td>
+      <td class="p-2 text-xs border border-slate-200">{{$promo->Diskon}}</td>
+      <td class="p-2 text-xs border border-slate-200">
+      <img src="{{ asset('storage/' . $promo->Gambar) }}" class="w-64 h-20">
       </td>
-    </tr>
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">2</td>
-      <td class="border border-slate-200 p-2 text-xs">P-02</td>
-      <td class="border border-slate-200 p-2 text-xs">ini adalah</td>
-      <td class="border border-slate-200 p-2 text-xs">15%</td>
-      <td class="border border-slate-200 p-2 text-xs">promo2.png</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">3</td>
-      <td class="border border-slate-200 p-2 text-xs">p-03</td>
-      <td class="border border-slate-200 p-2 text-xs">ini adalah</td>
-      <td class="border border-slate-200 p-2 text-xs">10%</td>
-      <td class="border border-slate-200 p-2 text-xs">promo3.png</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">4</td>
-      <td class="border border-slate-200 p-2 text-xs">p-04</td>
-      <td class="border border-slate-200 p-2 text-xs">ini adalah</td>
-      <td class="border border-slate-200 p-2 text-xs">15%</td>
-      <td class="border border-slate-200 p-2 text-xs">promo4.png</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-    <tr> 
-      <td class="border border-slate-200 p-2 text-xs">5</td>
-      <td class="border border-slate-200 p-2 text-xs"></td>
-      <td class="border border-slate-200 p-2 text-xs">0875637881</td>
-      <td class="border border-slate-200 p-2 text-xs">Sagulung</td>
-      <td class="border border-slate-200 p-2 text-xs">Rp.700.000</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">6</td>
-      <td class="border border-slate-200 p-2 text-xs"></td>
-      <td class="border border-slate-200 p-2 text-xs">08134757372</td>
-      <td class="border border-slate-200 p-2 text-xs">Batu Ampar</td>
-      <td class="border border-slate-200 p-2 text-xs">Rp.450.000</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-    <tr>
-      <td class="border border-slate-200 p-2 text-xs">7</td>
-      <td class="border border-slate-200 p-2 text-xs"></td>
-      <td class="border border-slate-200 p-2 text-xs">08134758389</td>
-      <td class="border border-slate-200 p-2 text-xs">Botania</td>
-      <td class="border border-slate-200 p-2 text-xs">Rp.550.000</td>
-      <td class="border border-slate-200 p-2 text-xs flex justify-center items-center">
-        <button class="btn bg-green-400 text-xs btn-xs rounded-lg mr-1">Edit</button>
-        <button class="btn bg-red-400 text-xs btn-xs rounded-lg">Delete</button>
-      </td>
-    </tr>
-   
+      <td class="p-2 text-xs border border-slate-200">
+    <div class="flex flex-col items-center justify-center h-full">
+      <button class="mb-1 text-xs bg-green-400 rounded-lg btn btn-xs" onclick="modaledit{{$promo->Id_Promo}}.showModal()">Edit</button>
+      <button class="text-xs bg-red-400 rounded-lg btn btn-xs" onclick="modalhapus{{$promo->Id_Promo}}.showModal()">Delete</button>
+    </div>
+  </td>     </tr>
   </tbody>
+  @endforeach
+  
 </table>
-<div class=" join flex justify-end mt-3 ">
-  <button class="join-item btn btn-xs mr-1"><</button>
-  <div class="outline outline-1 rounded-none flex">
-    <button class="join-item btn btn-xs btn-active bg-orange-400">1</button>
+<div class="flex justify-end mt-3 join">
+  <button class="mr-1 join-item btn btn-xs"><</button>
+  <div class="flex rounded-none outline outline-1">
+    <button class="bg-orange-400 join-item btn btn-xs btn-active">1</button>
     <button class="join-item btn btn-xs ">2</button>
     <button class="join-item btn btn-xs">3</button>
     <button class="join-item btn btn-xs">4</button>
   </div>
-  <button class="join-item btn btn-xs  ml-1">></button>
+  <button class="ml-1 join-item btn btn-xs">></button>
 </div>
 </body>
 
 <dialog id="modaltambah" class="modal">
-  <div class="modal-box w-6/12 bg-white">
-    <form action="" class=" bg-white">
-      <h3 class="font-bold text-lg">Tambah Data Kendaraan</h3>
-      <hr class="border-t border-gray-500 my-4 ">
+  <div class="w-6/12 bg-white modal-box">
+    <form method="POST" action="{{route('addPromo')}}" enctype="multipart/form-data">
+    @csrf
+      <h3 class="text-lg font-bold">Tambah Data Promo</h3>
+      <hr class="my-4 border-t border-gray-500 ">
+        <div class="grid grid-cols-2 gap-4">
+          <div><label for="nama" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Nama Promo</label>
+          <input id="nama" type="text" name="nama_promo" class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black" placeholder="Nama Promo" required/></div>
 
-        <div class="grid gap-4 grid-cols-2">
-          <div><label for="nama" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Nama Kendaraan</label>
-          <input id="nama" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Nama Kendaraan" required/></div>
+          <div><label for="deskripsi" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Deskripsi</label>
+          <input id="deskripsi" type="text" name="deskripsi" class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black" placeholder="Deskripsi" required/></div>
 
-          <div><label for="jenis" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Jenis</label>
-          <input id="jenis" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Mobil/Motor" required /></div>
+          <div><label for="diskon" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Diskon</label>
+          <input id="diskon" type="text" name="diskon" class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black" placeholder="Diskon" required /></div>
 
-          <div><label for="merk" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Merk</label>
-          <input id="merk" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Merk" required/></div>
-
-          <div><label for="harga" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Harga</label>
-          <input id="harga" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Harga"required /></div>
-
-          <div><label for="gambar" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Gambar</label>
-          <input id="gambar" type="file" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Gambar" required/></div>
-
-          <div><label for="stok" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Stok</label>
-          <input id="stok" type="number" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Stok" required/></div>
+          <div><label for="gambar" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Gambar</label>
+          <input id="gambar" type="file" name="gambar" class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black" placeholder="Gambar"></div>
         </div>
-    
+  
       <div class="flex justify-end">
-      <button class="btn bg-orange-400 border">Tambah</button>
+      <button type="button" class="bg-blue-400 border btn" onclick="modaltambah.close()">Batal</button>
+        <button type="submit" class="bg-orange-400 border btn">Tambah</button>
       </div>
     </form>
   </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
 </dialog>
 
-<dialog id="modaledit" class="modal">
-  <div class="modal-box w-6/12 bg-white">
-    <form action="" class=" bg-white">
-      <h3 class="font-bold text-lg">Edit Data Kendaraan</h3>
-      <hr class="border-t border-gray-500 my-4 ">
+@if ($promos)
+    @foreach ($promos as $promo)
+<dialog id="modaledit{{$promo->Id_Promo}}" class="modal">
+  <div class="w-6/12 bg-white modal-box">
+    <form method="POST" action="{{route('updatePromo', $promo->Id_Promo)}}" enctype="multipart/form-data"">
+    @csrf
+    @method('PUT')
+      <h3 class="text-lg font-bold">Edit Data Promo</h3>
+      <hr class="my-4 border-t border-gray-500 ">
+        <div class="grid grid-cols-2 gap-4">
+          
+          <div><label for="nama" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Nama Promo</label>
+          <input id="nama" type="text" name="nama_promo" value="{{$promo->Nama_Promo}}" class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black" placeholder="Nama Promo" required/></div>
 
-        <div class="grid gap-4 grid-cols-2">
-          <div><label for="nama" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Nama Kendaraan</label>
-          <input id="nama" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Nama Kendaraan" required/></div>
+          <div><label for="kode" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Kode Promo</label>
+          <input id="kode" type="text" name="kode_promo" value="{{$promo->Kode_Promo}}" class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black" placeholder="Kode Promo" required /></div>
 
-          <div><label for="jenis" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Jenis</label>
-          <input id="jenis" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Mobil/Motor" required /></div>
+          <div><label for="deskripsi" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Deskripsi</label>
+          <input id="deskripsi" type="text" name="deskripsi" value="{{$promo->Deskripsi}}" class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black" placeholder="Deskripsi" required/></div>
 
-          <div><label for="merk" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Merk</label>
-          <input id="merk" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Merk" required/></div>
+          <div><label for="diskon" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Diskon</label>
+          <input id="diskon" type="text" name="diskon" value="{{$promo->Diskon}}" class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black" placeholder="DIskon"required /></div>
 
-          <div><label for="harga" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Harga</label>
-          <input id="harga" type="text" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Harga"required /></div>
-
-          <div><label for="gambar" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Gambar</label>
-          <input id="gambar" type="file" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Gambar" required/></div>
-
-          <div><label for="stok" class="text-gray-800 text-sm font-bold leading-tight tracking-normal">Stok</label>
-          <input id="stok" type="number" class="mb-2 mt-1 text-gray-600 focus:outline-none focus:border focus:border-black font-normal w-full h-8 flex items-center pl-3 text-sm border-gray-300 rounded border" placeholder="Stok" required/></div>
+          <div><label for="gambar" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Gambar</label>
+          <input id="gambar" type="file" name="gambar" value="{{$promo->Gambar}}" class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black" placeholder="Gambar" required/></div>
         </div>
-    
       <div class="flex justify-end">
-      <button class="btn bg-green-400 border">Update</button>
+      <button type="button" class="mr-4 text-white bg-gray-500 border btn" onclick="document.getElementById('modaledit{{$promo->Id_Promo}}').close();">Batal</button>
+      <button type="submit" class="bg-green-400 border btn">Update</button>
       </div>
     </form>
   </div>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
 </dialog>
 
-<dialog id="modal hapus" class="modal">
+<dialog id="modalhapus{{$promo->Id_Promo}}" class="modal">
   <div class="modal-box">
-    <h3 class="font-bold text-lg py-4 text-center">Apakah anda yakin ingin menghapus data dengan ID</h3>
+    <h3 class="py-4 text-lg font-bold text-center">Apakah anda yakin ingin menghapus data dengan ID {{$promo->Id_Promo}}</h3>
     <div class="flex justify-center">
       <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn bg-gray-500 border mr-4 text-white">Batal</button>
-      </form>
-      <button class="btn bg-red-500 border text-white">Hapus</button>
+      <form method="POST" action="{{route('deletePromo', $promo->Id_Promo)}}">
+      @csrf
+      @method('DELETE')
+          <button type="button" class="mr-4 text-white bg-gray-500 border btn" onclick="document.getElementById('modalhapus{{$promo->Id_Promo}}').close();">Batal</button>
+          <button type="submit" class="text-white bg-red-500 border btn" value="Delete">Hapus</button>
+    </form>
       </div>
     </div>
   </div>
@@ -246,5 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 </dialog>
+@endforeach
+@endif
 @endsection
 

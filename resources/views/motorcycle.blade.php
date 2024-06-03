@@ -1,163 +1,84 @@
-@extends('layout/app')
+@extends('layout.app')
 
-@section('title')
-Motor
-@endsection
+@section('title', 'Motor')
 
 @section('navbar')
-  @include('components/navbar')
+    @include('components.navbar')
 @endsection
 
 @section('content')
-<body>
-    <div class="flex justify-start gap-4 mt-6 ml-8">
-      <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/Yamaha.svg" alt=""></button>
-      <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/Honda.svg" alt=""></button>
-    </div>
-
-<div class=" flex items-center justify-center min-h-screen grid gap-4 grid-cols-4 ml-6 mt-6 mb-6  sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 " >
-
-<div class="card w-80 bg-base-100 shadow-xl bg-white">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/ADV.png" alt="" class="rounded-xl " />
-        </figure>
-    <div class="card-body items-center text-center h-40">
-        <h2 class="card-title text-base font-bold">ADV 160</h2>
-        <h4 class="font-extrabold text-base ">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions flex justify-center mt-3">
-        <button class="btn btn-sm bg-gray-300 text-black font-extrabold px-8 mr-3 rounded-lg" onclick="modaldetail.showModal()">Detail</button>
-        <button class="btn btn-sm bg-orange-400 text-black font-extrabold px-8 rounded-lg">Rental</button>
-    </div>
-  </div>
-</div>
-
-<div class="card w-80 bg-base-100 shadow-xl  bg-white">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/ADV.png" alt="" class="rounded-xl " />
-        </figure>
-    <div class="card-body items-center text-center h-40">
-        <h2 class="card-title text-base font-bold">ADV 160</h2>
-        <h4 class="font-extrabold text-base ">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions flex justify-center mt-3">
-        <button class="btn btn-sm bg-gray-300 text-black font-extrabold px-8 mr-3 rounded-lg">Detail </button>
-        <button class="btn btn-sm bg-orange-400 text-black font-extrabold px-8 rounded-lg">Rental</button>
-    </div>
-  </div>
-</div>
-
-<div class="card w-80 bg-base-100 shadow-xl bg-white">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/ADV.png" alt="" class="rounded-xl " />
-        </figure>
-    <div class="card-body items-center text-center h-40">
-        <h2 class="card-title text-base font-bold">ADV 160</h2>
-        <h4 class="font-extrabold text-base ">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions flex justify-center mt-3">
-        <button class="btn btn-sm bg-gray-300 text-black font-extrabold px-8 mr-3 rounded-lg">Detail </button>
-        <button class="btn btn-sm bg-orange-400 text-black font-extrabold px-8 rounded-lg">Rental</button>
-    </div>
-  </div>
-</div>
-
-<div class="card w-80 bg-base-100 shadow-xl bg-white">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/ADV.png" alt="" class="rounded-xl " />
-        </figure>
-    <div class="card-body items-center text-center h-40">
-        <h2 class="card-title text-base font-bold">ADV 160</h2>
-        <h4 class="font-extrabold text-base ">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions flex justify-center mt-3">
-        <button class="btn btn-sm bg-gray-300 text-black font-extrabold px-8 mr-3 rounded-lg">Detail </button>
-        <button class="btn btn-sm bg-orange-400 text-black font-extrabold px-8 rounded-lg">Rental</button>
-    </div>
-  </div>
-</div>
-
-<div class="card w-80 bg-base-100 shadow-xl  bg-white">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/ADV.png" alt="" class="rounded-xl " />
-        </figure>
-    <div class="card-body items-center text-center h-40">
-        <h2 class="card-title text-base font-bold">ADV 160</h2>
-        <h4 class="font-extrabold text-base ">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions flex justify-center mt-3">
-        <button class="btn btn-sm bg-gray-300 text-black font-extrabold px-8 mr-3 rounded-lg">Detail </button>
-        <button class="btn btn-sm bg-orange-400 text-black font-extrabold px-8 rounded-lg">Rental</button>
-    </div>
-  </div>
-</div>
-
-<div class="card w-80 bg-base-100 shadow-xl  bg-white">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/ADV.png" alt="" class="rounded-xl " />
-        </figure>
-    <div class="card-body items-center text-center h-40">
-        <h2 class="card-title text-base font-bold">ADV 160</h2>
-        <h4 class="font-extrabold text-base ">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions flex justify-center mt-3">
-        <button class="btn btn-sm bg-gray-300 text-black font-extrabold px-8 mr-3 rounded-lg">Detail </button>
-        <button class="btn btn-sm bg-orange-400 text-black font-extrabold px-8 rounded-lg">Rental</button>
-    </div>
-  </div>
-</div>
-
-<div class="card w-80 bg-base-100 shadow-xl  bg-white">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/ADV.png" alt="" class="rounded-xl " />
-        </figure>
-    <div class="card-body items-center text-center h-40">
-        <h2 class="card-title text-base font-bold">ADV 160</h2>
-        <h4 class="font-extrabold text-base ">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions flex justify-center mt-3">
-        <button class="btn btn-sm bg-gray-300 text-black font-extrabold px-8 mr-3 rounded-lg">Detail </button>
-        <button class="btn btn-sm bg-orange-400 text-black font-extrabold px-8 rounded-lg">Rental</button>
-    </div>
-  </div>
-</div>
-
-<div class="card w-80 bg-base-100 shadow-xl  bg-white">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/ADV.png" alt="" class="rounded-xl " />
-        </figure>
-    <div class="card-body items-center text-center h-40">
-        <h2 class="card-title text-base font-bold">ADV 160</h2>
-        <h4 class="font-extrabold text-base ">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions flex justify-center mt-3">
-        <button class="btn btn-sm bg-gray-300 text-black font-extrabold px-8 mr-3 rounded-lg">Detail </button>
-        <button class="btn btn-sm bg-orange-400 text-black font-extrabold px-8 rounded-lg">Rental</button>
-    </div>
-  </div>
-</div>
-
-</div> 
-<dialog id="modaldetail" class="modal">
-  <div class="modal-box 6/12">
-    <form action=""></form>
-    <div class="bg-slate-300 flex justify-center h-48">
-        <img src="images/ADV.png"  alt="">
-    </div>
-    <p class="text-xl text-center font-extrabold mt-3">ADV 160</p>
-    <p class="text-base text-center font-extrabold mb-2">HONDA</p>
-    <p class="text-sm text-center mb-10 ">
-    Honda ADV 160 tersedia dalam pilihan mesin Petrol di Indonesia Scooter baru dari Honda hadir dalam 2 varian. 
-    Bicara soal spesifikasi mesin Honda ADV 160, ini ditenagai dua pilihan mesin Petrol berkapasitas 160 cc. ADV 
-    160 tersedia dengan transmisi CVT tergantung variannya. ADV 160 adalah Scooter 2 seater dengan panjang 1950 mm, 
-    lebar 763 mm, wheelbase 1324 mm. serta ground clearance 165 mm.
-    </p>
-    <div class="flex justify-center">
-        <p class="text-lg font-extrabold mr-32">1.000.000/day</p>
-        <p class="text-lg font-extrabold ml-32">Stok:3</p>
-    </div>
-
-  </div>
-  </form>
-  <form method="dialog" class="modal-backdrop">
-    <button>close</button>
-  </form>
-</dialog>
-</body>
+    <section class="py-8 bg-gray-100 shadow-inner">
+        <div class="container mx-auto">
+            <h1 class="mb-10 text-2xl font-bold text-center">MOTOR</h1>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <!-- Motor Card -->
+                @foreach ($motors as $motor)
+                    <div class="bg-gray-300 shadow-xl card w-84 glass bg-gradient-to-b">
+                        <figure class="px-10 pt-10"><img src="{{ asset('storage/' . $motor->Gambar) }}"
+                                class="mb-4 w-[12rem]" /></figure>
+                        <div class="items-center text-center bg-white card-body">
+                            <h2 class="text-xl font-bold card-title">{{ $motor->Nama_Kendaraan }}</h2>
+                            <p class="text-xl font-bold">{{ $motor->Harga }}</p>
+                            <div class="flex items-center justify-between">
+                                <div class="justify-start px-2 card-actions">
+                                    <button class="bg-orange-400 btn">RENTAL</button>
+                                </div>
+                                <div class="justify-end card-actions">
+                                    <button class="btn bg-slate-300"
+                                        onclick="document.getElementById('my_modal_1{{ $motor->Id_Kendaraan }}').showModal()">DETAILS</button>
+                                    <dialog id="my_modal_1{{ $motor->Id_Kendaraan }}" class="modal">
+                                        <div class="w-6/12 bg-white modal-box">
+                                            <div class="bg-white">
+                                                <h3 class="text-lg font-bold">Detail Kendaraan</h3>
+                                                <hr class="my-4 border-t border-gray-500">
+                                                <div class="flex justify-center mb-4">
+                                                    <img src="{{ asset('storage/' . $motor->Gambar) }}" class="w-64 h-40">
+                                                </div>
+                                                <table class="w-full text-left table-auto">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Nama Kendaraan:</td>
+                                                            <td class="text-sm">{{ $motor->Nama_Kendaraan }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Jenis:</td>
+                                                            <td class="text-sm">{{ $motor->Jenis_Kendaraan }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Merk:</td>
+                                                            <td class="text-sm">{{ $motor->Merk }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Harga: Rp.</td>
+                                                            <td class="text-sm">{{ $motor->Harga }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Stok:</td>
+                                                            <td class="text-sm">{{ $motor->Stok }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Deskripsi:</td>
+                                                            <td class="text-sm">{{ $motor->Deskripsi }}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="flex justify-end mt-4">
+                                                    <button type="submit" class="mr-4 text-white bg-gray-500 border btn"
+                                                        onclick="document.getElementById('my_modal_1{{ $motor->Id_Kendaraan }}').close();">Batal</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </dialog>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 @endsection
 
 @section('footer')
- @include('components/footer')
+    @include('components.footer')
 @endsection

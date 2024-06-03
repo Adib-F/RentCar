@@ -12,16 +12,29 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = "Pengguna";
+    protected $primaryKey = "Id_Pengguna";
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'Nama_Lengkap',
+        'Username',
+        'No_Handphone',
+        'NIK',
+        'Roles',
+        'Email',
+        'Password',
     ];
+
+    public function rental()
+    {
+        return $this->hasMany(Rental::class, 'Id_Pengguna');
+    }
+ 
 
     /**
      * The attributes that should be hidden for serialization.
@@ -29,7 +42,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'Password',
         'remember_token',
     ];
 
@@ -40,6 +53,27 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        
     ];
+
+    /**
+ * Get the login username to be used by the controller.
+ *
+ * @return string
+ */
+    public function username()
+    {
+        return 'Email';
+    }
+
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->Password;
+    }
+
 }

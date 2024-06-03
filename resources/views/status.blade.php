@@ -9,16 +9,20 @@
 @endsection
 
 @section('content')
-<body >
-<div class="flex justify-center grid gap-4 cols-2 ml-6 mb-6 mt-10 sm:grid-cols-1  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 ">
-<div class="card w-80 bg-base-100 shadow-xl bg-white">
+<body class="min-h-screen text-black bg-gray-100">
+<br>
+<div class="flex justify-center w-full gap-6 mt-10 mb-6">
+    <div class="shadow-xl card w-80 bg-base-100 shadow-slate-300">
         <figure class="px-10 pt-10 bg-orange-400" >
             <img src="images/ADV.png" alt="" class="rounded-xl " />
         </figure>
-    <div class="card-body items-center text-center h-54">
-    <h4 class="font-bold text-orange-400 mb-6">Sedang Menunggu Konfirmasi</h4>
-    <div class="card-actions flex justify-center mt-3">
-        <button class="btn bg-orange-400 text-black font-extrabold px-8 rounded-lg">Detail Pesanan</button>
+    <div class="items-center text-center bg-white card-body h-60">
+        <h2 class="font-extrabold card-title">{{}}</h2>
+        <br>
+        <h4 class="mb-6 font-bold text-orange-400">Sedang Menunggu Konfirmasi</h4>
+        <br>
+    <div class="card-actions">
+        <button class="px-8 font-extrabold text-black bg-orange-400 btn">Detail Pesanan</button>
     </div>
   </div>
 </div>
