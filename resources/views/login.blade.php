@@ -9,7 +9,7 @@
     <div class="container flex h-screen">
         <div class="relative w-1/2 bg-right bg-cover image-section" style="background-image: url('/images/rubicon.jpg')"></div>
         <div class="absolute top-0 right-0 mt-8 mr-8">
-            <img src="/images/logo-rentcang.png" class="h-10 w-30 "> 
+            <img src="/images/logo-rentcang.png" class="h-10 w-30 ">
         </div>
         <div class="flex items-center justify-center w-1/2 p-8">
             <div class="w-5/6 p-8 bg-gray-100 rounded-lg">
@@ -26,9 +26,10 @@
                     @error('email')
                         <small>{{ $message }}</small>
                     @enderror
-                    <div class="mb-4">
+                    <div class="relative mb-4">
                         <label for="password" class="mb-2 font-semibold text-black">Password</label>
                         <input type="password" id="password" name="password" class="w-full p-2 text-black bg-gray-300 border-gray-700 rounded-md hover:bg-gray-400 focus:outline-none focus:border-gray-700" required>
+                        <img id="toggleIcon" src="images/eyeclose.svg" class="absolute w-6 cursor-pointer top-9 right-2" onclick="togglePasswordVisibility()">
                     </div>
                     @error('password')
                         <small>{{ $message }}</small>
@@ -39,15 +40,31 @@
         </div>
     </div>
     <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.11.0/dist/sweetalert2.all.min.js "></script>
-    @if ($message = session()->get('error'))
+
+    @error('email')
+    <script>
+            Swal.fire('{{ $message }}');
+        </script>
+    @enderror
+
+    @if ($message = session()->get('success'))
         <script>
             Swal.fire('{{ $message }}');
         </script>
     @endif
-    @if ($message = session()->get('succes'))
-        <script>
-            Swal.fire('{{ $message }}');
-        </script>
-    @endif
+
+    <script>
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.src = 'images/eyeopen.svg';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.src = 'images/eyeclose.svg';
+            }
+        }
+    </script>
 </body>
 @endsection

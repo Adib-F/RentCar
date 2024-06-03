@@ -9,20 +9,20 @@
 @endsection
 
 @section('content')
-<body class="bg-gray-100 min-h-screen text-black">
+<body class="min-h-screen text-black bg-gray-100">
 <br>
-<div class="w-full flex justify-center gap-6 mb-6 mt-10">
-    <div class="card w-80 bg-base-100 shadow-xl shadow-slate-300">
+<div class="flex justify-center w-full gap-6 mt-10 mb-6">
+    <div class="shadow-xl card w-80 bg-base-100 shadow-slate-300">
         <figure class="px-10 pt-10 bg-orange-400" >
             <img src="images/cooper.png" alt="" class="rounded-xl w-[30rem] ml-5 " />
         </figure>
-    <div class="card-body items-center text-center h-60 bg-white">
-        <h2 class="card-title font-extrabold">Copper Hardtop 4 Door</h2>
+    <div class="items-center text-center bg-white card-body h-60">
+        <h2 class="font-extrabold card-title">{{}}</h2>
         <br>
-        <h4 class="font-bold text-orange-400 mb-6">Sedang Menunggu Konfirmasi</h4>
+        <h4 class="mb-6 font-bold text-orange-400">Sedang Menunggu Konfirmasi</h4>
         <br>
     <div class="card-actions">
-        <button class="btn bg-orange-400 text-black font-extrabold px-8">Detail Pesanan</button>
+        <button class="px-8 font-extrabold text-black bg-orange-400 btn">Detail Pesanan</button>
     </div>
   </div>
 </div>

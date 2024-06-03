@@ -1,239 +1,80 @@
-@extends('layout/app')
+@extends('layout.app')
 
-@section('title')
- Mobil
-@endsection
+@section('title', 'Cars')
 
 @section('navbar')
-  @include('components/navbar')
+    @include('components.navbar')
 @endsection
 
 @section('content')
-<body class="bg-white min-h-screen text-black font-poppins">
-<table>
-    <tbody>
-        <section class="py-8 bg-gray-100 shadow-inner">
-         <div class="container mx-auto">
-            <h1 class="text-2xl text-center font-bold mb-10">MOBIL</h1>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Motor Card -->
-                <div class="card w-84 glass bg-gray-300 shadow-xl bg-gradient-to-b">
-                    <figure class="px-10 pt-10"><img src="{{asset('images/cooper.png') }}" class="mb-4 w-[20rem]"/></figure>
-                    <div class="card-body bg-white items-center text-center">
-                    <h2 class="card-title font-bold text-xl">Cooper Handtop 4 DOOR</h2>
-                    <p class="font-bold text-md">Rp500.000</p>
-                        <div class="flex justify-between items-center">   
-                            <div class="card-actions justify-start px-2">
-                               <button class="btn bg-orange-400 " ><a href="{{route('rental')}}">RENTAL</a></button>
-                            </div> 
-                            <div class="card-actions justify-end">
-                                <button class="btn bg-slate-300" onclick="my_modal_1.showModal()">DETAILS</button>
-                                <dialog id="my_modal_1" class="modal">
-                                    <div class="modal-box w-11/12 max-w-5xl">
-                                        <h3 class="font-bold text-lg">Input Data</h3>
-                                        <p class="py-4">Disini ada ada kendaraan dan inputan data nanti</p>
-                                        <div class="modal-action">
-                                            <form method="dialog">
-                                                <button class="btn bg-slate-300">Close</button>
-                                            </form>
+    <section class="py-8 bg-gray-100 shadow-inner">
+        <div class="container mx-auto">
+            <h1 class="mb-10 text-2xl font-bold text-center">Mobil</h1>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                <!-- Car Card -->
+                @foreach ($cars as $car)
+                    <div class="bg-gray-300 shadow-xl card w-84 glass bg-gradient-to-b">
+                        <figure class="px-10 pt-10"><img src="{{ asset('storage/' . $car->Gambar) }}"
+                                class="mb-4 w-[12rem]" /></figure>
+                        <div class="items-center text-center bg-white card-body">
+                            <h2 class="text-xl font-bold card-title">{{ $car->Nama_Kendaraan }}</h2>
+                            <p class="text-xl font-bold">{{ $car->Harga }}</p>
+                            <div class="flex items-center justify-between">
+                                <div class="justify-start px-2 card-actions">
+                                    <button class="bg-orange-400 btn">RENTAL</button>
+                                </div>
+                                <div class="justify-end card-actions">
+                                    <button class="btn bg-slate-300"
+                                        onclick="document.getElementById('my_modal_{{ $car->Id_Kendaraan }}').showModal()">DETAILS</button>
+                                    <dialog id="my_modal_{{ $car->Id_Kendaraan }}" class="modal">
+                                        <div class="w-6/12 bg-white modal-box">
+                                            <div class="bg-white">
+                                                <h3 class="text-lg font-bold">Detail Kendaraan</h3>
+                                                <hr class="my-4 border-t border-gray-500">
+                                                <div class="flex justify-center mb-4">
+                                                    <img src="{{ asset('storage/' . $car->Gambar) }}"
+                                                        class="w-64 h-40">
+                                                </div>
+                                                <table class="w-full text-left table-auto">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Nama Kendaraan:</td>
+                                                            <td class="text-sm">{{ $car->Nama_Kendaraan }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Merk:</td>
+                                                            <td class="text-sm">{{ $car->Merk }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Harga: Rp.</td>
+                                                            <td class="text-sm">{{ $car->Harga }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Stok:</td>
+                                                            <td class="text-sm">{{ $car->Stok }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-sm font-bold">Deskripsi:</td>
+                                                            <td class="text-sm">{{ $car->Deskripsi }}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="flex justify-end mt-4">
+                                                    <button class="btn bg-slate-300" onclick="document.getElementById('my_modal_{{ $car->Id_Kendaraan }}').close()">Close</button>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </dialog>
+                                    </dialog>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="card w-84 glass bg-gray-300 shadow-xl bg-gradient-to-b">
-                    <figure class="px-10 pt-10"><img src="{{asset('images/aventgarde1.png') }}" class="mb-16"/></figure>
-                    <div class="card-body bg-white items-center text-center">
-                    <h2 class="card-title font-bold text-xl">V 250 Aventgarde</h2>
-                    <br>
-                    <p class="font-bold text-md">Rp500.000</p>
-                        <div class="flex justify-between items-center">
-                            <div class="card-actions justify-start px-2">
-                                <button class="btn bg-orange-400">RENTAL</button>
-                            </div> 
-                            <div class="card-actions justify-end">
-                                <button class="btn bg-slate-300" onclick="my_modal_2.showModal()">DETAILS</button>
-                                <dialog id="my_modal_2" class="modal">
-                                    <div class="modal-box w-11/12 max-w-5xl">
-                                        <h3 class="font-bold text-lg">Input Data</h3>
-                                        <p class="py-4">Disini ada ada kendaraan dan inputan data nanti</p>
-                                        <div class="modal-action">
-                                            <form method="dialog">
-                                                <button class="btn bg-slate-300">Close</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </dialog>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card w-84 glass bg-gray-300 shadow-xl bg-gradient-to-b">
-                    <figure class="px-10 pt-10"><img src="{{asset('images/alpart.png') }}" class="mb-24"/></figure>
-                    <div class="card-body bg-white items-center text-center">
-                    <h2 class="card-title font-bold text-xl">Alpart 2.5 HEV Type</h2>
-                    <p class="font-bold text-md">Rp500.000</p>
-                        <div class="flex justify-between items-center">
-                            <div class="card-actions justify-start px-2">
-                                <button class="btn bg-orange-400">RENTAL</button>
-                            </div> 
-                            <div class="card-actions justify-end">
-                                <button class="btn bg-slate-300" onclick="my_modal_3.showModal()">DETAILS</button>
-                                <dialog id="my_modal_3" class="modal">
-                                    <div class="modal-box w-11/12 max-w-5xl">
-                                        <h3 class="font-bold text-lg">Input Data</h3>
-                                        <p class="py-4">Disini ada ada kendaraan dan inputan data nanti</p>
-                                        <div class="modal-action">
-                                            <form method="dialog">
-                                                <button class="btn bg-slate-300">Close</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </dialog>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card w-84 glass bg-gray-300 shadow-xl bg-gradient-to-b">
-                    <figure class="px-10 pt-10"><img src="{{asset('images/mclaren1.png') }}" class="mb-16"/></figure>
-                    <div class="card-body bg-white items-center text-center">
-                    <h2 class="card-title font-bold text-xl">2024 Mclarent Artura</h2>
-                    <p class="font-bold text-md">Rp500.000</p>
-                        <div class="flex justify-between items-center">
-                            <div class="card-actions justify-start px-2">
-                                <button class="btn bg-orange-400">RENTAL</button>
-                            </div> 
-                            <div class="card-actions justify-end">
-                                <button class="btn bg-slate-300" onclick="my_modal_4.showModal()">DETAILS</button>
-                                <dialog id="my_modal_4" class="modal">
-                                    <div class="modal-box w-11/12 max-w-5xl">
-                                        <h3 class="font-bold text-lg">Input Data</h3>
-                                        <p class="py-4">Disini ada ada kendaraan dan inputan data nanti</p>
-                                        <div class="modal-action">
-                                            <form method="dialog">
-                                                <button class="btn bg-slate-300">Close</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </dialog>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card w-84 glass bg-gray-300 shadow-xl bg-gradient-to-b">
-                    <figure class="px-10 pt-10"><img src="{{asset('images/agya.png') }}" class="mb-20"/></figure>
-                    <div class="card-body bg-white items-center text-center">
-                    <h2 class="card-title font-bold text-xl">Agya</h2>
-                    <p class="font-bold text-md">Rp500.000</p>
-                        <div class="flex justify-between items-center">
-                            <div class="card-actions justify-start px-2">
-                                <button class="btn bg-orange-400">RENTAL</button>
-                            </div> 
-                            <div class="card-actions justify-end">
-                                <button class="btn bg-slate-300" onclick="my_modal_5.showModal()">DETAILS</button>
-                                <dialog id="my_modal_5" class="modal">
-                                    <div class="modal-box w-11/12 max-w-5xl">
-                                        <h3 class="font-bold text-lg">Input Data</h3>
-                                        <p class="py-4">Disini ada ada kendaraan dan inputan data nanti</p>
-                                        <div class="modal-action">
-                                            <form method="dialog">
-                                                <button class="btn bg-slate-300">Close</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </dialog>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card w-84 glass bg-gray-300 shadow-xl bg-gradient-to-b">
-                    <figure class="px-10 pt-10"><img src="{{asset('images/corolla.png') }}" class="mb-20"/></figure>
-                    <div class="card-body bg-white items-center text-center">
-                    <h2 class="card-title font-bold text-xl">Corolla</h2>
-                    <p class="font-bold text-md">Rp500.000</p>
-                        <div class="flex justify-between items-center">
-                            <div class="card-actions justify-start px-2">
-                                <button class="btn bg-orange-400">RENTAL</button>
-                            </div> 
-                            <div class="card-actions justify-end">
-                                <button class="btn bg-slate-300" onclick="my_modal_6.showModal()">DETAILS</button>
-                                <dialog id="my_modal_6" class="modal">
-                                    <div class="modal-box w-11/12 max-w-5xl">
-                                        <h3 class="font-bold text-lg">Input Data</h3>
-                                        <p class="py-4">Disini ada ada kendaraan dan inputan data nanti</p>
-                                        <div class="modal-action">
-                                            <form method="dialog">
-                                                <button class="btn bg-slate-300">Close</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </dialog>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card w-84 glass bg-gray-300 shadow-xl bg-gradient-to-b">
-                    <figure class="px-10 pt-10"><img src="{{asset('images/bmw2series.png') }}" class="mb-10"/></figure>
-                    <div class="card-body bg-white items-center text-center">
-                    <h2 class="card-title font-bold text-xl">BMW 2 Series</h2>
-                    <p class="font-bold text-md">Rp500.000</p>
-                        <div class="flex justify-between items-center">
-                            <div class="card-actions justify-start px-2">
-                                <button class="btn bg-orange-400">RENTAL</button>
-                            </div> 
-                            <div class="card-actions justify-end">
-                                <button class="btn bg-slate-300" onclick="my_modal_7.showModal()">DETAILS</button>
-                                <dialog id="my_modal_7" class="modal">
-                                    <div class="modal-box w-11/12 max-w-5xl">
-                                        <h3 class="font-bold text-lg">Input Data</h3>
-                                        <p class="py-4">Disini ada ada kendaraan dan inputan data nanti</p>
-                                        <div class="modal-action">
-                                            <form method="dialog">
-                                                <button class="btn bg-slate-300">Close</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </dialog>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card w-84 glass bg-gray-300 shadow-xl bg-gradient-to-b ">
-                    <figure class="px-10 pt-10"><img src="{{asset('images/bmwz4.png') }}" class="mb-4"/></figure>
-                    <div class="card-body bg-white items-center text-center">
-                    <h2 class="card-title font-bold text-xl">BMW Z4</h2>
-                    <p class="font-bold text-md">Rp500.000</p>
-                        <div class="flex justify-between items-center">
-                            <div class="card-actions justify-start px-2">
-                                <button class="btn bg-orange-400">RENTAL</button>
-                            </div> 
-                            <div class="card-actions justify-end">
-                                <button class="btn bg-slate-300" onclick="my_modal_8.showModal()">DETAILS</button>
-                                <dialog id="my_modal_8" class="modal">
-                                    <div class="modal-box w-11/12 max-w-5xl">
-                                        <h3 class="font-bold text-lg">Input Data</h3>
-                                        <p class="py-4">Disini ada ada kendaraan dan inputan data nanti</p>
-                                        <div class="modal-action">
-                                            <form method="dialog">
-                                                <button class="btn bg-slate-300">Close</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </dialog>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-         </div>
-        </section>
-    </tbody>
-</table>
-</body>
+        </div>
+    </section>
 @endsection
 
 @section('footer')
- @include('components/footer')
+    @include('components.footer')
 @endsection
