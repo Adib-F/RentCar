@@ -17,13 +17,15 @@
         <h1 class="text-3xl font-extrabold">DAFTAR</h1>
         <p class="text-base font-semibold mb-8">Sudah memiliki akun?<a href="login" class="text-lg text-orange-400">Masuk</a></p>
             <p class="font-poppins text-sm font-bold">Nama Lengkap </p>
-            <input type="text" class="bg-gray-300 rounded-sm mb-4 h-7 w-80 text-sm">
+            <input type="text" class="bg-gray-300 rounded-sm mb-2 h-7 w-80 text-sm">
+            <p class="font-poppins text-sm font-bold">Username </p>
+            <input type="text" class="bg-gray-300 rounded-sm mb-2 h-7 w-80 text-sm">
             <p class="font-poppins text-sm font-bold">No.Handphone </p>
-            <input type="number"  class="bg-gray-300 rounded-sm mb-4 h-7 w-80">
+            <input type="number"  class="bg-gray-300 rounded-sm mb-2 h-7 w-80">
             <p class="font-poppins text-sm font-bold">NIK </p>
-            <input type="number"  class="bg-gray-300 rounded-sm mb-4 h-7 w-80">
+            <input type="number"  class="bg-gray-300 rounded-sm mb-2 h-7 w-80">
             <p class="font-poppins text-sm font-bold">Email </p>
-            <input type="email"  class="bg-gray-300 rounded-sm mb-4 h-7 w-80">
+            <input type="email"  class="bg-gray-300 rounded-sm mb-2 h-7 w-80">
             <p class="font-poppins text-sm font-bold">Password </p>
             <div class="relative w-80 mb-4">
                 <input id="password" type="password" class="bg-gray-300 rounded-sm h-7 w-full pr-10">

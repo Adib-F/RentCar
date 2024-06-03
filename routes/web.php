@@ -22,6 +22,7 @@ use App\Http\Controllers\AdminKonfirmasiController;
 use App\Http\Controllers\AdminPromoController;
 use App\Http\Controllers\AdminRentalController;
 use App\Http\Controllers\AdminRiwayatController;
+use App\Http\Controllers\NotifikasiController;
 
 
 Route::get('/welcome', function () {
@@ -40,6 +41,7 @@ Route::get('/aboutus', [AboutusController::class, 'aboutus'])->name('aboutus');
 Route::get('/rulesandinfo', [RulesController::class, 'rulesandinfo'])->name('rulesandinfo');
 Route::get('/setting', [SettingsController::class, 'setting'])->name('setting');
 Route::get('/riwayat', [RiwayatController::class, 'riwayat'])->name('riwayat');
+Route::get('/notifikasi', [NotifikasiController::class, 'Notifikasi'])->name('Notifikasi');
 Route::get('/rental', [RentalController::class, 'rental'])->name('rental');
 Route::get('/status', [StatusController::class, 'status'])->name('status');
 Route::get('/admindashboard', [AdminDashboardController::class, 'AdminDashboard'])->name('AdminDashboard');

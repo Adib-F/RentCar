@@ -8,7 +8,7 @@
 <body>
     
 <div class="flex">
-<div class="w-1/2">
+<div class="w-1/2 h-screen">
     <img src="images/rubicon.jpg" class="w-full min-h-screen" alt="">
 </div>
 
