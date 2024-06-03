@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vehicle;
 
 class kendaraan extends Controller
 {
-    public function rental()
+    public function index($jenis)
     {
-        return view('kendaraan');
+        $vehicles = kendaraan::where('jenis', $jenis)->get();
+        return response()->json($vehicles);
     }
 }

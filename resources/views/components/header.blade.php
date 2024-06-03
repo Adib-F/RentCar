@@ -21,7 +21,6 @@
             <li>
             <a><img src="{{asset('images/kendaraan.png') }}" class="w-6 h-6">KENDARAAN</a>
              <ul>
-                <li><a>SEMUA  </a></li>
                 <li><a>MOTOR  </a></li>
                 <li><a>MOBIL</a></li>
              </ul>
@@ -47,7 +46,6 @@
             <details>
             <summary class="font-bold "><img src="{{asset('images/kendaraan.png') }}" class="w-6 h-6">KENDARAAN</summary>
              <ul class="z-40">
-                <li class="font-bold"><a href="kendaraan#slide1"><img src="{{asset('images/kendaraan.png') }}" class="w-6 h-6">SEMUA  </a></li>
                 <li class="font-bold"><a href="Motor"><img src="{{asset('images/Motorcycle.svg') }}" class="w-6 h-6 text-black-500">MOTOR  </a></li>
                 <li class="font-bold"><a href="Mobil"><img src="{{asset('images/mobil.png') }}" class="w-6 h-5 text-black-500">MOBIL  </a></li>
              </ul>
@@ -71,3 +69,24 @@
         </ul>
      </div>
     </div>
+    <select id="jenisKendaraan">
+    <option value="mobil">Mobil</option>
+    <option value="motor">Motor</option>
+</select>
+
+<div id="dataKendaraan"></div>
+
+<script>
+    document.getElementById('jenisKendaraan').addEventListener('change', function() {
+        let jenis = this.value;
+        fetch(`/vehicles/${jenis}`)
+            .then(response => response.json())
+            .then(data => {
+                let html = '';
+                data.forEach(vehicle => {
+                    html += `<p>${vehicle.nama} - ${vehicle.merk} - ${vehicle.tahun}</p>`;
+                });
+                document.getElementById('dataKendaraan').innerHTML = html;
+            });
+    });
+</script>
