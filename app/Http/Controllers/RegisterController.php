@@ -44,6 +44,6 @@ class RegisterController extends Controller
 
         User::create($inforegister);
 
-        return redirect()->route('login')->with('success', 'Pendaftaran berhasil');
+        return redirect()->route('login')->with('alert', 'Email sudah terdaftar');
     }
 }

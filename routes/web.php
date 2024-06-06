@@ -65,6 +65,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/rental', [RentalController::class, 'rental'])->name('rental');
         Route::get('/status', [StatusController::class, 'status'])->name('status');
         Route::get('/setting', [SettingsController::class, 'setting'])->name('setting');
+        Route::get('/notifikasi', [SettingsController::class, 'notifikasi'])->name('notifikasi');
         Route::put('/update_profile/{id_pengguna}', [SettingsController::class, 'update_profile'])->name('update_profile');
     });
 

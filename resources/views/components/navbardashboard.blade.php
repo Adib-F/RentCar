@@ -1,5 +1,5 @@
 <nav>
-    <div id="navbar"class="fixed bg-white shadow-md text-black navbar z-50 transition-all duration-300">
+    <div id="navbar"class="fixed bg-transparent text-black navbar z-50 transition-all duration-300">
         <div class="navbar-start ">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden ">

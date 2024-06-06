@@ -14,30 +14,30 @@ class LoginController extends Controller
     }
 
     public function login_proses(Request $request)
-{
-
-    $credentials = [
-        'email' => $request->email,
-        'password' => $request->password,
-    ];
-
-
-    if (Auth::attempt($credentials)) {
-        $request->session()->regenerate();
-
-        $user = Auth::User();
-
-        if ($user->Roles === 'Admin') {
-            return redirect()->route('AdminDashboard');
-        } else {
-            return redirect()->route('dashboard');
+    {
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+    
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            
+            $user = Auth::user();
+    
+            if ($user->Roles === 'Admin') {
+                return redirect()->route('AdminDashboard');
+            } else {
+                return redirect()->route('dashboard');
+            }
         }
+        return back()->withErrors([
+            'email' => 'Email atau password salah.',
+        ])->withInput($request->only('email'));
     }
-
-    return back()->withErrors([
-        'email' => 'Email atau password salah.',
-    ])->withInput($request->only('email'));
-}
+    
+    
+    
 
     public function logout(Request $request)
     {

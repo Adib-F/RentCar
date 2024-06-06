@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class NotifikasiController extends Controller
 {
-    public function Notifikasi()
+    public function notifikasi()
     {
-        return view('Notifikasi');
+        return view('notifikasi');
     }
 }

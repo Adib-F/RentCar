@@ -53,7 +53,7 @@
             </div>
 
             <div class="grid justify-items-end">
-                <button type="submit" class="px-6 py-1 mt-4 font-semibold text-black bg-yellow-600 rounded-md hover:bg-yellow-500 font-poppins">Submit</button>
+                <button type="submit" class="px-6 py-1 mt-4 font-semibold text-black bg-orange-400 rounded-md font-poppins">Submit</button>
             </div>
         </form>
     </div>
