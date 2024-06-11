@@ -14,10 +14,10 @@ class CreateStatusTable extends Migration
         Schema::create('Status', function (Blueprint $table) {
             $table->increments('Id_Status');
             $table->unsignedInteger('Id_Rental')->notNullable();
-            $table->enum('Status_Pengiriman', ['Kendaraan sedang dikirim','Kendaraaan sedang dalam perjalanan', 'Kendaraan telah sampai'])->default('Kendaraan sedang dikirim')->notNullable();
+            $table->enum('Status_Pengiriman', ['Pengajuan rental ditolak','Kendaraan sedang dikirim','Kendaraaan dalam perjalanan', 'Kendaraan telah sampai'])->default('Kendaraan sedang dikirim')->notNullable();
             $table->timestamps();
 
-            $table->foreign('Id_Rental')->references('Id_Rental')->on('Rental');
+            $table->foreign('Id_Rental')->references('Id_Rental')->on('Rental')->onDelete('cascade');
         });
     }
 
