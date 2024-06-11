@@ -20,24 +20,33 @@ class Rental extends Model
         'Tanggal_Sewa',
         'Tanggal_Selesai',
         'Total_Harga',
-        'BuktI_Pembayaran'
-        ];
+        'Bukti_Pembayaran',
+        'Pengajuan',
+    ];
 
-        public function user():BelongsTo
-        {
-            return $this->belongsTo(User::class, 'Id_Pengguna');
-        }
-
-        public function kendaraan():BelongsTo
-        {
-            return $this->belongsTo(Kendaraan::class, 'Id_Kendaraan');
-        }
-        public function promo():BelongsTo
-        {
-            return $this->belongsTo(Promo::class, 'Id_Promo');
-        }
-        public function Konfirmasi()
+    public function user(): BelongsTo
     {
-        return $this->hasMany(Konfirmasi::class, 'Id_Rental');
+        return $this->belongsTo(User::class, 'Id_Pengguna');
     }
+    public function kendaraan(): BelongsTo
+    {
+        return $this->belongsTo(Kendaraan::class, 'Id_Kendaraan');
+    }
+    public function promo(): BelongsTo
+    {
+        return $this->belongsTo(Promo::class, 'Id_Promo');
+    }
+    public function Konfirmasi()
+    {
+        return $this->hasMany(Konfirmasi::class, 'Id_Konfirmasi');
+    }
+    public function status()
+    {
+        return $this->hasOne(Status::class, 'Id_Status');
+    }
+    public function riwayat()
+    {
+        return $this->hasOne(Status::class, 'Id_Riwayat');
+    }
+
 }
