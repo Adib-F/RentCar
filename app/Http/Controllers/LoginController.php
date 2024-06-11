@@ -14,30 +14,29 @@ class LoginController extends Controller
     }
 
     public function login_proses(Request $request)
-{
+    {
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
 
-    $credentials = [
-        'email' => $request->email,
-        'password' => $request->password,
-    ];
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
 
+            $user = Auth::user();
 
-    if (Auth::attempt($credentials)) {
-        $request->session()->regenerate();
-
-        $user = Auth::User();
-
-        if ($user->Roles === 'Admin') {
-            return redirect()->route('AdminDashboard');
-        } else {
-            return redirect()->route('dashboard');
+            if ($user->Roles === 'Admin') {
+                return redirect()->route('AdminDashboard')->with('berhasil', 'Login berhasil!');
+            } else {
+                return redirect()->route('dashboard')->with('berhasil', 'Login berhasil!');
+            }
         }
+
+        return back()->with('gagal', 'Email atau password yang dimasukkan salah!.')->withErrors([
+            'email' => 'Email atau password salah.',
+        ])->withInput($request->only('email'));
     }
 
-    return back()->withErrors([
-        'email' => 'Email atau password salah.',
-    ])->withInput($request->only('email'));
-}
 
     public function logout(Request $request)
     {
@@ -45,6 +44,6 @@ class LoginController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
-        return redirect()->route('login')->with('succes', 'Logout Berhasil');
+        return redirect()->route('login')->with('berhasil', 'Logout Berhasil');
     }
 }

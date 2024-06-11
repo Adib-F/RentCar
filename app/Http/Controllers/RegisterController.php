@@ -39,11 +39,11 @@ class RegisterController extends Controller
             'NIK' => $request->nik,
             'Email' => $request->email,
             'Password' => Hash::make($request->password),
-            
+
         ];
 
         User::create($inforegister);
 
-        return redirect()->route('login')->with('success', 'Pendaftaran berhasil');
+        return redirect()->route('login')->with('berhasil', 'Pendaftaran berhasil');
     }
 }
