@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Kendaraan;
 use App\Models\Rental;
 use App\Models\Promo;
+use App\Models\Status;
 use App\Models\Riwayat;
 
 class AdminDashboardController extends Controller
@@ -17,9 +18,10 @@ class AdminDashboardController extends Controller
         $kendaraanCount = Kendaraan::count();
         $rentalCount = Rental::count();
         $promoCount = Promo::count();
-        // $riwayatCount = Riwayat::count();
+        $statusCount = Status::count();
+        $riwayatCount = Riwayat::count();
 
-        return view('admindashboard', compact('penggunaCount', 'kendaraanCount', 'rentalCount', 'promoCount'));
+        return view('admindashboard', compact('penggunaCount', 'kendaraanCount', 'rentalCount', 'promoCount', 'statusCount', 'riwayatCount'));
     }
 
 }

@@ -10,7 +10,7 @@ class AdminPenggunaController extends Controller
 {
     public function index()
     {
-        $penggunas = User::all();
+        $penggunas = User::query()->paginate(7);
         return view('AdminPengguna', compact('penggunas'));
     }
 
@@ -25,8 +25,8 @@ class AdminPenggunaController extends Controller
             'password' => [
                 'required',
                 'regex:/^(?=.*[A-Z])(?=.*[!@#$%^&*()\-_=+{};:,<.>ยง~])(?=.*[0-9]).{8,}$/',
-                ],
-        ],[
+            ],
+        ], [
             'email.unique' => 'Email sudah digunakan.',
             'password.regex' => 'Password yang diberikan tidak sesaui kriteria',
         ]);
@@ -42,24 +42,26 @@ class AdminPenggunaController extends Controller
 
         User::create($adduser);
 
-        return redirect()->route('AdminPengguna')->with('berhasil','Pengguna berhasil ditambakan');
+        return redirect()->route('AdminPengguna')->with('berhasil', 'Data Pengguna berhasil ditambakan');
     }
 
-    public function updatePengguna(Request $request , $id_pengguna)
+    public function updatePengguna(Request $request, $id_pengguna)
     {
 
-        $request->validate([
-            'nama_lengkap' => 'required',
-            'username' => 'required',
-            'no_handphone' => 'required|max:15',
-            'roles' => 'nullable',
-            'nik' => 'required|max:16',
-            'email' => 'required',
-            'password' => 'nullable',
-        ],[
-            'email.unique' => 'Email sudah digunakan.',
-        ],
-    );
+        $request->validate(
+            [
+                'nama_lengkap' => 'required',
+                'username' => 'required',
+                'no_handphone' => 'required|max:15',
+                'roles' => 'nullable',
+                'nik' => 'required|max:16',
+                'email' => 'required',
+                'password' => 'nullable',
+            ],
+            [
+                'email.unique' => 'Email sudah digunakan.',
+            ],
+        );
 
         $pengguna = User::findOrFail($id_pengguna);
         $pengguna->Nama_Lengkap = $request->input('nama_lengkap');
@@ -72,13 +74,15 @@ class AdminPenggunaController extends Controller
 
         $pengguna->save();
 
-        return redirect()->route('AdminPengguna');
+        return redirect()->route('AdminPengguna')->with('berhasil', ' Data Pengguna berhasil diupdate');
     }
 
-    public function deletePengguna($id_pengguna){
+    public function deletePengguna($id_pengguna)
+    {
         $pengguna = User::findOrFail($id_pengguna);
         $pengguna->delete();
 
-        return redirect()->route('AdminPengguna');
+        return redirect()->route('AdminPengguna')->with('berhasil', ' Data Pengguna berhasil dihapus');
     }
+
 }
