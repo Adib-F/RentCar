@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Riwayat;
 
 class AdminRiwayatController extends Controller
 {
-    public function  AdminRiwayat()
+    public function adminRiwayat()
     {
-        return view('AdminRiwayat');
+        $riwayats = Riwayat::with('Rental.User', 'Rental.Kendaraan')->paginate(2);
+
+        return view('AdminRiwayat', compact('riwayats'));
     }
 }

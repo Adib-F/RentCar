@@ -47,10 +47,17 @@
                     <li class="text-center text-white bg-green-500"><a href="{{ route('AdminPromo') }}">more ></a></li>
                 </ul>
             </div>
+            <div class="w-56 bg-yellow-500 h-28">
+                <ul>
+                    <li class="mt-2 ml-4 text-xl font-bold text-white">Status</li>
+                    <li class="mb-4 mr-8 text-3xl font-bold text-right text-white">{{ $statusCount }}</li>
+                    <li class="text-center text-white bg-yellow-400"><a href="{{ route('AdminStatus') }}">more ></a></li>
+                </ul>
+            </div>
             <div class="w-56 bg-fuchsia-500 h-28">
                 <ul>
                     <li class="mt-2 ml-4 text-xl font-bold text-white">Riwayat</li>
-                    <li class="mb-4 mr-8 text-3xl font-bold text-right text-white">1</li>
+                    <li class="mb-4 mr-8 text-3xl font-bold text-right text-white">{{ $riwayatCount }}</li>
                     <li class="text-center text-white bg-fuchsia-600"><a href="{{ route('AdminRiwayat') }}">more ></a></li>
                 </ul>
             </div>

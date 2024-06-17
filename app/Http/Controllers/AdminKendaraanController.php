@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Kendaraan;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class AdminKendaraanController extends Controller
 {
     public function index()
     {
-        $kendaraans = Kendaraan::all();
+        $kendaraans = Kendaraan::paginate(7);
         return view('AdminKendaraan', compact('kendaraans'));
     }
 
@@ -39,7 +40,7 @@ class AdminKendaraanController extends Controller
 
         Kendaraan::create($addkendaraan);
 
-        return redirect()->route('AdminKendaraan');
+        return redirect()->route('AdminKendaraan')->with('berhasil' , 'Data kendaraan berhasil ditambah');
     }
 
 
@@ -73,7 +74,7 @@ class AdminKendaraanController extends Controller
 
     $kendaraan->update($updateData);
 
-    return redirect()->route('AdminKendaraan')->with('succes' , 'Data kendaraan berhasil di update');
+    return redirect()->route('AdminKendaraan')->with('berhasil' , 'Data kendaraan berhasil diupdate');
 }
 
 
@@ -81,6 +82,7 @@ class AdminKendaraanController extends Controller
         $kendaraan = Kendaraan::findOrFail($id_kendaraan);
         $kendaraan->delete();
 
-        return redirect()->route('AdminKendaraan');
+        return redirect()->route('AdminKendaraan')->with('berhasil' , 'Data kendaraan berhasil dihapus');
     }
+
 }

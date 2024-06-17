@@ -17,9 +17,13 @@ class Promo extends Model
         'Diskon',
         'Gambar'
         ];
-    
+
         public function rentals()
     {
         return $this->hasMany(Rental::class);
+    }
+    public function klaimPromo()
+    {
+        return $this->hasMany(KlaimPromo::class, 'Id_Promo');
     }
 }

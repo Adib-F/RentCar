@@ -14,30 +14,37 @@
         <div class="text-left ml-[21rem] mt-4 mb-4">
             <ul>
                 <li class="mb-4 text-xl font-bold">Kendaraan</li>
-                <li><button class="text-sm bg-orange-400 rounded-full btn btn-sm" onclick="modaltambah.showModal()">+
-                        Tambahkan Data </button></li>
+                <li>
+                    <button class="text-sm bg-orange-400 rounded-full btn btn-sm" onclick="modaltambah.showModal()">+
+                        Tambahkan Data </button>
+                </li>
             </ul>
+            @if(session('berhasil'))
+            <div class="px-2 py-2 mt-2 text-green-700 bg-green-100 border border-green-400 rounded">
+                {{ session('berhasil') }}
+            </div>
+        @endif
         </div>
         <table class="table-fixed border border-slate-200 ml-[21rem] font-medium">
             <thead class="">
                 <tr>
                     <th class="p-2 text-xs border border-slate-200">No</th>
-                    <th class="p-2 text-xs border border-slate-200">Nama Kendaraan</th>
+                    <th class="p-2 text-xs border w-[12rem] border-slate-200">Nama Kendaraan</th>
                     <th class="border border-slate-200 p-2 w-[8rem] text-xs">Jenis</th>
                     <th class="border border-slate-200 p-2 w-[8rem] text-xs">Merek</th>
                     <th class="border border-slate-200 p-2 w-[8rem] text-xs">Harga</th>
-                    <th class="border border-slate-200 p-2 w-[8rem] text-xs">Stok</th>
+                    <th class="border border-slate-200 p-2 w-[5rem] text-xs">Stok</th>
                     <th class="border border-slate-200 p-2 w-[8rem] text-xs">Aksi</th>
                 </tr>
             </thead>
 
-            @foreach ($kendaraans as $nomor => $kendaraan)
+            @foreach ($kendaraans as $kendaraan)
                 <tbody class="text-center">
                     <tr>
-                        <td class="p-2 text-xs border border-slate-200">{{ $nomor + 1 }}</td>
+                        <td class="p-2 text-xs border border-slate-200">{{ ($kendaraans->currentPage() - 1) * $kendaraans->perPage() + $loop->iteration }}</td>
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Nama_Kendaraan }}</td>
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Jenis_Kendaraan }}</td>
-                        <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Merk }}</td>
+                        <td class="p-2 border border-slate-200">{{ $kendaraan->Merk }}</td>
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Harga }}</td>
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Stok }}</td>
                         <td class="flex items-center justify-center p-2 text-xs border border-slate-200">
@@ -53,16 +60,27 @@
             @endforeach
 
         </table>
-        <div class="flex justify-end mt-3 join">
-            <button class="mr-1 join-item btn btn-xs"><</button>
+        <div class="flex justify-end mt-3 mr-8 join">
+            @if ($kendaraans->onFirstPage())
+                <button class="mr-1 join-item btn btn-xs" disabled><</button>
+            @else
+                <a href="{{ $kendaraans->previousPageUrl() }}" class="mr-1 join-item btn btn-xs"><</a>
+            @endif
+
             <div class="flex rounded-none outline outline-1">
-              <button class="bg-orange-400 join-item btn btn-xs btn-active">1</button>
-              <button class="join-item btn btn-xs ">2</button>
-              <button class="join-item btn btn-xs">3</button>
-              <button class="join-item btn btn-xs">4</button>
+                @foreach ($kendaraans->getUrlRange(1, $kendaraans->lastPage()) as $page => $url)
+                    <a href="{{ $url }}" class="join-item btn btn-xs {{ $page == $kendaraans->currentPage() ? 'bg-orange-400' : '' }}">
+                        {{ $page }}
+                    </a>
+                @endforeach
             </div>
-            <button class="ml-1 join-item btn btn-xs">></button>
-          </div>
+
+            @if ($kendaraans->hasMorePages())
+                <a href="{{ $kendaraans->nextPageUrl() }}" class="ml-1 join-item btn btn-xs">></a>
+            @else
+                <button class="ml-1 join-item btn btn-xs" disabled>></button>
+            @endif
+        </div>
 
         <dialog id="modaltambah" class="modal">
             <div class="w-6/12 bg-white modal-box">
@@ -227,12 +245,19 @@
                                 </div>
 
                                 <div>
-                                    <label for="jenis" class="text-sm font-bold leading-tight tracking-normal text-gray-800">Jenis Kendaraan</label>
+                                    <label for="jenis"
+                                        class="text-sm font-bold leading-tight tracking-normal text-gray-800">Jenis
+                                        Kendaraan</label>
                                     <select id="jenis" name="jenis_kendaraan"
                                         class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm text-gray-600 bg-white border border-gray-300 rounded font-norma focus:outline-none focus:border focus:border-black">
-                                        <option value="{{ $kendaraan->Jenis_Kendaraan }}" disabled selected hidden>{{ $kendaraan->Jenis_Kendaraan }}</option>
-                                        <option value="Mobil" {{ old('jenis_kendaraan', $kendaraan->Jenis_Kendaraan) == 'Mobil' ? 'selected' : '' }}>Mobil</option>
-                                        <option value="Motor" {{ old('jenis_kendaraan', $kendaraan->Jenis_Kendaraan) == 'Motor' ? 'selected' : '' }}>Motor</option>
+                                        <option value="{{ $kendaraan->Jenis_Kendaraan }}" disabled selected hidden>
+                                            {{ $kendaraan->Jenis_Kendaraan }}</option>
+                                        <option value="Mobil"
+                                            {{ old('jenis_kendaraan', $kendaraan->Jenis_Kendaraan) == 'Mobil' ? 'selected' : '' }}>
+                                            Mobil</option>
+                                        <option value="Motor"
+                                            {{ old('jenis_kendaraan', $kendaraan->Jenis_Kendaraan) == 'Motor' ? 'selected' : '' }}>
+                                            Motor</option>
                                     </select>
                                     @error('jenis_kendaraan')
                                         <span class="text-xs text-red-500">{{ $message }}</span>
@@ -292,7 +317,6 @@
                                         placeholder="Deskripsi">{{ old('deskripsi', $kendaraan->Deskripsi) }}</textarea>
                                 </div>
 
-
                             </div>
                             <div class="flex justify-end">
                                 <button type="button" class="mr-4 text-white bg-gray-500 border btn"
@@ -324,5 +348,17 @@
     </body>
     @endforeach
     @endif
+    <script>
+        document.getElementById('harga').addEventListener('input', function(e) {
+            let value = e.target.value;
+            value = value.replace(/[^0-9]/g, '');
+            let formattedValue = new Intl.NumberFormat('id-ID', {
+                style: 'currency',
+                currency: 'IDR',
+                minimumFractionDigits: 0
+            }).format(value);
+            e.target.value = formattedValue.replace(',00', '');
+        });
+    </script>
 
 @endsection

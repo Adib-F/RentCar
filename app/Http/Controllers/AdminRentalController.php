@@ -2,45 +2,41 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Rental;
+use App\Models\Status;
+use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Auth;
 
 class AdminRentalController extends Controller
 {
     public function index()
     {
-        $rentals = Rental::with('User', 'Kendaraan', 'Promo')->get();
+        $rentals = Rental::with('User', 'Kendaraan', 'Promo')->paginate(7);
         return view('AdminRental', compact('rentals'));
     }
 
-    public function updateRental(Request $request, $id_rental)
-{
-    $request->validate([
-        'alamat'            => 'required',
-        'sim'               => 'image|file|mimes:jpg,png,jpg',
-        'tanggal_sewa'      => 'required',
-        'tanggal_selesai'   => 'required',
-        'bukti_pembayaran'  => 'image|file|mimes:jpeg,png,jpg',
-    ]);
+    public function updateRentalStatus(Request $request, $Id_Rental)
+    {
+        $rental = Rental::find($Id_Rental);
 
-    $promo = Rental::findOrFail($id_rental);
+        $rental->Pengajuan = $request->status;
+        $rental->save();
 
-    $updateData = [
-        'Alamat'            => $request->alamat,
-        'SIM'               => $request->file('sim')->store('image/gambarSIM', 'public'),
-        'Tanggal_Sewa'      => $request->tanggal_sewa,
-        'Tanggal_Selesai'   => $request->tanggal_selesai,
-        'Bukti_Pembayaran'  => $request->file('bukti_pembayaran')->store('image/gambarBukti', 'public'),
-    ];
-    $promo->update($updateData);
+        if (in_array($request->status, ['Disetujui', 'Ditolak'])) {
+            $status = new Status();
+            $status->Id_Rental = $Id_Rental;
 
-    return redirect()->route('AdminPromo');
+            if ($request->status === 'Disetujui') {
+                $status->Status_Pengiriman = 'Kendaraan sedang dikirim';
+            } else {
+                $status->Status_Pengiriman = 'Pengajuan rental ditolak';
+            }
+
+            $status->save();
+        }
+
+        return redirect()->route('AdminRental')->with('berhasil', 'Status rental berhasil diperbarui');
     }
 
-    public function deleteRental($id_rental){
-        $kendaraan = Rental::findOrFail($id_rental);
-        $kendaraan->delete();
-
-        return redirect()->route('AdminRental');
-    }
 }

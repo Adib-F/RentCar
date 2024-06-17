@@ -50,24 +50,32 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('/adminpromo', [AdminPromoController::class, 'index'])->name('AdminPromo');
         Route::post('/addPromo', [AdminPromoController::class, 'addPromo'])->name('addPromo');
-        Route::post('/klaimPromo', [AdminPromoController::class, 'klaimPromo'])->name('klaimPromo');
         Route::put('/updatePromo/{id_promo}', [AdminPromoController::class, 'updatePromo'])->name('updatePromo');
         Route::delete('/deletePromo/{id_promo}', [AdminPromoController::class, 'deletePromo'])->name('deletePromo');
 
         Route::get('/adminrental', [AdminRentalController::class, 'index'])->name('AdminRental');
-        Route::put('/updateRental/{id_rental}', [AdminRentalController::class, 'updateRental'])->name('updateRental');
-        Route::delete('/deleteRental/{id_rental}', [AdminRentalController::class, 'deleteRental'])->name('deleteRental');
+        Route::put('/updateRentalStatus/{Id_Rental}', [AdminRentalController::class, 'updateRentalStatus'])->name('updateRentalStatus');
 
         Route::get('/adminStatus', [AdminStatusController::class, 'AdminStatus'])->name('AdminStatus');
+        Route::put('/updatePengiriman/{id_status}', [AdminStatusController::class, 'updatePengiriman'])->name('updatePengiriman');
+
         Route::get('/adminRiwayat', [AdminRiwayatController::class, 'AdminRiwayat'])->name('AdminRiwayat');
+        Route::get('/cetakLaporanKeuangan', [AdminRiwayatController::class, 'cetakLaporanRiwayat'])->name('cetakLaporanRiwayat');
     });
     Route::middleware('role:Pengguna')->group(function(){
-        Route::get('/riwayat', [RiwayatController::class, 'riwayat'])->name('riwayat');
         Route::get('/rental', [RentalController::class, 'rental'])->name('rental');
-        Route::get('/status', [StatusController::class, 'status'])->name('status');
+        Route::get('/rental/{kendaraanId}', [RentalController::class, 'showRentalForm'])->name('showRentalForm');
+        Route::post('/addRental/{kendaraanId}', [RentalController::class, 'addRental'])->name('addRental');
+
+        Route::get('/status', [StatusController::class, 'index'])->name('status');
+
+        Route::get('/riwayat', [RiwayatController::class, 'riwayat'])->name('riwayat');
+        Route::get('/cetakResi/{id_riwayat}', [RiwayatController::class, 'cetakResi'])->name('cetakResi');
+
         Route::get('/setting', [SettingsController::class, 'setting'])->name('setting');
         Route::get('/notifikasi', [NotifikasiController::class, 'index'])->name('Notifikasi');
         Route::put('/update_profile/{id_pengguna}', [SettingsController::class, 'update_profile'])->name('update_profile');
+        Route::post('/klaimPromo/{id}', [AdminPromoController::class, 'KlaimPromo'])->name('klaimPromo');
     });
 
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
