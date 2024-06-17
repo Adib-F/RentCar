@@ -17,8 +17,5 @@ class Konfirmasi extends Model
         'Pengajuan',
     ];
 
-    public function rental():BelongsTo
-        {
-            return $this->belongsTo(Rental::class, 'Id_Rental');
-        }
+
 }

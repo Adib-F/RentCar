@@ -20,6 +20,7 @@ use App\Http\Controllers\AdminPromoController;
 use App\Http\Controllers\AdminRentalController;
 use App\Http\Controllers\AdminRiwayatController;
 use App\Http\Controllers\NotifikasiController;
+use App\Http\Controllers\ResiController;
 
 
 // route tanpa login
@@ -28,7 +29,7 @@ Route::get('/cars', [CarsController::class, 'index'])->name('cars');
 Route::get('/motorcycle', [MotorcycleController::class, 'index'])->name('motorcycle');
 Route::get('/about-us', [AboutusController::class, 'aboutus'])->name('aboutus');
 Route::get('/rulesandinfo', [RulesController::class, 'rulesandinfo'])->name('rulesandinfo');
-
+Route::get('/resi', [ResiController::class, 'resi'])->name('resi');
 
 
 // Route untuk Admin
@@ -65,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/rental', [RentalController::class, 'rental'])->name('rental');
         Route::get('/status', [StatusController::class, 'status'])->name('status');
         Route::get('/setting', [SettingsController::class, 'setting'])->name('setting');
-        Route::get('/notifikasi', [SettingsController::class, 'notifikasi'])->name('notifikasi');
+        Route::get('/notifikasi', [NotifikasiController::class, 'index'])->name('Notifikasi');
         Route::put('/update_profile/{id_pengguna}', [SettingsController::class, 'update_profile'])->name('update_profile');
     });
 
