@@ -125,9 +125,9 @@
 </div>
   </div>
   <br><br><br>
-  <div class="w-full h-12">
-      <p class="text-sky-950 text-4xl font-extrabold w-full text-center ">
-        <a href="">PROMO</a>
+        <div class="w-screen h-12">
+            <p class="w-full text-4xl font-extrabold text-center text-sky-950">
+                PROMO
       </p>
     </div>
     <br><br>
