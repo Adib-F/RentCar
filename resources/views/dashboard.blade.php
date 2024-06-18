@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <body class="font-poppins">
+<body class="font-poppins">
 <div class="navbar bg-transparent fixed top-0 z-50 " id="navbar">
     <div class="navbar-start">
       <div class="dropdown">
@@ -59,44 +59,44 @@
   <p class="text-6xl font-bold leading-normal ">
         <a class="text-white px-8">SELAMAT DATANG DI</a><br> 
         <a class="text-orange-400 text-center px-44">RENTCANG</a>
-            </p>
+   </p>
    <p class="text-white px-44">
       <a class="font-bold text-center">Jelajahi Perjalanan Anda dengan Nyaman</a>
-            </p>
-            <br>
+    </p>
+    <br>
     <p class="text-white w-full ">
       <a class="font-light text-center">Kami menyediakan berbagai pilihan kendaraan berkualitas, mulai dari mobil keluarga </a>
       <a class="font-light text-center px-12">hingga kendaraan premium. Nikmati layanan terpercaya dan kemudahan</a>
      <a class="font-light text-center">pemesanan melalui website kami.RENTCANG, kenyamanan dalam setiap perjalanan!</a>
-            </p>
-        </div>
-        <br><br>
+    </p>
+    </div>
+    <br><br>
     <div class="w-full h-12">
       <p class="text-orange-400 text-4xl font-extrabold w-full text-center">
         <a href="">PALING POPULER</a>
-            </p>
-        </div>
-        <br>
+      </p>
+    </div>
+    <br>
     <div class="flex justify-center w-full gap-2 w-full ">
       <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/MiniCooper.svg" alt=""></button>
       <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/Mercedesbenz.svg" alt=""></button>
       <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/BMW.svg" alt=""></button>
       <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/Mclaren.svg" alt=""></button>
-        </div>
-        <br><br>
+    </div>
+    <br><br>
 <div class="w-full flex justify-center gap-6 ">
     <div class="card w-80 bg-base-100 shadow-xl shadow-slate-300">
         <figure class="px-10 pt-10 bg-slate-300" >
             <img src="images/copper1.png" alt="" class="rounded-xl " />
-                    </figure>
+        </figure>
     <div class="card-body items-center text-center">
         <h2 class="card-title font-extrabold">Copper Hardtop 4 Door</h2>
         <h4 class="font-extrabold">Rp.1.000.000 / Hari</h4>
-                        <div class="card-actions">
+    <div class="card-actions">
         <button class="btn bg-orange-400 text-black font-extrabold px-8">Pesan Sekarang</button>
-                        </div>
-                    </div>
-                </div>
+    </div>
+  </div>
+</div>
 
 <div class="card w-80 bg-base-100 shadow-xl shadow-slate-300 ">
         <figure class="px-10 pt-10 bg-slate-300" >
@@ -123,19 +123,19 @@
     </div>
   </div>
 </div>
-        </div>
-        <br><br><br>
+  </div>
+  <br><br><br>
   <div class="w-full h-12">
       <p class="text-sky-950 text-4xl font-extrabold w-full text-center ">
         <a href="">PROMO</a>
-            </p>
-        </div>
-        <br><br>
+      </p>
+    </div>
+    <br><br>
     <div class="flex justify-center w-full gap-24 w-full ">
       <a href=""><img src="images/promo.png"class="w-72 h-60" alt=""></a>
       <a href=""><img src="images/promo.png"class="w-72 h-60" alt=""></a>
       <a href=""><img src="images/promo.png"class="w-72 h-60" alt=""></a>
-                </div>
+    </div>
 
 
     <br>
@@ -149,7 +149,7 @@
     <a href="https://www.facebook.com/"><img src="images/facebook.svg" alt=""></a>
         <a href="https://www.instagram.com/"><img src="images/instagram.svg" alt=""></a>
         <a href="https://discord.gg/b5YDtCn6"><img src="images/discord.svg" alt=""></a>
-        </div>
+    </div>
     <a href="aboutus" class="px-12"><h1 class="text-black">Tentang Kami</h1></a>
     <a href="rulesandinfo"><h1 class="text-black px-2">Peraturan dan Informasi</h1></a>
   </nav>
