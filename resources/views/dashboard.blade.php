@@ -1,14 +1,27 @@
-@extends('layout/app')
+@extends('layout.app')
 
 @section('title')
     Beranda
 @endsection
 
 @section('navbar')
-    @include('components/navbar')
+    @include('components.navbar')
 @endsection
 
 @section('content')
+    @if (session('success'))
+        <div id="alert-success"
+            class="fixed z-50 px-4 py-2 text-white transform -translate-x-1/2 bg-green-500 rounded shadow-lg top-4 left-1/2">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if (session('error'))
+        <div id="alert-error"
+            class="fixed z-50 px-4 py-2 text-white transform -translate-x-1/2 bg-red-500 rounded shadow-lg top-4 left-1/2">
+            {{ session('error') }}
+        </div>
+    @endif
 
     <body class="font-poppins">
         <div class="landing bg-cover text-center bg-no-repeat w-screen h-[120vh] py-20" id="landing"
@@ -50,18 +63,33 @@
                 <div class="bg-white shadow-xl card w-60 bg-base-100 shadow-slate-300">
                     <figure class="px-5 pt-5 bg-slate-300">
                         <img src="{{ asset('storage/' . $kendaraan->Gambar) }}" alt="{{ $kendaraan->Nama_Kendaraan }}"
-                            class="object-cover h-40 rounded-xl" />
+                            class="mb-4 w-[12rem] h-[8rem]" />
                     </figure>
                     <div class="items-center text-center card-body">
-                        <h2 class="text-sm font-extrabold card-title">{{ $kendaraan->Nama_Kendaraan }}</h2>
-                        <h4 class="text-sm font-extrabold">{{ $kendaraan->Harga }}</h4>
+                        <div class="absolute right-4 top-[10.6rem]">
+                            <span class="font-bold">
+                                {{ $kendaraan->Stok > 0 ? 'Tersedia' : 'Tidak Tersedia' }}
+                            </span>
+                        </div>
+                        <h2 class="text-lg font-extrabold card-title">{{ $kendaraan->Nama_Kendaraan }}</h2>
+                        <h4 class="text-lg font-extrabold">Rp. {{ number_format($kendaraan->Harga) }}</h4>
                         <div class="card-actions">
-                            <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn">Pesan
-                                Sekarang</button>
+                            @if ($kendaraan->Stok > 0)
+                                <a href="{{ route('showRentalForm', $kendaraan->Id_Kendaraan) }}">
+                                    <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn">
+                                        Pesan Sekarang
+                                    </button>
+                                </a>
+                            @else
+                                    <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn" style="pointer-events: none;" disabled>
+                                        Pesan Sekarang
+                                    </button>
+                            @endif
                         </div>
                     </div>
                 </div>
             @endforeach
+
         </div>
         <br><br><br>
         <div class="w-screen h-12">
@@ -72,30 +100,100 @@
         <br><br>
         <div class="flex flex-wrap justify-center gap-6">
             @foreach ($promos as $promo)
-                <div>
-                    <a href="#modalKlaim{{ $promo->Id_Promo }}" class="promo-button">
-                        <img src="{{ asset('storage/' . $promo->Gambar) }}" alt="Promo" class="mb-5 h-52">
-                    </a>
-                    <dialog id="modalKlaim{{ $promo->Id_Promo }}" class="modal">
-                        <div class="modal-box">
-                            <h3 class="py-4 text-lg font-bold text-center">Apakah Anda yakin ingin mengklaim promo ini?</h3>
-                            <div class="flex justify-center">
-                                <div class="modal-action">
-                                    <form method="POST" action="{{ route('klaimPromo', $promo->Id_Promo) }}">
-                                        @csrf
-                                        <button type="button" class="mr-4 text-white bg-gray-500 border btn"
-                                            onclick="document.getElementById('modalKlaim{{ $promo->Id_Promo }}').close();">Batal</button>
-                                        <button type="submit" class="text-white bg-green-500 border btn">Klaim</button>
-                                    </form>
+                @if (Auth::check())
+                    @php
+                        $claimed = $promo
+                            ->klaimPromo()
+                            ->where('Id_Pengguna', Auth::user()->Id_Pengguna)
+                            ->exists();
+                    @endphp
+                    @if (!$claimed)
+                        <div>
+                            <a href="#modalKlaim{{ $promo->Id_Promo }}" class="promo-button">
+                                <img src="{{ asset('storage/' . $promo->Gambar) }}" alt="Promo" class="mb-5 h-52">
+                            </a>
+                            <dialog id="modalKlaim{{ $promo->Id_Promo }}" class="modal">
+                                <div class="modal-box">
+                                    <h3 class="py-4 text-lg font-bold text-center">Apakah Anda yakin ingin mengklaim promo
+                                        ini?
+                                    </h3>
+                                    <div class="flex justify-center">
+                                        <div class="modal-action">
+                                            <form method="POST" action="{{ route('klaimPromo', $promo->Id_Promo) }}">
+                                                @csrf
+                                                <button type="button" class="mr-4 text-white bg-gray-500 border btn"
+                                                    onclick="document.getElementById('modalKlaim{{ $promo->Id_Promo }}').close();">Batal</button>
+                                                <button type="submit"
+                                                    class="text-white bg-green-500 border btn">Klaim</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </dialog>
+                        </div>
+                    @endif
+                @else
+                    <div>
+                        <a href="#loginPrompt" class="promo-button">
+                            <img src="{{ asset('storage/' . $promo->Gambar) }}" alt="Promo" class="mb-5 h-52">
+                        </a>
+                        <dialog id="loginPrompt" class="modal">
+                            <div class="modal-box">
+                                <h3 class="py-4 text-lg font-bold text-center">Anda harus login untuk mengklaim promo ini.
+                                </h3>
+                                <div class="flex justify-center">
+                                    <button type="button" class="mr-4 text-white bg-gray-500 border btn"
+                                        onclick="document.getElementById('loginPrompt').close();">Tutup</button>
+                                    <a href="{{ route('login') }}" class="text-white bg-orange-500 border btn">Login</a>
                                 </div>
                             </div>
-                        </div>
-                    </dialog>
-                </div>
+                        </dialog>
+                    </div>
+                @endif
             @endforeach
         </div>
+        <div id="customAlert">
+            @if (session('berhasil'))
+                <div
+                    class="fixed px-4 py-2 text-white transform -translate-x-1/2 bg-red-500 rounded shadow-lg top-4 left-1/2">
+                    {{ session('berhasil') }}</div>
+            @endif
+        </div>
+
+        <script>
+            document.querySelectorAll('.promo-button').forEach(button => {
+                button.addEventListener('click', event => {
+                    event.preventDefault();
+                    const modalId = event.currentTarget.getAttribute('href').substring(1);
+                    document.getElementById(modalId).showModal();
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const alertBox = document.querySelector('#customAlert > div');
+                if (alertBox) {
+                    setTimeout(() => {
+                        alertBox.style.display = 'none';
+                    }, 2000);
+                }
+            });
+
+            document.querySelectorAll('.mr-4').forEach(button => {
+                button.addEventListener('click', event => {
+                    const modal = event.currentTarget.closest('.modal');
+                    modal.close();
+                });
+            });
+
+            setTimeout(() => {
+                const alertSuccess = document.getElementById('alert-success');
+                if (alertSuccess) {
+                    alertSuccess.style.display = 'none';
+                }
+            }, 2000);
+        </script>
     @endsection
 
     @section('footer')
-        @include('components/footer')
+        @include('components.footer')
     @endsection
