@@ -1,46 +1,63 @@
-@extends('layout/app')
+@extends('layout.app')
 
 @section('title')
- Register
+    Register
 @endsection
 
 @section('content')
-<body>
-    
-<div class="flex">
-<div class="w-1/2 bg-white">
-    <div class="justify-start">
-    <img src="images/logo-rentcang.png" class="ml-8 w-40" alt="">
-    </div>
-    <div class=" grid justify-center mt-8">
-        <form action="">
-        <h1 class="text-3xl font-extrabold">DAFTAR</h1>
-        <p class="text-base font-semibold mb-8">Sudah memiliki akun?<a href="login" class="text-lg text-orange-400">Masuk</a></p>
-            <p class="font-poppins text-sm font-bold">Nama Lengkap </p>
-            <input type="text" class="bg-gray-300 rounded-sm mb-4 h-7 w-80 text-sm">
-            <p class="font-poppins text-sm font-bold">No.Handphone </p>
-            <input type="number"  class="bg-gray-300 rounded-sm mb-4 h-7 w-80">
-            <p class="font-poppins text-sm font-bold">NIK </p>
-            <input type="number"  class="bg-gray-300 rounded-sm mb-4 h-7 w-80">
-            <p class="font-poppins text-sm font-bold">Email </p>
-            <input type="email"  class="bg-gray-300 rounded-sm mb-4 h-7 w-80">
-            <p class="font-poppins text-sm font-bold">Password </p>
-            <div class="relative w-80 mb-4">
-                <input id="password" type="password" class="bg-gray-300 rounded-sm h-7 w-full pr-10">
-                <img id="toggleIcon" src="images/eyeclose.svg" class="w-6 absolute top-1/2 right-2 transform -translate-y-1/2 cursor-pointer" onclick="togglePasswordVisibility()">
+    <div class="flex">
+        <div class="w-1/2 bg-white">
+            <div class="justify-start">
+                <img src="images/logo-rentcang.png" class="w-40 ml-8" alt="">
             </div>
-            <div class="grid justify-start">
-            <button class="bg-orange-400 rounded-md text-xs w-20 h-10 font-extrabold">Daftar</button>
-            </div>
-        </form>
-    </div>
-</div>
+            <div class="grid justify-center mt-8 ">
+                <form action="{{ route('register_proses') }}" method="POST" id="registerForm">
+                    @csrf
+                    <h1 class="text-3xl font-extrabold">DAFTAR</h1>
+                    <p class="mb-8 text-base font-semibold">Sudah memiliki akun?<a href="{{ route('login') }}"
+                            class="text-lg text-orange-400"> Masuk</a></p>
 
-<div class="w-1/2">
-    <img src="images/rubicon.jpg" class="w-full min-h-screen" alt="">
-</div>
-</div>
-<script>
+                    <p class="text-sm font-bold font-poppins">Nama Lengkap </p>
+                    <input type="text" name="nama_lengkap" class="mb-2 text-sm bg-gray-300 rounded-sm h-7 w-80" value="{{ old('nama_lengkap') }}">
+
+                    <p class="text-sm font-bold font-poppins">Username </p>
+                    <input type="text" name="username" class="mb-2 text-sm bg-gray-300 rounded-sm h-7 w-80" value="{{ old('username') }}">
+
+                    <p class="text-sm font-bold font-poppins">No.Handphone </p>
+                    <input type="text" name="no_handphone" class="mb-2 bg-gray-300 rounded-sm h-7 w-80" value="{{ old('no_handphone') }}">
+
+                    <p class="text-sm font-bold font-poppins">NIK </p>
+                    <input type="text" name="nik" class="mb-2 bg-gray-300 rounded-sm h-7 w-80" value="{{ old('nik') }}">
+
+                    <p class="text-sm font-bold font-poppins">Email </p>
+                    <input type="email" name="email" class="mb-2 bg-gray-300 rounded-sm h-7 w-80" value="{{ old('email') }}">
+
+                    <p class="text-sm font-bold font-poppins">Password </p>
+                    <div class="relative mb-4 w-80">
+                        <input id="password" type="password" name="password"
+                            class="w-full pr-10 bg-gray-300 rounded-sm h-7">
+                        <img id="toggleIcon" src="images/eyeclose.svg"
+                            class="absolute w-6 transform -translate-y-1/2 cursor-pointer top-1/2 right-2"
+                            onclick="togglePasswordVisibility()">
+                    </div>
+                    <div class="grid justify-start">
+                        <button type="submit" class="w-20 h-10 text-xs font-extrabold bg-orange-400 rounded-md">Daftar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="w-1/2">
+            <img src="images/rubicon.jpg" class="w-full min-h-screen" alt="">
+        </div>
+    </div>
+    <div id="customAlert">
+        @if (session('berhasil'))
+            <div class="fixed px-4 py-2 text-white transform -translate-x-1/2 bg-green-500 rounded shadow-lg top-4 left-1/2">{{ session('berhasil') }}</div>
+        @elseif(session('gagal'))
+            <div class="fixed px-4 py-2 text-white transform -translate-x-1/2 bg-red-500 rounded shadow-lg top-4 left-1/2">{{ session('gagal') }}</div>
+        @endif
+    </div>
+    <script>
         function togglePasswordVisibility() {
             const passwordInput = document.getElementById('password');
             const toggleIcon = document.getElementById('toggleIcon');
@@ -52,6 +69,14 @@
                 toggleIcon.src = 'images/eyeclose.svg';
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const alertBox = document.querySelector('#customAlert > div');
+            if (alertBox) {
+                setTimeout(() => {
+                    alertBox.style.display = 'none';
+                }, 5000);
+            }
+        });
     </script>
-</body>
 @endsection

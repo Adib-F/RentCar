@@ -1,100 +1,66 @@
 @extends('layout/app')
 
 @section('title')
- Dashboard
+    Dashboard
 @endsection
 
 @section('navbar')
-  @include('components/navbaradmin')
+    @include('components/navbaradmin')
 @endsection
 
 @section('content')
-<body class="font-poppins">
-<div class="text-left pl-96 mt-8 mb-16">
-    <ul>
-      <li class="text-xl font-semibold">Hi Mirza!</li>
-      <li class="text-3xl font-bold ">Dashboard</li>
-    </ul>
-</div>
 
-<div class="grid gap-x-56 gap-y-8 grid-cols-3 mx-96 max-w-4xl ">
-    <div class="bg-orange-200 h-28 w-56 mr-4">
-      <ul>
-          <li class="text-white font-bold text-xl mt-2 ml-4">Pengguna</li>
-          <li class="text-right text-white font-bold text-3xl mr-8  mb-4">5</li> 
-          <li class="bg-orange-400 text-center text-white"><a href="">more ></a></li>
-       </ul>
-    </div>
-    <div class="bg-red-300 h-28 w-56">
-      <ul>
-          <li class="text-white font-bold text-xl mt-2 ml-4">Kendaraan</li>
-          <li class="text-right text-white font-bold text-3xl mr-8  mb-4">10</li> 
-          <li class="bg-red-400 text-center text-white"><a href="">more ></a></li>
-       </ul>
-    </div>
-    <div class="bg-cyan-500 h-28 w-56">
-      <ul>
-          <li class="text-white font-bold text-xl mt-2 ml-4">Rental</li>
-          <li class="text-right text-white font-bold text-3xl mr-8  mb-4">10</li> 
-          <li class="bg-cyan-700 text-center text-white"><a href="">more ></a></li>
-       </ul>
-    </div>
-    <div class="bg-green-400 h-28 w-56">
-        <ul>
-          <li class="text-white font-bold text-xl mt-2 ml-4">Promo</li>
-          <li class="text-right text-white font-bold text-3xl mr-8  mb-4">10</li> 
-          <li class="bg-green-500 text-center text-white"><a href="">more ></a></li>
-       </ul>
-    </div>
-    <div class="bg-fuchsia-500 h-28 w-56">
-    <ul>
-          <li class="text-white font-bold text-xl mt-2 ml-4">Riwayat</li>
-          <li class="text-right text-white font-bold text-3xl mr-8  mb-4">10</li> 
-          <li class="bg-fuchsia-600 text-center text-white"><a href="">more ></a></li>
-       </ul>
-    </div>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const openSidebarButton = document.getElementById('open-sidebar');
-  const sidebarToggle = document.getElementById('sidebar-toggle');
-  const sidebarIcon = document.getElementById('toggle-icon');
-  const sidebar = document.getElementById('sidebar');
-  const sidebarCheckbox = document.getElementById('my-sidebar');
+    <body class="font-poppins">
+        <div class="mt-8 mb-16 text-left pl-96">
+            <ul>
+                <li class="text-xl font-semibold">Hi, {{auth()->user()->Username}}</li>
+                <li class="text-3xl font-bold">Dashboard</li>
+            </ul>
+        </div>
 
-  // Function to open the sidebar
-  const openSidebar = () => {
-    sidebar.classList.remove('-translate-x-full');
-    sidebar.classList.add('translate-x-0');
-    sidebarIcon.classList.add('rotate-180');
-    sidebarCheckbox.checked = true;
-  };
-
-  // Function to close the sidebar
-  const closeSidebar = () => {
-    sidebar.classList.remove('translate-x-0');
-    sidebar.classList.add('-translate-x-full');
-    sidebarIcon.classList.remove('rotate-180');
-    sidebarCheckbox.checked = false;
-  };
-
-  // Event listener for the new open sidebar button
-  openSidebarButton.addEventListener('click', openSidebar);
-
-  // Event listener for the sidebar toggle button
-  sidebarToggle.addEventListener('click', () => {
-    if (sidebarCheckbox.checked) {
-      closeSidebar();
-    } else {
-      openSidebar();
-    }
-  });
-
-  // Initially open the sidebar
-  openSidebar();
-});
-
-
-</script>
-</body>
+        <div class="grid max-w-4xl grid-cols-3 gap-x-56 gap-y-8 mx-96 ">
+            <div class="w-56 mr-4 bg-orange-200 h-28">
+                <ul>
+                    <li class="mt-2 ml-4 text-xl font-bold text-white">Pengguna</li>
+                    <li class="mb-4 mr-8 text-3xl font-bold text-right text-white">{{ $penggunaCount }}</li>
+                    <li class="text-center text-white bg-orange-400"><a href="{{ route('AdminPengguna') }}">more ></a></li>
+                </ul>
+            </div>
+            <div class="w-56 bg-red-300 h-28">
+                <ul>
+                    <li class="mt-2 ml-4 text-xl font-bold text-white">Kendaraan</li>
+                    <li class="mb-4 mr-8 text-3xl font-bold text-right text-white">{{ $kendaraanCount }}</li>
+                    <li class="text-center text-white bg-red-400"><a href="{{ route('AdminKendaraan') }}">more ></a></li>
+                </ul>
+            </div>
+            <div class="w-56 bg-cyan-500 h-28">
+                <ul>
+                    <li class="mt-2 ml-4 text-xl font-bold text-white">Rental</li>
+                    <li class="mb-4 mr-8 text-3xl font-bold text-right text-white">{{ $rentalCount }}</li>
+                    <li class="text-center text-white bg-cyan-700"><a href="{{ route('AdminRental') }}">more ></a></li>
+                </ul>
+            </div>
+            <div class="w-56 bg-green-400 h-28">
+                <ul>
+                    <li class="mt-2 ml-4 text-xl font-bold text-white">Promo</li>
+                    <li class="mb-4 mr-8 text-3xl font-bold text-right text-white">{{ $promoCount }}</li>
+                    <li class="text-center text-white bg-green-500"><a href="{{ route('AdminPromo') }}">more ></a></li>
+                </ul>
+            </div>
+            <div class="w-56 bg-yellow-500 h-28">
+                <ul>
+                    <li class="mt-2 ml-4 text-xl font-bold text-white">Status</li>
+                    <li class="mb-4 mr-8 text-3xl font-bold text-right text-white">{{ $statusCount }}</li>
+                    <li class="text-center text-white bg-yellow-400"><a href="{{ route('AdminStatus') }}">more ></a></li>
+                </ul>
+            </div>
+            <div class="w-56 bg-fuchsia-500 h-28">
+                <ul>
+                    <li class="mt-2 ml-4 text-xl font-bold text-white">Riwayat</li>
+                    <li class="mb-4 mr-8 text-3xl font-bold text-right text-white">{{ $riwayatCount }}</li>
+                    <li class="text-center text-white bg-fuchsia-600"><a href="{{ route('AdminRiwayat') }}">more ></a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
 @endsection
