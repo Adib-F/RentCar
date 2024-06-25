@@ -21,19 +21,6 @@ class RiwayatController extends Controller
         return view('riwayat', compact('riwayats'));
     }
 
-    public function cetakFotoResi($gambar)
-    {
-
-        // if (!empty(auth()->user()->pasfoto)) {
-        //     $path = storage_path('app/public/image/gambarKendaraan' . auth()->user()->pasfoto);
-        // } else {
-        //     $path = storage_path('app/public/pasfoto/no-pasfoto.png');
-        // }
-        $path = storage_path('app/public/' . $gambar);
-        $type = pathinfo($path, PATHINFO_EXTENSION);
-        $data = file_get_contents($path);
-        return 'data:image/' . $type . ';base64,' . base64_encode($data);
-    }
 
     public function cetakResi($id_riwayat)
     {

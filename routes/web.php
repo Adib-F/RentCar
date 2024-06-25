@@ -60,7 +60,7 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/updatePengiriman/{id_status}', [AdminStatusController::class, 'updatePengiriman'])->name('updatePengiriman');
 
         Route::get('/adminRiwayat', [AdminRiwayatController::class, 'AdminRiwayat'])->name('AdminRiwayat');
-        Route::get('/cetakLaporanKeuangan', [AdminRiwayatController::class, 'cetakLaporanRiwayat'])->name('cetakLaporanRiwayat');
+        Route::get('/cetakLaporan', [AdminRiwayatController::class, 'cetakLaporan'])->name('cetakLaporan');
     });
     Route::middleware('role:Pengguna')->group(function(){
         Route::get('/rental', [RentalController::class, 'rental'])->name('rental');
