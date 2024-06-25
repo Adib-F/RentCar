@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('Id_Klaim');
             $table->unsignedInteger('Id_Pengguna');
             $table->unsignedInteger('Id_Promo');
-            $table->enum('Status' , ['sudah_klaim', 'belum_klaim'])->default('belum_klaim');
+            $table->enum('Status' , ['Belum_digunakan', 'Sudah_digunakan'])->default('Belum_digunakan');
             $table->timestamps();
 
             // Foreign key constraints

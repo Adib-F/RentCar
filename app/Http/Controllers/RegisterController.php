@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -14,14 +15,14 @@ class RegisterController extends Controller
 
     public function register_proses(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'nama_lengkap' => 'required',
             'username' => 'required',
             'no_handphone' => 'required',
             'nik' => 'required',
             'email' => 'required|unique:pengguna|email',
             'password' => 'required',
-        ],[
+        ], [
             'nama_lengkap.required' => 'Nama Lengkap harus diisi',
             'username.required' => 'Username harus diisi',
             'no_handphone.required' => 'No Handphone harus diisi',
@@ -33,17 +34,18 @@ class RegisterController extends Controller
         ]);
 
         $inforegister = [
-            'Nama_Lengkap' => $request->nama_lengkap,
-            'Username' => $request->username,
-            'No_Handphone' => $request->no_handphone,
-            'NIK' => $request->nik,
-            'Email' => $request->email,
-            'Password' => Hash::make($request->password),
-
+            'Nama_Lengkap' => $validated['nama_lengkap'],
+            'Username' => $validated['username'],
+            'No_Handphone' => $validated['no_handphone'],
+            'NIK' => $validated['nik'],
+            'Email' => $validated['email'],
+            'Password' => Hash::make($validated['password']),
         ];
 
-        User::create($inforegister);
-
-        return redirect()->route('login')->with('berhasil', 'Pendaftaran berhasil');
+        if (User::create($inforegister)) {
+            return redirect()->route('login')->with('berhasil', 'Pendaftaran berhasil');
+        } else {
+            return back()->with('gagal', 'Terjadi kesalahan. Silakan coba lagi.');
+        }
     }
 }

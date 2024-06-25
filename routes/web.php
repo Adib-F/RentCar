@@ -73,7 +73,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/cetakResi/{id_riwayat}', [RiwayatController::class, 'cetakResi'])->name('cetakResi');
 
         Route::get('/setting', [SettingsController::class, 'setting'])->name('setting');
-        Route::get('/notifikasi', [NotifikasiController::class, 'index'])->name('Notifikasi');
         Route::put('/update_profile/{id_pengguna}', [SettingsController::class, 'update_profile'])->name('update_profile');
         Route::post('/klaimPromo/{id}', [AdminPromoController::class, 'KlaimPromo'])->name('klaimPromo');
     });

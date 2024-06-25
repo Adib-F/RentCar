@@ -22,11 +22,11 @@ class CreateRentalTable extends Migration
             $table->date('Tanggal_Selesai')->notNullable();
             $table->integer('Total_Harga')->notNullable();
             $table->string('Bukti_Pembayaran')->notNullable();
-            $table->enum('Pengajuan', ['Disetujui', 'Ditolak'])->notNullable();
+            $table->enum('Pengajuan', ['Disetujui', 'Ditolak'])->nullable();
             $table->timestamps();
 
             $table->foreign('Id_Pengguna')->references('Id_Pengguna')->on('Pengguna')->onDelete('cascade');
-            $table->foreign('Id_Kendaraan')->references('Id_Kendaraan')->on('Kendaraan');
+            $table->foreign('Id_Kendaraan')->references('Id_Kendaraan')->on('Kendaraan')->onDelete('cascade');
             $table->foreign('Id_Promo')->references('Id_Promo')->on('Promo');
         });
     }

@@ -15,16 +15,20 @@ class SettingsController extends Controller
         $user = auth()->user();
 
         $request->validate([
-            'username' => 'required|max:255',
+            'username' => 'required|max:15',
+            'password' => 'required',
             'no_handphone' => 'required|max:15',
+            'nik' => 'required',
         ]);
 
         $user->Username = $request->input('username');
+        $user->Password = bcrypt($request->input('password'));
         $user->No_Handphone = $request->input('no_handphone');
+        $user->NIK = $request->input('nik');
 
         $user->save();
 
-        return redirect()->back()->with('success', 'Profile updated successfully.');
+        return redirect()->back()->with('berhasil', 'Profile berhasil di update');
     }
 }
 

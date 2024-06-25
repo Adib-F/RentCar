@@ -44,8 +44,8 @@
                         <td class="p-2 text-xs border border-slate-200">{{ ($kendaraans->currentPage() - 1) * $kendaraans->perPage() + $loop->iteration }}</td>
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Nama_Kendaraan }}</td>
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Jenis_Kendaraan }}</td>
-                        <td class="p-2 border border-slate-200">{{ $kendaraan->Merk }}</td>
-                        <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Harga }}</td>
+                        <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Merk }}</td>
+                        <td class="p-2 text-xs border border-slate-200">Rp. {{ (number_format($kendaraan->Harga))}}</td>
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Stok }}</td>
                         <td class="flex items-center justify-center p-2 text-xs border border-slate-200">
                             <button class="mr-1 text-xs bg-yellow-400 rounded-lg btn btn-xs"
@@ -201,8 +201,8 @@
                                         <td class="text-sm">{{ $kendaraan->Merk }}</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-sm font-bold">Harga: Rp.</td>
-                                        <td class="text-sm">{{ $kendaraan->Harga }}</td>
+                                        <td class="text-sm font-bold">Harga: </td>
+                                        <td class="text-sm">Rp. {{ (number_format($kendaraan->Harga))}}</td>
                                     </tr>
                                     <tr>
                                         <td class="text-sm font-bold">Stok:</td>
@@ -279,7 +279,7 @@
                                     @error('deskripsi')
                                         <span class="text-red-500">{{ $message }}</span>
                                     @enderror
-                                    <input id="harga" type="text" name="harga" value="{{ $kendaraan->Harga }}"
+                                    <input id="harga" type="text" name="harga" value="{{$kendaraan->Harga}}"
                                         class="flex items-center w-full h-8 pl-3 mt-1 mb-2 text-sm font-normal text-gray-600 border border-gray-300 rounded focus:outline-none focus:border focus:border-black"
                                         placeholder="Harga"required />
                                 </div>
@@ -348,7 +348,7 @@
     </body>
     @endforeach
     @endif
-    <script>
+    {{-- <script>
         document.getElementById('harga').addEventListener('input', function(e) {
             let value = e.target.value;
             value = value.replace(/[^0-9]/g, '');
@@ -359,6 +359,6 @@
             }).format(value);
             e.target.value = formattedValue.replace(',00', '');
         });
-    </script>
+    </script> --}}
 
 @endsection
