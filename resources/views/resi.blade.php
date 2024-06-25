@@ -129,27 +129,27 @@
                 <div class="grid grid-2">
                     <div>
                         <p class="label">Nama Penyewa:</p>
-                        <p class="value"></p>
+                        <p class="value">{{$nama_penyewa}}</p>
                     </div>
                     <div>
                         <p class="label">No HP Pelanggan:</p>
-                        <p class="value"></p>
+                        <p class="value">{{$no_handphone}}</p>
                     </div>
                     <div>
                         <p class="label">Kendaraan Yang Disewa:</p>
-                        <p class="value"></p>
+                        <p class="value">{{$jumlah_sewa}}</p>
                     </div>
                     <div>
                         <p class="label">Alamat:</p>
-                        <p class="value"></p>
+                        <p class="value">{{$alamat}}</p>
                     </div>
                     <div>
                         <p class="label">Jumlah Sewa:</p>
-                        <p class="value"></p>
+                        <p class="value">{{$jumlah_sewa}}</p>
                     </div>
                     <div>
                         <p class="label">Total Harga:</p>
-                        <p class="value"></p>
+                        <p class="value">{{$total_harga}}</p>
                     </div>
                     {{-- <div>
                         <p class="label">gambar:</p>
@@ -162,7 +162,7 @@
                     <p class="no-pesanan">No Pesanan:</p>
                 </div>
                 <div class="right">
-                    <p class="no-pesanan"></p>
+                    <p class="no-pesanan">{{$no_pesanan}}</p>
                 </div>
             </div>
             <div class="footer">
