@@ -60,6 +60,7 @@
         <br><br>
         <div class="flex flex-wrap justify-center w-screen gap-6">
             @foreach ($kendaraans as $kendaraan)
+            @if ($kendaraan->Stok > 0)
                 <div class="bg-white shadow-xl card w-60 bg-base-100 shadow-slate-300">
                     <figure class="px-5 pt-5 bg-slate-300">
                         <img src="{{ asset('storage/' . $kendaraan->Gambar) }}" alt="{{ $kendaraan->Nama_Kendaraan }}"
@@ -68,28 +69,23 @@
                     <div class="items-center text-center card-body">
                         <div class="absolute right-4 top-[10.6rem]">
                             <span class="font-bold">
-                                {{ $kendaraan->Stok > 0 ? 'Tersedia' : 'Tidak Tersedia' }}
+                                {{ 'Tersedia' }}
                             </span>
                         </div>
                         <h2 class="text-lg font-extrabold card-title">{{ $kendaraan->Nama_Kendaraan }}</h2>
                         <h4 class="text-lg font-extrabold">Rp. {{ number_format($kendaraan->Harga) }}</h4>
                         <div class="card-actions">
-                            @if ($kendaraan->Stok > 0)
-                                <a href="{{ route('showRentalForm', $kendaraan->Id_Kendaraan) }}">
-                                    <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn">
-                                        Pesan Sekarang
-                                    </button>
-                                </a>
-                            @else
-                                    <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn" style="pointer-events: none;" disabled>
-                                        Pesan Sekarang
-                                    </button>
-                            @endif
+                            <a href="{{ route('showRentalForm', $kendaraan->Id_Kendaraan) }}">
+                                <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn">
+                                    Pesan Sekarang
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
-            @endforeach
-
+            @endif
+        @endforeach
+        
         </div>
         <br><br><br>
         <div class="w-screen h-12">
