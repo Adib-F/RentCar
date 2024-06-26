@@ -11,7 +11,7 @@ class Kendaraan extends Model
 
     protected $table = "Kendaraan";
     protected $primaryKey = "Id_Kendaraan";
-    
+
     protected $fillable = [
         'Nama_Kendaraan',
         'Jenis_Kendaraan',
@@ -24,7 +24,7 @@ class Kendaraan extends Model
 
     public function rentals()
     {
-        return $this->hasMany(Rental::class);
+        return $this->hasMany(Rental::class, 'Id_Kendaraan');
     }
 
 }

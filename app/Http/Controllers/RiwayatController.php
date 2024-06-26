@@ -25,10 +25,8 @@ class RiwayatController extends Controller
     public function cetakResi($id_riwayat)
     {
         $riwayat = Riwayat::with('Rental.User', 'Rental.Kendaraan')->where('Id_Riwayat', $id_riwayat)->first();
-        $gambar = $riwayat->rental->kendaraan->Gambar;
         $data = [
             // 'gambar' => $riwayat->rental->kendaraan->Gambar,
-            'gambar' => $this->cetakFotoResi($gambar),
             'nama_penyewa' => $riwayat->rental->user->Nama_Lengkap,
             'no_handphone' => $riwayat->rental->user->No_Handphone,
             'kendaraan' => $riwayat->rental->kendaraan->Nama_Kendaraan,

@@ -19,21 +19,21 @@ class RentalController extends Controller
     {
         $ongoingRental = Rental::where('Id_Pengguna', Auth::id())
             ->where(function ($query) {
-                $query->whereHas('Status', function ($subquery) {
-                    $subquery->where('Status_Pengiriman', 'Kendaraan dalam perjalanan')
-                        ->orWhere('Status_Pengiriman', 'Kendaraan sedang dikirim');
+                $query->whereHas('status', function ($subquery) {
+                    $subquery->whereIn('Status_Pengiriman', ['Kendaraan dalam perjalanan', 'Kendaraan sedang dikirim']);
                 })
-                    ->orWhereNull('Pengajuan');
+                ->orWhere('Pengajuan', 'Menunggu Konfirmasi Admin');
             })
             ->first();
 
         return $ongoingRental ? true : false;
     }
 
+
     public function showRentalForm($kendaraanId)
     {
         if (Auth::check() && $this->cekRental()) {
-            return back()->with('berhasil', 'Anda harus menyelesaikan rental sebelumnya');
+            return back()->with('berhasil', 'Anda belum menyelesaikan rental sebelumnya');
         }
 
         $kendaraan = Kendaraan::find($kendaraanId);

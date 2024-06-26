@@ -24,7 +24,7 @@
                                 </span>
                             </div>
                             <h2 class="text-xl font-bold card-title">{{ $car->Nama_Kendaraan }}</h2>
-                            <p class="text-xl font-bold">Rp. {{ number_format($car->Harga) }}</p>
+                            <p class="text-xl font-bold">Rp {{ number_format($car->Harga, 0, ',', '.') }}</p>
                             <div class="flex items-center justify-between">
                                 <div class="justify-start px-2 card-actions">
                                     @if ($car->Stok > 0)

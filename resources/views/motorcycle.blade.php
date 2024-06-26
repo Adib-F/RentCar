@@ -30,7 +30,7 @@
                                 </span>
                             </div>
                             <h2 class="text-xl font-bold card-title">{{ $motor->Nama_Kendaraan }}</h2>
-                            <p class="text-xl font-bold">Rp. {{ number_format($motor->Harga) }}</p>
+                            <p class="text-xl font-bold">Rp {{ number_format($motor->Harga, 0, ',', '.') }}</p>
                             <div class="flex items-center justify-between">
                                 <div class="justify-start px-2 card-actions">
                                     @if ($motor->Stok > 0)

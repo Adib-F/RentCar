@@ -20,7 +20,7 @@ class Promo extends Model
 
         public function rentals()
     {
-        return $this->hasMany(Rental::class);
+        return $this->hasMany(Rental::class, 'Id_Promo');
     }
     public function klaimPromo()
     {
