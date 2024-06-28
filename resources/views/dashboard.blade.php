@@ -1,158 +1,199 @@
-@extends('layout/app')
+@extends('layout.app')
 
 @section('title')
     Beranda
 @endsection
 
 @section('navbar')
-    @include('components/navbardashboard')
+    @include('components.navbar')
 @endsection
 
 @section('content')
-
-<body class="font-poppins">
-<div class="navbar bg-transparent fixed top-0 z-50 " id="navbar">
-    <div class="navbar-start">
-      <div class="dropdown">
-        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+    @if (session('success'))
+        <div id="alert-success"
+            class="fixed z-50 px-4 py-2 text-white transform -translate-x-1/2 bg-green-500 rounded shadow-lg top-4 left-1/2">
+            {{ session('success') }}
         </div>
-        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a>Beranda</a></li>
-        <li>
-        <a>Kendaraan</a>
-        <ul class="p-2">
-            <li><a>Mobil</a></li>
-            <li><a>Motor</a></li>
-        </ul>
-        </li>
-        <li><a>Status</a></li>
-        <li><a>Riwayat</a></li>
-      </ul>
-      </div>
-      <a class="btn btn-ghost h-10 w-40 ">
-        <img src="images/logo-rentcang.png" alt="" class="">
-      </a>
-    </div>
-    <div class="navbar-center hidden lg:flex  font-semibold">
-      <ul class="menu menu-horizontal px-1 text-lg text-black">
-      <li><a><img src="images/Beranda.svg"alt="">Beranda</a></li>
-      <li>
-        <details>
-          <summary><img src="images/Kendaraan.png"class="w-7 h-7" alt="">Kendaraan</summary>
-          <ul class="p-2 shadow-md">
-            <li><a><img src="images/Car.png"class="w-6 h-5"  alt="">Mobil</a></li>
-            <li><a><img src="images/Motorcycle.png"class="w-6 h-5"  alt="">Motor</a></li>
-          </ul>
-        </details>  
-      </li>
-      <li><a><img src="images/Status.svg" alt="">Status</a></li>
-      <li><a><img src="images/Riwayat.svg" alt="">Riwayat</a></li>
-       </ul>
-    </div>
-    <div class="navbar-end">
-      <a href="#" class="btn bg-black btn-sm rounded-full mr-3 px-5 text-white border-none " id="daftar">DAFTAR</a>
-      <button class="btn btn-bg-orange-300 btn-sm rounded-full px-5 " id="masuk">MASUK</button>
-    </div>
-  </div>
-  <div class="landing bg-cover bg-no-repeat w-full h-[120vh]  pt-40 px-80 -z-60 "id="landing" style="background-image: url(../images/landingpage.png)">
-  <p class="text-6xl font-bold leading-normal ">
-        <a class="text-white px-8">SELAMAT DATANG DI</a><br> 
-        <a class="text-orange-400 text-center px-44">RENTCANG</a>
-   </p>
-   <p class="text-white px-44">
-      <a class="font-bold text-center">Jelajahi Perjalanan Anda dengan Nyaman</a>
-    </p>
-    <br>
-    <p class="text-white w-full ">
-      <a class="font-light text-center">Kami menyediakan berbagai pilihan kendaraan berkualitas, mulai dari mobil keluarga </a>
-      <a class="font-light text-center px-12">hingga kendaraan premium. Nikmati layanan terpercaya dan kemudahan</a>
-     <a class="font-light text-center">pemesanan melalui website kami.RENTCANG, kenyamanan dalam setiap perjalanan!</a>
-    </p>
-    </div>
-    <br><br>
-    <div class="w-full h-12">
-      <p class="text-orange-400 text-4xl font-extrabold w-full text-center">
-        <a href="">PALING POPULER</a>
-      </p>
-    </div>
-    <br>
-    <div class="flex justify-center w-full gap-2 w-full ">
-      <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/MiniCooper.svg" alt=""></button>
-      <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/Mercedesbenz.svg" alt=""></button>
-      <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/BMW.svg" alt=""></button>
-      <button class="btn text-black bg-slate-300 btn-md rounded-lg px-8 shadow-lg"><img src="images/Mclaren.svg" alt=""></button>
-    </div>
-    <br><br>
-<div class="w-full flex justify-center gap-6 ">
-    <div class="card w-80 bg-base-100 shadow-xl shadow-slate-300">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/copper1.png" alt="" class="rounded-xl " />
-        </figure>
-    <div class="card-body items-center text-center">
-        <h2 class="card-title font-extrabold">Copper Hardtop 4 Door</h2>
-        <h4 class="font-extrabold">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions">
-        <button class="btn bg-orange-400 text-black font-extrabold px-8">Pesan Sekarang</button>
-    </div>
-  </div>
-</div>
+    @endif
 
-<div class="card w-80 bg-base-100 shadow-xl shadow-slate-300 ">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/aventgarde1.png" alt="" class="rounded-xl py-2" />
-        </figure>
-    <div class="card-body items-center text-center">
-        <h2 class="card-title font-extrabold">V 250 Avantgarde Line</h2>
-        <h4 class="font-extrabold">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions">
-        <button class="btn bg-orange-400 text-black font-extrabold px-8">Pesan Sekarang</button>
-    </div>
-  </div>
-</div>
+    @if (session('error'))
+        <div id="alert-error"
+            class="fixed z-50 px-4 py-2 text-white transform -translate-x-1/2 bg-red-500 rounded shadow-lg top-4 left-1/2">
+            {{ session('error') }}
+        </div>
+    @endif
 
-<div class="card w-80 bg-base-100 shadow-xl shadow-slate-300 ">
-        <figure class="px-10 pt-10 bg-slate-300" >
-            <img src="images/mclaren1.png" alt="" class="rounded-xl py-2" />
-        </figure>
-    <div class="card-body items-center text-center">
-        <h2 class="card-title font-extrabold">2024 McLaren Artura</h2>
-        <h4 class="font-extrabold">Rp.1.000.000 / Hari</h4>
-    <div class="card-actions">
-        <button class="btn bg-orange-400 text-black font-extrabold px-8">Pesan Sekarang</button>
-    </div>
-  </div>
-</div>
-  </div>
-  <br><br><br>
-  <div class="w-full h-12">
-      <p class="text-sky-950 text-4xl font-extrabold w-full text-center ">
-        <a href="">PROMO</a>
-      </p>
-    </div>
-    <br><br>
-    <div class="flex justify-center w-full gap-24 w-full ">
-      <a href=""><img src="images/promo.png"class="w-72 h-60" alt=""></a>
-      <a href=""><img src="images/promo.png"class="w-72 h-60" alt=""></a>
-      <a href=""><img src="images/promo.png"class="w-72 h-60" alt=""></a>
-    </div>
+    <body class="font-poppins">
+        <div class="landing bg-cover text-center bg-no-repeat w-screen h-[120vh] py-20" id="landing"
+            style="background-image: url('../images/landingpage.png')">
+            <p class="text-6xl font-bold leading-normal">
+                <span class="text-white">SELAMAT DATANG DI</span><br>
+                <span class="text-orange-400">RENTCANG</span>
+            </p>
+            <p class="font-bold text-center text-white">
+                Jelajahi Perjalanan Anda dengan Nyaman
+            </p>
+            <br>
+            <p class="font-light text-center text-white">
+                Kami menyediakan berbagai pilihan kendaraan berkualitas, mulai dari mobil keluarga hingga kendaraan premium.
+                Nikmati layanan terpercaya dan kemudahan pemesanan melalui website kami. RENTCANG, kenyamanan dalam setiap
+                perjalanan!
+            </p>
+        </div>
+        <br><br>
+        <div class="w-screen h-12">
+            <p class="text-4xl font-extrabold text-center text-orange-400">
+                PALING POPULER
+            </p>
+        </div>
+        <br>
+        <div class="flex justify-center w-screen gap-2">
+            <button class="px-4 text-black rounded-lg shadow-lg bg-slate-300"><img src="images/MiniCooper.svg"
+                    alt="Mini Cooper" class="h-16"></button>
+            <button class="px-4 text-black rounded-lg shadow-lg bg-slate-300"><img src="images/Mercedesbenz.svg"
+                    alt="Mercedes Benz" class="h-16"></button>
+            <button class="px-4 text-black rounded-lg shadow-lg bg-slate-300"><img src="images/BMW.svg" alt="BMW"
+                    class="h-16"></button>
+            <button class="px-4 text-black rounded-lg shadow-lg bg-slate-300"><img src="images/Mclaren.svg" alt="Mclaren"
+                    class="h-16"></button>
+        </div>
+        <br><br>
+        <div class="flex flex-wrap justify-center w-screen gap-6">
+            @foreach ($kendaraans as $kendaraan)
+                <div class="bg-white shadow-xl card w-60 bg-base-100 shadow-slate-300">
+                    <figure class="px-5 pt-5 bg-slate-300">
+                        <img src="{{ asset('storage/' . $kendaraan->Gambar) }}" alt="{{ $kendaraan->Nama_Kendaraan }}"
+                            class="mb-4 w-[12rem] h-[8rem]" />
+                    </figure>
+                    <div class="items-center text-center card-body">
+                        <div class="absolute right-4 top-[10.6rem]">
+                            <span class="font-bold">
+                                {{ $kendaraan->Stok > 0 ? 'Tersedia' : 'Tidak Tersedia' }}
+                            </span>
+                        </div>
+                        <h2 class="text-lg font-extrabold card-title">{{ $kendaraan->Nama_Kendaraan }}</h2>
+                        <h4 class="text-lg font-extrabold">Rp. {{ number_format($kendaraan->Harga) }}</h4>
+                        <div class="card-actions">
+                            @if ($kendaraan->Stok > 0)
+                                <a href="{{ route('showRentalForm', $kendaraan->Id_Kendaraan) }}">
+                                    <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn">
+                                        Pesan Sekarang
+                                    </button>
+                                </a>
+                            @else
+                                    <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn" style="pointer-events: none;" disabled>
+                                        Pesan Sekarang
+                                    </button>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endforeach
 
+        </div>
+        <br><br><br>
+        <div class="w-screen h-12">
+            <p class="w-full text-4xl font-extrabold text-center text-sky-950">
+                PROMO
+            </p>
+        </div>
+        <br><br>
+        <div class="flex flex-wrap justify-center gap-6">
+            @foreach ($promos as $promo)
+                @if (Auth::check())
+                    @php
+                        $claimed = $promo
+                            ->klaimPromo()
+                            ->where('Id_Pengguna', Auth::user()->Id_Pengguna)
+                            ->exists();
+                    @endphp
+                    @if (!$claimed)
+                        <div>
+                            <a href="#modalKlaim{{ $promo->Id_Promo }}" class="promo-button">
+                                <img src="{{ asset('storage/' . $promo->Gambar) }}" alt="Promo" class="mb-5 h-52">
+                            </a>
+                            <dialog id="modalKlaim{{ $promo->Id_Promo }}" class="modal">
+                                <div class="modal-box">
+                                    <h3 class="py-4 text-lg font-bold text-center">Apakah Anda yakin ingin mengklaim promo
+                                        ini?
+                                    </h3>
+                                    <div class="flex justify-center">
+                                        <div class="modal-action">
+                                            <form method="POST" action="{{ route('klaimPromo', $promo->Id_Promo) }}">
+                                                @csrf
+                                                <button type="button" class="mr-4 text-white bg-gray-500 border btn"
+                                                    onclick="document.getElementById('modalKlaim{{ $promo->Id_Promo }}').close();">Batal</button>
+                                                <button type="submit"
+                                                    class="text-white bg-green-500 border btn">Klaim</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </dialog>
+                        </div>
+                    @endif
+                @else
+                    <div>
+                        <a href="#loginPrompt" class="promo-button">
+                            <img src="{{ asset('storage/' . $promo->Gambar) }}" alt="Promo" class="mb-5 h-52">
+                        </a>
+                        <dialog id="loginPrompt" class="modal">
+                            <div class="modal-box">
+                                <h3 class="py-4 text-lg font-bold text-center">Anda harus login untuk mengklaim promo ini.
+                                </h3>
+                                <div class="flex justify-center">
+                                    <button type="button" class="mr-4 text-white bg-gray-500 border btn"
+                                        onclick="document.getElementById('loginPrompt').close();">Tutup</button>
+                                    <a href="{{ route('login') }}" class="text-white bg-orange-500 border btn">Login</a>
+                                </div>
+                            </div>
+                        </dialog>
+                    </div>
+                @endif
+            @endforeach
+        </div>
+        <div id="customAlert">
+            @if (session('berhasil'))
+                <div
+                    class="fixed px-4 py-2 text-white transform -translate-x-1/2 bg-red-500 rounded shadow-lg top-4 left-1/2">
+                    {{ session('berhasil') }}</div>
+            @endif
+        </div>
 
-    <br>
-<footer class="footer p-7 bg-gray-400">
-  <aside class="py-12">
-  <a href="#"><img src="images/logo-footer.png"class="w-22 h-12" alt=""></a>
-  </aside> 
-  <nav class="md:justify-self-end px-2">
-    <h6 class="font-bold text-black text-lg px-4 py-2">TEMUKAN KAMI DI</h6> 
-    <div class="grid grid-flow-col gap-6 px-6">
-    <a href="https://www.facebook.com/"><img src="images/facebook.svg" alt=""></a>
-        <a href="https://www.instagram.com/"><img src="images/instagram.svg" alt=""></a>
-        <a href="https://discord.gg/b5YDtCn6"><img src="images/discord.svg" alt=""></a>
-    </div>
-    <a href="aboutus" class="px-12"><h1 class="text-black">Tentang Kami</h1></a>
-    <a href="rulesandinfo"><h1 class="text-black px-2">Peraturan dan Informasi</h1></a>
-  </nav>
-</footer>
-</body>
-</html>
+        <script>
+            document.querySelectorAll('.promo-button').forEach(button => {
+                button.addEventListener('click', event => {
+                    event.preventDefault();
+                    const modalId = event.currentTarget.getAttribute('href').substring(1);
+                    document.getElementById(modalId).showModal();
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                const alertBox = document.querySelector('#customAlert > div');
+                if (alertBox) {
+                    setTimeout(() => {
+                        alertBox.style.display = 'none';
+                    }, 2000);
+                }
+            });
+
+            document.querySelectorAll('.mr-4').forEach(button => {
+                button.addEventListener('click', event => {
+                    const modal = event.currentTarget.closest('.modal');
+                    modal.close();
+                });
+            });
+
+            setTimeout(() => {
+                const alertSuccess = document.getElementById('alert-success');
+                if (alertSuccess) {
+                    alertSuccess.style.display = 'none';
+                }
+            }, 2000);
+        </script>
+    @endsection
+
+    @section('footer')
+        @include('components.footer')
+    @endsection
