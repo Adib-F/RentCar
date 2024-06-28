@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-    <body class="min-h-screen text-black bg-gray-100">
+    <body class="min-h-screen text-black bg-gray-100 mt-20">
         <div class="container px-4 py-4 mx-auto">
             <div class="row">
                 @foreach ($riwayats as $riwayat)
@@ -18,7 +18,7 @@
                             <img src="{{ asset('storage/' . $riwayat->Rental->Kendaraan->Gambar) }}" alt="" class="w-32 h-20 ml-3">
                             <div class="ml-3">
                                 <p class="text-lg font-bold">{{ $riwayat->Rental->Kendaraan->Nama_Kendaraan }}</p>
-                                <p class="text-sm text-gray-600">No Pesanan: {{ $riwayat->No_Pesanan }}</p>
+                                <p class="text-sm text-gray-600">No Pesanan:{{ $riwayat->No_Pesanan }}</p>
                                 <p class="text-sm text-gray-600">Total Harga: {{ $riwayat->Rental->Total_Harga }}</p>
                             </div>
                         </div>

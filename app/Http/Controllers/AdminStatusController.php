@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Status;
+use App\Models\Riwayat;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Validator;

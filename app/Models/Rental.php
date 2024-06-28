@@ -38,15 +38,15 @@ class Rental extends Model
     }
     public function Konfirmasi()
     {
-        return $this->hasMany(Konfirmasi::class, 'Id_Konfirmasi');
+        return $this->hasMany(Konfirmasi::class, 'Id_Rental');
     }
     public function status()
     {
-        return $this->hasOne(Status::class, 'Id_Status');
+        return $this->hasMany(Status::class, 'Id_Rental');
     }
     public function riwayat()
     {
-        return $this->hasOne(Status::class, 'Id_Riwayat');
+        return $this->hasOne(Status::class, 'Id_Rental');
     }
 
 }

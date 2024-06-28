@@ -58,7 +58,7 @@
             @endforeach
 
         </table>
-        <div class="flex justify-end mt-3 mr-8 join">
+        <div class="flex justify-end mt-3 mr-56 join">
             @if ($promos->onFirstPage())
                 <button class="mr-1 join-item btn btn-xs" disabled><</button>
             @else

@@ -64,7 +64,7 @@ Admin Rental
         @endforeach
 
     </table>
-    <div class="flex justify-end mt-3 mr-8 join">
+    <div class="flex justify-end mt-3 mr-36 join">
         @if ($rentals->onFirstPage())
             <button class="mr-1 join-item btn btn-xs" disabled><</button>
         @else

@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <body class="min-h-screen text-black bg-gray-100">
+    <body class="min-h-screen text-black bg-gray-100 mt-20">
         <div class="container flex flex-col items-center justify-between md:flex-row">
             <div class="absolute px-4 py-14 top-20 left-6 ">
                 <a class="flex items-center font-bold text-black">
@@ -75,7 +75,7 @@
 
                         <div class="grid justify-items-end">
                             <button type="submit"
-                                class="px-6 py-1 mt-4 font-semibold text-black bg-yellow-600 rounded-md hover:bg-yellow-500 font-poppins">Submit</button>
+                                class="px-6 py-1 mt-4 font-semibold text-black bg-orange-400 rounded-md hover:bg-gray-500 font-poppins">Submit</button>
                         </div>
                     </form>
                 </div>

@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <body class="min-h-screen text-black bg-gray-100">
+    <body class="min-h-screen text-black bg-gray-100 mt-20">
         <div class="card card-side bg-white shadow-xl w-[40rem] mx-auto mb-10 mt-10">
             <div class="bg-orange-500 w-[15rem] h-[41.rem] flex items-center justify-center rounded-md">
                 <figure class="pt-10 px-7"><img src="{{ asset('storage/' . $kendaraan->Gambar) }}" class="mb-4 w-[12rem]" />
@@ -26,7 +26,7 @@
                         @error('alamat')
                             <div class="mt-1 text-red-500">{{ $message }}</div>
                         @enderror
-                        <textarea name="alamat" class="form-control form-control-sm border h-[4rem] border-black bg-white rounded-md"
+                        <textarea name="alamat" class=" p-2form-control form-control-sm border h-[4rem] w-[18rem] border-black bg-white rounded-md"
                             id="alamat1" required></textarea>
                     </div>
                     <div class="mb-2">
@@ -34,9 +34,9 @@
                         @error('no_telepon')
                             <div class="mt-1 text-red-500">{{ $message }}</div>
                         @enderror
-                        <input type="text" name="no_telepon" value="{{ auth()->user()->No_Handphone }}"
+                        <input  type="text" name="no_telepon" value="{{ auth()->user()->No_Handphone }}"
                             class="form-control form-control-sm border border-black input input-xs input-bordered w-[18.3rem] form-control rounded-md bg-white"
-                            id="telepon1" required>
+                            id="telepon1"required readonly>
                     </div>
                     <div class="mb-2">
                         <label for="sim1">SIM</label>

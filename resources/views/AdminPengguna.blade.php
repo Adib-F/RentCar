@@ -60,7 +60,7 @@
                 @endforeach
                 </tbody>
         </table>
-        <div class="flex justify-end mt-3 mr-8 join">
+        <div class="flex justify-end mt-3 mr-24 join">
             @if ($penggunas->onFirstPage())
                 <button class="mr-1 join-item btn btn-xs" disabled><</button>
             @else
