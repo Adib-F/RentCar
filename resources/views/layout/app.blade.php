@@ -27,14 +27,14 @@
             },
           }
         }
-      }   
+      }
   </script>
 </head>
 <body>
     <header>
         @yield('navbar')
     </header>
-    <div class="container">
+    <div>
         <main>
             @yield('content')
         </main>
