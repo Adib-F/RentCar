@@ -45,7 +45,7 @@
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Nama_Kendaraan }}</td>
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Jenis_Kendaraan }}</td>
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Merk }}</td>
-                        <td class="p-2 text-xs border border-slate-200">Rp. {{ (number_format($kendaraan->Harga))}}</td>
+                        <td class="p-2 text-xs border border-slate-200">Rp {{ number_format($kendaraan->Harga, 0, ',', '.') }}</td>
                         <td class="p-2 text-xs border border-slate-200">{{ $kendaraan->Stok }}</td>
                         <td class="flex items-center justify-center p-2 text-xs border border-slate-200">
                             <button class="mr-1 text-xs bg-yellow-400 rounded-lg btn btn-xs"
@@ -60,7 +60,7 @@
             @endforeach
 
         </table>
-        <div class="flex justify-end mt-3 mr-8 join">
+        <div class="flex justify-end mt-3 mr-40 join">
             @if ($kendaraans->onFirstPage())
                 <button class="mr-1 join-item btn btn-xs" disabled><</button>
             @else
@@ -202,7 +202,7 @@
                                     </tr>
                                     <tr>
                                         <td class="text-sm font-bold">Harga: </td>
-                                        <td class="text-sm">Rp. {{ (number_format($kendaraan->Harga))}}</td>
+                                        <td class="text-sm">Rp {{ number_format($kendaraan->Harga, 0, ',', '.') }}</td>
                                     </tr>
                                     <tr>
                                         <td class="text-sm font-bold">Stok:</td>

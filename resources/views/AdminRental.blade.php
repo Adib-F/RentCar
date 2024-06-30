@@ -30,7 +30,6 @@ Admin Rental
                 <th class="p-2 text-xs border w-[8rem] border-slate-200">No. Handphone</th>
                 <th class="p-2 text-xs border w-[6rem] border-slate-200">Total</th>
                 <th class="p-2 text-xs border w-[4rem] border-slate-200">SIM</th>
-                <th class="p-2 text-xs border w-[5rem] border-slate-200">Bukti</th>
                 <th class="p-2 text-xs border w-[6rem] border-slate-200">Aksi</th>
             </tr>
         </thead>
@@ -43,12 +42,9 @@ Admin Rental
                 <td class="p-2 text-xs border border-slate-200">{{$rental->Kendaraan->Nama_Kendaraan}}</td>
                 <td class="p-2 text-xs border border-slate-200">{{$rental->Alamat}}</td>
                 <td class="p-2 text-xs border border-slate-200">{{$rental->User->No_Handphone}}</td>
-                <td class="p-2 text-xs border border-slate-200">{{$rental->Total_Harga}}</td>
+                <td class="p-2 text-xs border border-slate-200">Rp {{ number_format($rental->Total_Harga, 0, ',', '.') }}</td>
                 <td class="p-2 text-xs border border-slate-200">
                     <button class="mr-1 text-xs bg-yellow-200 rounded-lg btn btn-xs" onclick="modalsim{{$rental->Id_Rental}}.showModal()">SIM</button>
-                </td>
-                <td class="p-2 text-xs border border-slate-200">
-                    <button class="mr-1 text-xs bg-yellow-200 rounded-lg btn btn-xs" onclick="modalbukti{{$rental->Id_Rental}}.showModal()">Bukti</button>
                 </td>
                 <td class="flex items-center justify-center p-2 text-xs border border-slate-200">
                     @if ($rental->Pengajuan === 'Disetujui')
@@ -64,7 +60,7 @@ Admin Rental
         @endforeach
 
     </table>
-    <div class="flex justify-end mt-3 mr-8 join">
+    <div class="flex justify-end mt-3 mr-28 join">
         @if ($rentals->onFirstPage())
             <button class="mr-1 join-item btn btn-xs" disabled><</button>
         @else
@@ -99,21 +95,6 @@ Admin Rental
             </div>
             <div class="flex justify-end mt-4">
                 <button type="button" class="mr-4 text-white bg-gray-500 border btn" onclick="document.getElementById('modalsim{{$rental->Id_Rental}}').close();">Batal</button>
-            </div>
-        </div>
-    </div>
-</dialog>
-
-<dialog id="modalbukti{{$rental->Id_Rental}}" class="modal">
-    <div class="w-6/12 bg-white modal-box">
-        <div class="bg-white">
-            <h3 class="text-lg font-bold">Bukti</h3>
-            <hr class="my-4 border-t border-gray-500">
-            <div class="flex justify-center mb-4">
-                <img src="{{ asset('storage/' . $rental->Bukti_Pembayaran) }}" class="w-64 h-40">
-            </div>
-            <div class="flex justify-end mt-4">
-                <button type="button" class="mr-4 text-white bg-gray-500 border btn" onclick="document.getElementById('modalbukti{{$rental->Id_Rental}}').close();">Batal</button>
             </div>
         </div>
     </div>
@@ -155,7 +136,7 @@ Admin Rental
                     </tr>
                     <tr>
                         <td class="text-sm font-bold">Total Harga:</td>
-                        <td class="text-sm">{{ $rental->Total_Harga }}</td>
+                        <td class="text-sm">Rp. {{ number_format($rental->Total_Harga, 0, ',', '.') }}</td>
                     </tr>
                 </tbody>
             </table>

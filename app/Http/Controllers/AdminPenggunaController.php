@@ -24,11 +24,9 @@ class AdminPenggunaController extends Controller
             'email' => 'required|unique:Pengguna|email',
             'password' => [
                 'required',
-                'regex:/^(?=.*[A-Z])(?=.*[!@#$%^&*()\-_=+{};:,<.>ยง~])(?=.*[0-9]).{8,}$/',
             ],
         ], [
             'email.unique' => 'Email sudah digunakan.',
-            'password.regex' => 'Password yang diberikan tidak sesaui kriteria',
         ]);
 
         $adduser = [

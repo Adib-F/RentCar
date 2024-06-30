@@ -49,7 +49,7 @@
             @endforeach
 
         </table>
-        <div class="flex justify-end mt-3 mr-8 join">
+        <div class="flex justify-end mt-3 mr-32 join">
             @if ($riwayats->onFirstPage())
                 <button class="mr-1 join-item btn btn-xs" disabled><</button>
             @else
@@ -110,7 +110,7 @@
                             </tr>
                             <tr>
                                 <td class="text-sm font-bold">Total Harga:</td>
-                                <td class="text-sm">{{ $riwayat->Rental->Total_Harga }}</td>
+                                <td class="text-sm">Rp {{ number_format($riwayat->Rental->Total_Harga, 0, ',', '.') }}</td>
                             </tr>
                         </tbody>
                     </table>
