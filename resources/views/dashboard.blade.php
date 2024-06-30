@@ -24,9 +24,9 @@
     @endif
 
     <body class="font-poppins">
-        <div class="landing bg-cover text-center bg-no-repeat w-screen h-[120vh] py-20" id="landing"
-            style="background-image: url('../images/landingpage.png')">
-            <p class="text-6xl font-bold leading-normal">
+        <div class="landing bg-cover text-center bg-no-repeat w-screen h-[120vh] py-28" id="landing"
+            style="background-image: url('{{ asset('images/landingpage.png') }}')">
+            <p class="mt-12 text-6xl font-bold leading-normal">
                 <span class="text-white">SELAMAT DATANG DI</span><br>
                 <span class="text-orange-400">RENTCANG</span>
             </p>
@@ -34,7 +34,7 @@
                 Jelajahi Perjalanan Anda dengan Nyaman
             </p>
             <br>
-            <p class="font-light text-center text-white">
+            <p class="m-8 font-light text-center text-white">
                 Kami menyediakan berbagai pilihan kendaraan berkualitas, mulai dari mobil keluarga hingga kendaraan premium.
                 Nikmati layanan terpercaya dan kemudahan pemesanan melalui website kami. RENTCANG, kenyamanan dalam setiap
                 perjalanan!
@@ -43,58 +43,91 @@
         <br><br>
         <div class="w-screen h-12">
             <p class="text-4xl font-extrabold text-center text-orange-400">
-                PALING POPULER
+                KENDARAAN
             </p>
         </div>
-        <br>
-        <div class="flex justify-center w-screen gap-2">
-            <button class="px-4 text-black rounded-lg shadow-lg bg-slate-300"><img src="images/MiniCooper.svg"
-                    alt="Mini Cooper" class="h-16"></button>
-            <button class="px-4 text-black rounded-lg shadow-lg bg-slate-300"><img src="images/Mercedesbenz.svg"
-                    alt="Mercedes Benz" class="h-16"></button>
-            <button class="px-4 text-black rounded-lg shadow-lg bg-slate-300"><img src="images/BMW.svg" alt="BMW"
-                    class="h-16"></button>
-            <button class="px-4 text-black rounded-lg shadow-lg bg-slate-300"><img src="images/Mclaren.svg" alt="Mclaren"
-                    class="h-16"></button>
+        <div class="w-screen h-12 mt-10">
+            <p class="w-full text-2xl font-extrabold text-center text-sky-950">
+                MOBIL
+            </p>
         </div>
-        <br><br>
-        <div class="flex flex-wrap justify-center w-screen gap-6">
-            @foreach ($kendaraans as $kendaraan)
-            @if ($kendaraan->Stok > 0)
+
+        <div class="flex flex-wrap justify-center w-screen gap-10">
+            @foreach ($cars as $car)
                 <div class="bg-white shadow-xl card w-60 bg-base-100 shadow-slate-300">
                     <figure class="px-5 pt-5 bg-slate-300">
-                        <img src="{{ asset('storage/' . $kendaraan->Gambar) }}" alt="{{ $kendaraan->Nama_Kendaraan }}"
+                        <img src="{{ asset('storage/' . $car->Gambar) }}" alt="{{ $car->Nama_Kendaraan }}"
                             class="mb-4 w-[12rem] h-[8rem]" />
                     </figure>
                     <div class="items-center text-center card-body">
-                        <div class="absolute right-4 top-[10.6rem]">
-                            <span class="font-bold">
-                                {{ 'Tersedia' }}
-                            </span>
-                        </div>
-                        <h2 class="text-lg font-extrabold card-title">{{ $kendaraan->Nama_Kendaraan }}</h2>
-                        <h4 class="text-lg font-extrabold">Rp. {{ number_format($kendaraan->Harga) }}</h4>
+                        <span class="font-bold text-xs rounded-xl inline-block {{ $car->Stok > 0 ? 'bg-green-400 w-[5rem]' : 'bg-red-400 w-[7rem]' }}">
+                            {{ $car->Stok > 0 ? 'Tersedia' : 'Tidak Tersedia' }}
+                        </span>
+                        <h2 class="text-lg font-extrabold card-title">{{ $car->Nama_Kendaraan }}</h2>
+                        <h4 class="text-lg font-extrabold">Rp {{ number_format($car->Harga, 0, ',', '.') }}</h4>
                         <div class="card-actions">
-                            <a href="{{ route('showRentalForm', $kendaraan->Id_Kendaraan) }}">
-                                <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn">
+                            @if ($car->Stok > 0)
+                                <a href="{{ route('showRentalForm', $car->Id_Kendaraan) }}">
+                                    <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn">
+                                        Pesan Sekarang
+                                    </button>
+                                </a>
+                            @else
+                                <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn"
+                                    style="pointer-events: none;" disabled>
                                     Pesan Sekarang
                                 </button>
-                            </a>
+                            @endif
                         </div>
                     </div>
                 </div>
-            @endif
-        @endforeach
-        
+            @endforeach
         </div>
-        <br><br><br>
-        <div class="w-screen h-12">
-            <p class="w-full text-4xl font-extrabold text-center text-sky-950">
+
+        <div class="w-screen h-12 mt-10">
+            <p class="w-full text-2xl font-extrabold text-center text-sky-950">
+                MOTOR
+            </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center w-screen gap-10">
+            @foreach ($motors as $motor)
+                <div class="bg-white shadow-xl card w-60 bg-base-100 shadow-slate-300">
+                    <figure class="px-5 pt-5 bg-slate-300">
+                        <img src="{{ asset('storage/' . $motor->Gambar) }}" alt="{{ $motor->Nama_Kendaraan }}"
+                            class="mb-4 w-[12rem] h-[8rem]" />
+                    </figure>
+                    <div class="items-center text-center card-body">
+                        <span class="font-bold text-xs rounded-xl inline-block {{ $motor->Stok > 0 ? 'bg-green-400 w-[5rem]' : 'bg-red-400 w-[7rem]' }}">
+                            {{ $motor->Stok > 0 ? 'Tersedia' : 'Tidak Tersedia' }}
+                        </span>
+                        <h2 class="text-lg font-extrabold card-title">{{ $motor->Nama_Kendaraan }}</h2>
+                        <h4 class="text-lg font-extrabold">Rp {{ number_format($motor->Harga, 0, ',', '.') }}</h4>
+                        <div class="card-actions">
+                            @if ($motor->Stok > 0)
+                                <a href="{{ route('showRentalForm', $motor->Id_Kendaraan) }}">
+                                    <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn">
+                                        Pesan Sekarang
+                                    </button>
+                                </a>
+                            @else
+                                <button class="px-4 py-2 font-extrabold text-black bg-orange-400 rounded btn"
+                                    style="pointer-events: none;" disabled>
+                                    Pesan Sekarang
+                                </button>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="w-screen h-12 mt-10">
+            <p class="w-full text-4xl font-extrabold text-center text-orange-400">
                 PROMO
             </p>
         </div>
-        <br><br>
-        <div class="flex flex-wrap justify-center gap-6">
+        <div class="flex flex-wrap justify-center w-screen gap-6">
             @foreach ($promos as $promo)
                 @if (Auth::check())
                     @php
@@ -148,23 +181,16 @@
                 @endif
             @endforeach
         </div>
+
         <div id="customAlert">
             @if (session('berhasil'))
-                <div
-                    class="fixed px-4 py-2 text-white transform -translate-x-1/2 bg-red-500 rounded shadow-lg top-4 left-1/2">
-                    {{ session('berhasil') }}</div>
+                <div class="fixed z-50 px-4 py-2 text-white transform -translate-x-1/2 bg-red-500 rounded shadow-lg top-4 left-1/2">
+                    {{ session('berhasil') }}
+                </div>
             @endif
         </div>
 
         <script>
-            document.querySelectorAll('.promo-button').forEach(button => {
-                button.addEventListener('click', event => {
-                    event.preventDefault();
-                    const modalId = event.currentTarget.getAttribute('href').substring(1);
-                    document.getElementById(modalId).showModal();
-                });
-            });
-
             document.addEventListener('DOMContentLoaded', function() {
                 const alertBox = document.querySelector('#customAlert > div');
                 if (alertBox) {
@@ -172,21 +198,28 @@
                         alertBox.style.display = 'none';
                     }, 2000);
                 }
-            });
 
-            document.querySelectorAll('.mr-4').forEach(button => {
-                button.addEventListener('click', event => {
-                    const modal = event.currentTarget.closest('.modal');
-                    modal.close();
+                const alertSuccess = document.getElementById('alert-success');
+                if (alertSuccess) {
+                    setTimeout(() => {
+                        alertSuccess.style.display = 'none';
+                    }, 2000);
+                }
+
+                const navbar = document.getElementById('navbar');
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY > 0) {
+                        navbar.classList.remove('bg-transparent', 'shadow-none');
+                        navbar.classList.add('bg-white', 'shadow-md');
+                    } else {
+                        navbar.classList.remove('bg-white', 'shadow-md');
+                        navbar.classList.add('bg-transparent', 'shadow-none');
+                    }
                 });
             });
 
-            setTimeout(() => {
-                const alertSuccess = document.getElementById('alert-success');
-                if (alertSuccess) {
-                    alertSuccess.style.display = 'none';
-                }
-            }, 2000);
+
+
         </script>
     @endsection
 

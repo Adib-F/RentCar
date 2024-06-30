@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<body class="bg-gray-100 min-h-screen"> 
+<body class="bg-gray-100 min-h-screen mt-20">
 <div class="container flex flex-col md:flex-row justify-between items-center">
     <div class="px-4 py-14 absolute top-20 left-6 ">
         <a class="font-bold text-black flex items-center">

@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<body class="bg-gray-100 min-h-screen"> 
+<body class="bg-gray-100 min-h-screen mt-20">
 <div class="container flex flex-col md:flex-row justify-between items-center">
     <div class="px-4 py-14 absolute top-20 left-6 ">
         <a class="font-bold text-black flex items-center">
@@ -24,13 +24,13 @@
         <div class="bg-white p-10 md:p-35 h-auto rounded-lg ms-64 py-9 shadow-md">
             <p class="text-black font-bold text-2xl">RENTCANG</p><br><br>
             <p class="text-black text-justify">
-                Aplikasi jasa rental kendaraan adalah sebuah aplikasi berbasis web yang dirancang untuk memfasilitasi penyewaan kendaraan dan jasa terkait transportasi. 
+                Aplikasi jasa rental kendaraan adalah sebuah aplikasi berbasis web yang dirancang untuk memfasilitasi penyewaan kendaraan dan jasa terkait transportasi.
                 Aplikasi ini juga memungkinkan pengguna untuk menyewa berbagai jenis kendaraan seperti mobil dan motor. <br><br>
-                Adapun alasan kami memilih proyek rental kendaraan ini karena di Batam merupakan salah satu kota yang dekat dengan negara Singapura  
-                dan juga Batam ini menjadi pusat tempat jalan-jalan bagi kota kota lainnya untuk kawasan Kepulauan Riau contoh paling sering adalah orang 
+                Adapun alasan kami memilih proyek rental kendaraan ini karena di Batam merupakan salah satu kota yang dekat dengan negara Singapura
+                dan juga Batam ini menjadi pusat tempat jalan-jalan bagi kota kota lainnya untuk kawasan Kepulauan Riau contoh paling sering adalah orang
                 Tanjung Balai Karimun yang lokasinya juga cukup dekat dengan Batam. Jadi, untuk turis atau pengunjung yang datang kebatam bisa merental kendaraan secara online
                 <br><br><br>
-            </p>  
+            </p>
         </div>
     </div>
 </div>

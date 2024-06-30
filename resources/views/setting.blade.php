@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <body class="min-h-screen text-black bg-gray-100">
+    <body class="min-h-screen text-black bg-gray-100 mt-20">
         <div class="container flex flex-col items-center justify-between md:flex-row">
             <div class="absolute px-4 py-14 top-20 left-6 ">
                 <a class="flex items-center font-bold text-black">
@@ -45,13 +45,13 @@
                         <div class="grid grid-cols-2 gap-4">
                             <label for="email" class="text-black">Email</label>
                             <input type="email" id="email" value="{{ auth()->user()->Email }}"
-                                class="block w-full px-4 py-1 mt-4 bg-gray-300 border rounded-md" readonly>
+                                class="block w-full px-4 py-1 mt-4 bg-gray-300 border border-black rounded-md" readonly>
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
                             <label for="password" class="text-black">Password</label>
                             <input type="password" id="password" value="{{ auth()->user()->Password }}" name="password"
-                                class="block w-full px-4 py-1 mt-4 bg-white border rounded-md">
+                                class="block w-full px-4 py-1 mt-4 bg-white border border-black rounded-md">
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
@@ -70,12 +70,12 @@
                             @enderror
                             <label for="nik" class="text-black">NIK</label>
                             <input type="text" id="nik" value="{{ auth()->user()->NIK }}" name="nik"
-                                class="block w-full px-4 py-1 mt-4 bg-white border rounded-md">
+                                class="block w-full px-4 py-1 mt-4 bg-white border border-black rounded-md">
                         </div>
 
                         <div class="grid justify-items-end">
                             <button type="submit"
-                                class="px-6 py-1 mt-4 font-semibold text-black bg-yellow-600 rounded-md hover:bg-yellow-500 font-poppins">Submit</button>
+                                class="px-6 py-1 mt-4 font-semibold text-black bg-orange-400 rounded-md hover:bg-gray-300 font-poppins">Submit</button>
                         </div>
                     </form>
                 </div>

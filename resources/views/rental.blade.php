@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <body class="min-h-screen text-black bg-gray-100">
+    <body class="min-h-screen text-black  mt-36">
         <div class="card card-side bg-white shadow-xl w-[40rem] mx-auto mb-10 mt-10">
             <div class="bg-orange-500 w-[15rem] h-[41.rem] flex items-center justify-center rounded-md">
                 <figure class="pt-10 px-7"><img src="{{ asset('storage/' . $kendaraan->Gambar) }}" class="mb-4 w-[12rem]" />
@@ -88,23 +88,9 @@
                             class="form-control form-control-sm border border-black input input-xs input-bordered w-[18.3rem] form-control rounded-md bg-white"
                             id="total_harga" required readonly>
                     </div>
-                    <div class="mb-2">
-                        <label for="bayar">Bayar Disini</label>
-                        <button type="button"
-                            class="flex w-24 text-white bg-black btn btn-sm btn-black"
-                            onclick="document.getElementById('modalqris').showModal()">QRIS</button>
-                    </div>
-                    <div class="mb-2">
-                        <label for="buktiPembayaran">Bukti Pembayaran</label>
-                        @error('bukti_pembayaran')
-                            <div class="mt-1 text-red-500">{{ $message }}</div>
-                        @enderror
-                        <input type="file" name="bukti_pembayaran"
-                            class="form-control form-control-sm border border-black file-input file-input-bordered file-input-xs h-8 flex w-[18.3rem] mb-3 bg-white"
-                            id="buktiPembayaran" required />
-                    </div>
+
                     <div class="flex items-center justify-end">
-                        <button type="submit" class="bg-orange-400 rounded-md h-7 btn">Rental Kendaraan</button>
+                        <button type="submit" class="bg-orange-400 rounded-md h-7 btn">Bayar Sekarang</button>
                     </div>
                 </form>
             </div>
@@ -112,7 +98,8 @@
         <dialog id="modalqris" class="p-4 bg-white rounded-md">
             <div class="flex flex-col items-center">
                 <img src="/images/qris.png" alt="QRIS Barcode" class="mb-4 h-[30rem] w-[25rem] ">
-                <button class="text-white bg-orange-500 btn btn-sm" onclick="document.getElementById('modalqris').close()">Tutup</button>
+                <button class="text-white bg-orange-500 btn btn-sm"
+                    onclick="document.getElementById('modalqris').close()">Tutup</button>
             </div>
         </dialog>
 
@@ -145,10 +132,7 @@
                             totalHarga *= (100 - selectedPromo.Diskon) / 100;
                         }
 
-                        totalHargaInput.value = totalHarga.toLocaleString('id-ID', {
-                            style: 'currency',
-                            currency: 'IDR'
-                        });
+                        totalHargaInput.value = totalHarga.toFixed(0);
                     } else {
                         totalHargaInput.value = '';
                     }
