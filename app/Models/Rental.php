@@ -15,13 +15,14 @@ class Rental extends Model
         'Id_Pengguna',
         'Id_Kendaraan',
         'Id_Promo',
+        'order_id',
         'Alamat',
         'SIM',
         'Tanggal_Sewa',
         'Tanggal_Selesai',
         'Total_Harga',
-        'Bukti_Pembayaran',
         'Pengajuan',
+        'snap_token'
     ];
 
     public function user(): BelongsTo

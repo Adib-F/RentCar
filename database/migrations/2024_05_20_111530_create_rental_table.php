@@ -16,13 +16,14 @@ class CreateRentalTable extends Migration
             $table->unsignedInteger('Id_Pengguna')->notNullable();
             $table->unsignedInteger('Id_Kendaraan')->notNullable();
             $table->unsignedInteger('Id_Promo')->nullable();
+            $table->string('order_id')->notNullable();
             $table->string('Alamat', 100)->notNullable();
             $table->string('SIM')->notNullable();
             $table->date('Tanggal_Sewa')->notNullable();
             $table->date('Tanggal_Selesai')->notNullable();
             $table->integer('Total_Harga')->notNullable();
-            $table->string('Bukti_Pembayaran')->notNullable();
-            $table->enum('Pengajuan', ['Disetujui', 'Ditolak'])->nullable();
+            $table->string('snap_token')->notNullable();
+            $table->enum('Pengajuan', ['Disetujui', 'Ditolak', 'Menunggu Konfirmasi Admin', 'Pending'])->default('Pending')->nullable();
             $table->timestamps();
 
             $table->foreign('Id_Pengguna')->references('Id_Pengguna')->on('Pengguna')->onDelete('cascade');

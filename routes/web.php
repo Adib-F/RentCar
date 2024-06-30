@@ -61,7 +61,7 @@ Route::middleware(['auth'])->group(function () {
     Route::middleware('role:Pengguna')->group(function(){
         Route::get('/rental', [RentalController::class, 'rental'])->name('rental');
         Route::get('/rental/{kendaraanId}', [RentalController::class, 'showRentalForm'])->name('showRentalForm');
-        Route::post('/addRental/{kendaraanId}', [RentalController::class, 'addRental'])->name('addRental');
+        Route::post('/addRental/{kendaraanId}', [RentalController::class, 'process'])->name('addRental');
 
         Route::get('/status', [StatusController::class, 'index'])->name('status');
 
