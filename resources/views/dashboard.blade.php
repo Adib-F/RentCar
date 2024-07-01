@@ -184,7 +184,7 @@
 
         <div id="customAlert">
             @if (session('berhasil'))
-                <div class="fixed z-50 px-4 py-2 text-white transform -translate-x-1/2 bg-red-500 rounded shadow-lg top-4 left-1/2">
+                <div class="fixed z-50 px-4 py-2 text-white transform -translate-x-1/2 bg-green-500 rounded shadow-lg top-4 left-1/2">
                     {{ session('berhasil') }}
                 </div>
             @endif

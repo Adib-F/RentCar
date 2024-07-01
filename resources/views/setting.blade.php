@@ -10,7 +10,7 @@
 
 @section('content')
 
-    <body class="min-h-screen text-black bg-gray-100 mt-20">
+    <body class="min-h-screen mt-20 text-black bg-gray-100">
         <div class="container flex flex-col items-center justify-between md:flex-row">
             <div class="absolute px-4 py-14 top-20 left-6 ">
                 <a class="flex items-center font-bold text-black">
@@ -51,7 +51,7 @@
                         <div class="grid grid-cols-2 gap-4">
                             <label for="password" class="text-black">Password</label>
                             <input type="password" id="password" value="{{ auth()->user()->Password }}" name="password"
-                                class="block w-full px-4 py-1 mt-4 bg-white border border-black rounded-md">
+                                class="block w-full px-4 py-1 mt-4 bg-gray-300 border border-black rounded-md" readonly>
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">

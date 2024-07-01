@@ -22,7 +22,7 @@ class SettingsController extends Controller
         ]);
 
         $user->Username = $request->input('username');
-        $user->Password = bcrypt($request->input('password'));
+        $user->Password = $request->input('password');
         $user->No_Handphone = $request->input('no_handphone');
         $user->NIK = $request->input('nik');
 

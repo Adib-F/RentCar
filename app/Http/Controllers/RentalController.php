@@ -23,9 +23,9 @@ class RentalController extends Controller
         $ongoingRental = Rental::where('Id_Pengguna', auth()->id())
             ->where(function ($query) {
                 $query->whereHas('status', function ($subquery) {
-                    $subquery->whereIn('Status_Pengiriman', ['Kendaraan dalam perjalanan', 'Kendaraan sedang dikirim']);
+                    $subquery->whereIn('Status_Pengiriman', ['Kendaraan sedang dikirim', 'Kendaraan dalam perjalanan']);
                 })
-                    ->orWhere('Pengajuan', ['Pending', 'Menunggu Konfirmasi Admin' ]);
+                    ->orWhere('Pengajuan', 'Pending');
             })
             ->first();
 
@@ -102,6 +102,12 @@ class RentalController extends Controller
     $kendaraan = Kendaraan::find($kendaraanId);
         $kendaraan->Stok -= 1;
         $kendaraan->save();
+
+    if ($request->promo) {
+        KlaimPromo::where('Id_Promo', $request->promo)
+            ->where('Id_Pengguna', auth()->id())
+            ->update(['Status' => 'Sudah_digunakan']);
+    }
 
     return redirect()->route('status')->with('berhasil', 'Rental berhasil ditambahkan. Silakan lakukan pembayaran.')->with('snapToken', $snapToken)->with('rentalId', $rental->id);
 }
